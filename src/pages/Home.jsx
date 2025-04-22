@@ -240,10 +240,10 @@ const Home = () => {
 
   // Logos des clients (placeholder)
   const clients = [
-    { name: "Client 1", logo: "https://yielgroup.com/icons/logo%20maquette%201.png" },
-    { name: "Client 2", logo: "https://yielgroup.com/icons/logo%20maq2%201.png" },
-    { name: "Client 3", logo: "https://yielgroup.com/icons/Logo%20maq3%201.png" },
-    { name: "Client 4", logo: "https://yielgroup.com/icons/logomaq4%201.png" },
+    { name: "Client 1", logo: "/logoCulture.png" },
+    { name: "Client 2", logo: "/logobaobab.png" },
+    { name: "Client 3", logo: "/Logoessai.webp" },
+    { name: "Client 4", logo: "/logoTransporter.png" },
   ];
   const faqs = [
     {
@@ -335,7 +335,7 @@ const Home = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#ea532b]/20 to-[#2f365b]/20 rounded-lg transform -rotate-2"></div>
                 <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500">
                   <img 
-                    src="https://yielgroup.com/icons/mockup%20yiel.png" 
+                    src="/Dashboard.png" 
                     alt="Dashboard SIRH YIEL" 
                     className="w-full h-auto"
                   />
@@ -537,8 +537,8 @@ const Home = () => {
               <div className="relative">
                 <div className="absolute -inset-4 bg-[#2f365b]/5 rounded-xl transform rotate-3"></div>
                 <div className="relative overflow-hidden rounded-xl shadow-xl">
-                  <img src="https://www.yielgroup.com/images/Rectangle%2012.png" alt="Équipe YIEL" className="w-full h-auto" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2f365b]/80 to-transparent flex items-end p-6">
+                  <img src="/equipeYIEL.png" alt="Équipe YIEL" className="w-full h-auto" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2f365b]/40 to-transparent flex items-end p-6">
                     <div className="text-white">
                       <p className="font-medium">Notre mission</p>
                       <h3 className="text-xl font-bold">Transformer la gestion RH en Afrique</h3>

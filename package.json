@@ -2,6 +2,7 @@
   "name": "yielweb",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://yielgroup.com/",
   "type": "module",
   "scripts": {
     "dev": "vite",

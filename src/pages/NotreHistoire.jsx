@@ -182,7 +182,7 @@ const NotreHistoire = () => {
                     d'experts et de partenaires partageant cette meme vision. À travers YIEL,
                     elle ouvre à rendre la gestion RH plus intuitive, éfficace et accessible,
                     afin d'aider les entreprises à grandir tout en valorisant leurs capitales Humaines`,
-      image: "https://www.yielgroup.com/images/Stephpdg.jpeg",
+      image: "/Stephanie.jpeg",
       social: {
         linkedin: "#",
         email: "stephanie@yiel.com",
@@ -193,7 +193,7 @@ const NotreHistoire = () => {
       role: "Développeur Back-end",
       description:
         "Expert en architecture logicielle qui construit le cœur technique de nos solutions SIRH.",
-      image: "https://www.yielgroup.com/images/Rectangle84.png",
+      image: "/ChamirNM.png",
       social: {
         linkedin: "#",
         github: "#",
@@ -266,7 +266,7 @@ const NotreHistoire = () => {
           className="relative pt-28 pb-20 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white overflow-hidden"
         >
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://www.yielgroup.com/images/Rectangle75.png')] bg-cover bg-center opacity-10"></div>
+            <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
           </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-7xl mx-auto">
@@ -388,7 +388,7 @@ const NotreHistoire = () => {
                 {/* Image avec effet de fluidité */}
                 <div className="aspect-video rounded-2xl overflow-hidden shadow-xl transform hover:rotate-1 transition duration-300 relative z-10">
                   <img
-                    src="https://www.yielgroup.com/images/Rectangle75.png"
+                    src="/VisionYiel.png"
                     alt="Vision YIEL"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
