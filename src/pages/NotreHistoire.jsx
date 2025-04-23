@@ -182,7 +182,7 @@ const NotreHistoire = () => {
                     d'experts et de partenaires partageant cette meme vision. À travers YIEL,
                     elle ouvre à rendre la gestion RH plus intuitive, éfficace et accessible,
                     afin d'aider les entreprises à grandir tout en valorisant leurs capitales Humaines`,
-      image: "/Stephanie.jpeg",
+      image: "./Stephanie.jpeg",
       social: {
         linkedin: "#",
         email: "stephanie@yiel.com",
@@ -388,7 +388,7 @@ const NotreHistoire = () => {
                 {/* Image avec effet de fluidité */}
                 <div className="aspect-video rounded-2xl overflow-hidden shadow-xl transform hover:rotate-1 transition duration-300 relative z-10">
                   <img
-                    src="/VisionYiel.png"
+                    src="./VisionYiel.png"
                     alt="Vision YIEL"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
