@@ -201,7 +201,7 @@ const Footer = () => {
             
             <p className="text-gray-300 leading-relaxed">
               Yiel Group propose une offre complète pour transformer la fonction
-              RH. Notre solution SIRH <span className="text-[#ea532b] font-medium">MyYiel</span>{" "}
+              RH. Notre solution SIRH <span className="text-[#ea532b] font-medium no-underline hover:underline hover:cursor-pointer">MyYiel</span>{" "}
               digitalise tous vos processus RH : gestion administrative,
               talents, recrutement, formation, absences, etc. En parallèle, nous
               vous accompagnons avec des services RH sur-mesure : transformation

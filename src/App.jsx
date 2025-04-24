@@ -12,6 +12,8 @@ import Mentionslegale from "./pages/Mentionslegale";
 import NotreHistoire from "./pages/NotreHistoire";
 import NosSolution from "./pages/NosSolution";
 import FAQ from "./components/FAQ";
+import Core from "./pages/Core";
+import Expertise from "./pages/Expertise";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/notre-Histoire" element={<NotreHistoire />} />
         <Route path="/nos-solution" element={<NosSolution />} />
         <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/core" element={<Core />} />
+        <Route path="/expertise" element={<Expertise />} />
       </Routes>
     </Router>
   );
