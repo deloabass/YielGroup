@@ -10,6 +10,7 @@ import {
   Phone,
   Briefcase,
   Users,
+  ChevronRight,
 } from "lucide-react";
 import Header from "../components/Header";
 import FAQ from "../components/FAQ";
@@ -114,8 +115,10 @@ const Demo = () => {
       <Header />
 
       {/* Hero section */}
-      <section className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white py-30 px-4 md:px-8">
+      {/* <section className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white py-30 px-4 md:px-8">
+        
         <div className="container max-w-7xl mx-auto">
+          
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Découvrez YIEL en action
           </h1>
@@ -123,7 +126,58 @@ const Demo = () => {
             Planifiez une démonstration personnalisée avec un de nos experts RH
           </p>
         </div>
-      </section>
+      </section> */}
+           <section
+          id="hero"
+          className="relative pt-28 pb-20 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white overflow-hidden"
+        >
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-7xl mx-auto">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+              Découvrez YIEL en action
+              </h1>
+              <p className="text-lg md:text-xl max-w-3xl leading-relaxed">
+                Planifiez une démonstration personnalisée avec un de nos experts RH
+              </p>
+            </div>
+          </div>
+          <div className="hidden lg:block absolute -bottom-1 right-0">
+            <svg
+              width="330"
+              height="230"
+              viewBox="0 0 200 200"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M40 0C17.9086 0 0 17.9086 0 40V160C0 182.091 17.9086 200 40 200H160C182.091 200 200 182.091 200 160V40C200 17.9086 182.091 0 160 0H40Z"
+                fill="#ea532b"
+                fillOpacity="0.1"
+              />
+            </svg>
+          </div>
+        </section>
+        {/* Breadcrumb */}
+        <div className="sticky top-0 z-30 bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto py-3 px-4 md:px-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <nav className="text-sm mb-4 sm:mb-0">
+                <ol className="list-none p-0 flex flex-wrap items-center">
+                  <li className="flex items-center">
+                    <a href="/" className="text-[#2f365b] hover:text-[#ea532b]">
+                      Accueil
+                    </a>
+                    <ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
+                  </li>
+                  <li className="text-[#ea532b] font-medium">Démo</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
 
       {/* Main content section */}
       <section className="py-12">
