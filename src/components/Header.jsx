@@ -374,7 +374,7 @@ useEffect(() => {
             </div>
             <div className="ml-2">
               <span className="hidden sm:block text-[#2f365b] font-bold text-xl">
-                YIEL Groupe
+                YIEL Group
               </span>
               <span className="hidden sm:block text-[#ea532b] text-xs font-medium">
                 Système d'Information RH

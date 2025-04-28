@@ -192,7 +192,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#ea532b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">YIEL Groupe</div>
+                <div className="text-2xl font-bold text-white">YIEL Group</div>
                 <div className="text-sm text-[#ea532b] font-semibold">
                   Système d'Information RH
                 </div>

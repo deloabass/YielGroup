@@ -371,17 +371,17 @@ const Home = () => {
         vos talents et vos équipes et fait grandir votre entreprise.
       </p>
       
-      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+      <div className="flex flex-col sm:flex-row text-nowrap gap-3 sm:gap-4">
         <a
           href="/demo"
-          className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center sm:justify-start"
+          className="px-4 text-nowrap sm:px-6 py-2.5 sm:py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center sm:justify-start"
         >
           Demander une démo
           <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
         </a>
         <a
           href="#features"
-          className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-[#2f365b] font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-center sm:text-left"
+          className="px-4  sm:px-6 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-[#2f365b] font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-center sm:text-left"
         >
           Découvrir les fonctionnalités
         </a>
@@ -470,7 +470,7 @@ const Home = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-4">
-                Pourquoi YIEL?
+                Pourquoi My YIEL?
               </h2>
               <p className="text-gray-600">
                 Une solution RH idéale conçue pour simplifier, optimiser et
