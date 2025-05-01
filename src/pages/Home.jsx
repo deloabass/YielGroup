@@ -98,6 +98,28 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+    // Animation au scroll
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setIsVisible((prev) => ({
+              ...prev,
+              [entry.target.id]: entry.isIntersecting,
+            }));
+          });
+        },
+        { threshold: 0.15 }
+      );
+  
+      // Observer toutes les sections
+      document.querySelectorAll("section[id]").forEach((element) => {
+        observer.observe(element);
+      });
+  
+      return () => observer.disconnect();
+    }, []);
+
   // Données des fonctionnalités principales
   const features = [
     {
@@ -323,109 +345,109 @@ const Home = () => {
       <main className="flex-grow">
         {/* Section Hero */}
         <section
-  ref={observerRefs.hero}
-  className={`relative bg-gradient-to-br from-[#2f365b] to-[#232946] overflow-hidden transition-opacity duration-1000 ease-out ${
-    isVisible.hero ? "opacity-100" : "opacity-0"
-  }`}
->
-  {/* Éléments de fond */}
-  <div className="absolute inset-0 opacity-10">
-    <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-24 sm:w-40 h-24 sm:h-40 rounded-full bg-[#ea532b] blur-2xl sm:blur-3xl"></div>
-    <div className="absolute bottom-5 right-5 sm:bottom-10 sm:right-20 w-32 sm:w-60 h-32 sm:h-60 rounded-full bg-blue-400 blur-2xl sm:blur-3xl"></div>
-  </div>
-
-  <div className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-28 flex flex-col md:flex-row items-center">
-    {/* image en arriere plant */}
-    <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
-    </div>
-    
-    {/* Contenu principal */}
-    <div className="w-full md:w-1/2 z-10 px-2 sm:px-4">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
-        <span className="block">Transformez votre </span>
-        <span className="relative flex h-12 sm:h-16 lg:h-20">
-          Gestion RH de façon
-          <span className="relative ml-2 text-[#ea532b] transition-opacity duration-700 ease-in-out opacity-100">
-            {words.map((word, i) => (
-              <span
-                key={i}
-                className={`absolute transition-all duration-1000 ease-in-out transform 
-                  ${
-                    i === index
-                      ? "opacity-100 translate-y-0 scale-100"
-                      : "opacity-0 translate-y-10 scale-90"
-                  }
-                  text-[#ea532b]`}
-              >
-                {word}
-              </span>
-            ))}
-          </span>
-        </span>
-      </h1>
-      
-      <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-lg">
-        YIEL, une solution SIRH complète et innovante conçue pour les
-        entreprises en Afrique qui vous accompagne dans la gestion de
-        vos talents et vos équipes et fait grandir votre entreprise.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row text-nowrap gap-3 sm:gap-4">
-        <a
-          href="/demo"
-          className="px-4 text-nowrap sm:px-6 py-2.5 sm:py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center sm:justify-start"
+          ref={observerRefs.hero}
+          className={`relative bg-gradient-to-br from-[#2f365b] to-[#232946] overflow-hidden transition-opacity duration-1000 ease-out ${
+            isVisible.hero ? "opacity-100" : "opacity-0"
+          }`}
         >
-          Demander une démo
-          <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-        </a>
-        <a
-          href="#features"
-          className="px-4  sm:px-6 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-[#2f365b] font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-center sm:text-left"
-        >
-          Découvrir les fonctionnalités
-        </a>
-      </div>
-
-      {/* Indicateurs de confiance */}
-      <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
-        <div className="flex items-center gap-1">
-          <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-[#ea532b]" />
-          <span>Conforme RGPD</span>
-        </div>
-        <span className="hidden sm:inline mx-1">•</span>
-        <div className="flex items-center gap-1">
-          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#ea532b]" />
-          <span>Support 24/7</span>
-        </div>
-        <span className="hidden sm:inline mx-1">•</span>
-        <div className="flex items-center gap-1">
-          <Star className="w-4 h-4 sm:w-5 sm:h-5 text-[#ea532b]" />
-          <span>Expertise africaine</span>
-        </div>
-      </div>
-    </div>
-
-    {/* Espace réservé pour l'image (actuellement commentée dans le code original) */}
-    <div className="hidden md:block md:w-1/2"></div>
-  </div>
-
-  {/* Séparateur en vague */}
-  <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 120"
-      className="w-full h-auto"
-      preserveAspectRatio="none"
-    >
-      <path
-        fill="#F9FAFB"
-        fillOpacity="1"
-        d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
-      ></path>
-    </svg>
-  </div>
-</section>
+          {/* Éléments de fond */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-24 sm:w-40 h-24 sm:h-40 rounded-full bg-[#ea532b] blur-2xl sm:blur-3xl"></div>
+            <div className="absolute bottom-5 right-5 sm:bottom-10 sm:right-20 w-32 sm:w-60 h-32 sm:h-60 rounded-full bg-blue-400 blur-2xl sm:blur-3xl"></div>
+          </div>
+        
+          <div className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-28 flex flex-col md:flex-row items-center">
+            {/* image en arriere plant */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
+            </div>
+            
+            {/* Contenu principal */}
+            <div className="w-full md:w-1/2 z-10 px-2 sm:px-4">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
+                <span className="block">Transformez votre </span>
+                <span className="relative flex h-12 sm:h-16 lg:h-20">
+                  Gestion RH de façon
+                  <span className="relative ml-2 text-[#ea532b] transition-opacity duration-700 ease-in-out opacity-100">
+                    {words.map((word, i) => (
+                      <span
+                        key={i}
+                        className={`absolute transition-all duration-1000 ease-in-out transform 
+                          ${
+                            i === index
+                              ? "opacity-100 translate-y-0 scale-100"
+                              : "opacity-0 translate-y-10 scale-90"
+                          }
+                          text-[#ea532b]`}
+                      >
+                        {word}
+                      </span>
+                    ))}
+                  </span>
+                </span>
+              </h1>
+                  
+              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-lg">
+                YIEL, une solution SIRH complète et innovante conçue pour les
+                entreprises en Afrique qui vous accompagne dans la gestion de
+                vos talents et vos équipes et fait grandir votre entreprise.
+              </p>
+                  
+              <div className="flex flex-col sm:flex-row text-nowrap gap-3 sm:gap-4">
+                <a
+                  href="/demo"
+                  className="px-4 text-nowrap sm:px-6 py-2.5 sm:py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center sm:justify-start"
+                >
+                  Demander une démo
+                  <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+                <a
+                  href="#features"
+                  className="px-4  sm:px-6 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-[#2f365b] font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-center sm:text-left"
+                >
+                  Découvrir les fonctionnalités
+                </a>
+              </div>
+                  
+              {/* Indicateurs de confiance */}
+              <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
+                <div className="flex items-center gap-1">
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-[#ea532b]" />
+                  <span>Conforme RGPD</span>
+                </div>
+                <span className="hidden sm:inline mx-1">•</span>
+                <div className="flex items-center gap-1">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#ea532b]" />
+                  <span>Support 24/7</span>
+                </div>
+                <span className="hidden sm:inline mx-1">•</span>
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-[#ea532b]" />
+                  <span>Expertise africaine</span>
+                </div>
+              </div>
+            </div>
+                  
+            {/* Espace réservé pour l'image (actuellement commentée dans le code original) */}
+            <div className="hidden md:block md:w-1/2"></div>
+          </div>
+                  
+          {/* Séparateur en vague */}
+          <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 120"
+              className="w-full h-auto"
+              preserveAspectRatio="none"
+            >
+              <path
+                fill="#F9FAFB"
+                fillOpacity="1"
+                d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+              ></path>
+            </svg>
+          </div>
+        </section>
 
         {/* Logos des clients */}
         <section

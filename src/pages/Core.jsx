@@ -7,18 +7,25 @@ import {
   Clock,
   FileText,
   Database,
-  Shield,
   ChevronRight,
   Check,
   ArrowRight,
-  PlusCircle,
   Calendar,
   Briefcase,
+  Clipboard,
+  Shield,
+  UserPlus,
+  Award,
+  FileSignature,
+  FolderCog,
+  BarChart
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Core() {
   // État pour les animations au défilement
   const [isVisible, setIsVisible] = useState({});
+  const navigate = useNavigate();
 
   // Animation au scroll
   useEffect(() => {
@@ -35,9 +42,11 @@ function Core() {
     );
 
     // Observer toutes les sections et les cartes de fonctionnalités
-    document.querySelectorAll("section[id], div[id^='feature-']").forEach((element) => {
-      observer.observe(element);
-    });
+    document
+      .querySelectorAll("section[id], div[id^='feature-']")
+      .forEach((element) => {
+        observer.observe(element);
+      });
 
     return () => observer.disconnect();
   }, []);
@@ -52,7 +61,8 @@ function Core() {
       icon: <Users size={24} />,
       color: "bg-blue-100",
       textColor: "text-blue-600",
-      image: "https://www.docsvault.com/wordpress/wp-content/uploads/2024/03/human-resource-dms.jpg",
+      image:
+        "https://www.docsvault.com/wordpress/wp-content/uploads/2024/03/human-resource-dms.jpg",
       details: [
         "Informations personnelles (nom, prénom, adresse, contact...)",
         "Données administratives (numéro de sécurité sociale, documents d'identité...)",
@@ -67,57 +77,44 @@ function Core() {
       icon: <UserCog size={24} />,
       color: "bg-green-100",
       textColor: "text-green-600",
-      image: "https://images.businessnewsdaily.com/app/uploads/2020/09/17124103/Hierarchical-Structure.png",
+      image:
+        "https://images.businessnewsdaily.com/app/uploads/2020/09/17124103/Hierarchical-Structure.png",
       details: [
-        "Postes occupés",
-        "Lien hiérarchique",
+        "Postes occupés et fiches de poste",
+        "Liens hiérarchiques avec organigramme interactif",
         "Départements et services",
-        "Organigramme dynamique et interactif",
+        "Trombinoscope dynamique pour faciliter les relations",
       ],
     },
     {
-      id: "gestion-travail",
-      title: "Gestion du travail",
-      description: "Suivi précis et optimisation des temps de travail",
+      id: "workflow-approbation",
+      title: "Workflow RH",
+      description: "Automatisation des processus d'approbation et validation",
       icon: <Clock size={24} />,
       color: "bg-purple-100",
       textColor: "text-purple-600",
       image: "https://tcpsoftware.com/wp-content/uploads/Blog-SettingWorkSchedules.webp",
       details: [
-        "Horaires, quotité de travail",
-        "Cycles de travail personnalisables",
-        "Gestion des congés (RTT, CP, etc.)",
-        "Suivi des absences et présences",
+        "Circuits d'approbation personnalisables",
+        "Validation multi-niveaux",
+        "Alertes et notifications automatiques",
+        "Suivi des délais de traitement",
       ],
     },
     {
       id: "docs-rh",
-      title: "Docs RH",
+      title: "Documents RH",
       description: "Gestion complète des documents administratifs",
       icon: <FileText size={24} />,
       color: "bg-yellow-100",
       textColor: "text-yellow-600",
-      image: "https://media.istockphoto.com/id/1659825850/photo/businesswoman-signing-an-official-document.jpg?s=612x612&w=0&k=20&c=2MDP8ddyEuQqes83arGh2AkZBWMvwkuaxgWhtUsjdZo=",
+      image:
+        "https://media.istockphoto.com/id/1659825850/photo/businesswoman-signing-an-official-document.jpg?s=612x612&w=0&k=20&c=2MDP8ddyEuQqes83arGh2AkZBWMvwkuaxgWhtUsjdZo=",
       details: [
-        "Contrats types",
-        "Fiche de poste",
-        "Attestations diverses",
-        "Archivage numérique sécurisé",
-      ],
-    },
-    {
-      id: "acces-workflow",
-      title: "Accès & Workflow",
-      description: "Automatisation des processus et gestion des accès",
-      icon: <Shield size={24} />,
-      color: "bg-red-100",
-      textColor: "text-red-600",
-      image: "https://www.cebex.in/wp-content/uploads/2023/05/access.jpg",
-      details: [
-        "Accès par profil salarié",
-        "Rôles dans le système",
-        "Circuit d'approbation (Workflow RH)",
-        "Sécurité et traçabilité des actions",
+        "Contrats types adaptés aux réglementations locales",
+        "Fiches de poste dynamiques",
+        "Attestations et formulaires administratifs",
+        "Archivage numérique sécurisé et conforme",
       ],
     },
   ];
@@ -125,20 +122,19 @@ function Core() {
   // Benefits de la centralisation
   const centralizationBenefits = [
     {
-      title: "Données unifiées",
-      description: "Toutes vos données RH en un seul endroit sécurisé",
-      icon: <Database size={24} />,
+      title: "Automatisez l’onboarding",
+      description: "Les recrues renseignent leurs infos, signent leur contrat et suivent leur parcours d'intégration.",
+      icon: <FileSignature size={24} />,
     },
     {
-      title: "Processus simplifiés",
-      description:
-        "Workflows automatisés pour réduire les tâches administratives",
-      icon: <ArrowRight size={24} />,
+      title: "Personnalisez le dossier RH",
+      description: "Configurez le dossier idéal et suivez facilement les mises à jour.",
+      icon: <FolderCog size={24} />,
     },
     {
-      title: "Décisions éclairées",
-      description: "Analyses basées sur des données fiables et complètes",
-      icon: <UserCog size={24} />,
+      title: "Analysez et exportez vos données RH",
+      description: "Générez vos rapports et exportez vos données à jour en quelques clics.",
+      icon: <BarChart size={24} />,
     },
   ];
 
@@ -153,7 +149,8 @@ function Core() {
     },
     {
       title: "Fiches de poste",
-      description: "Créez et mettez à jour vos fiches de poste en quelques clics",
+      description:
+        "Créez et mettez à jour vos fiches de poste en quelques clics",
       icon: <Briefcase size={24} />,
       color: "bg-green-100",
       textColor: "text-green-600",
@@ -162,6 +159,52 @@ function Core() {
       title: "Circuit d'approbation",
       description: "Automatisez vos workflows RH avec validation multi-niveaux",
       icon: <UserCog size={24} />,
+      color: "bg-purple-100",
+      textColor: "text-purple-600",
+    },
+  ];
+
+  // Étapes d'intégration d'un nouveau collaborateur
+  const onboardingSteps = [
+    {
+      title: "Saisie des informations",
+      description: "Collecte des documents et informations du nouveau collaborateur",
+      icon: <Clipboard size={24} />,
+      color: "bg-blue-100",
+      textColor: "text-blue-600",
+    },
+    {
+      title: "Génération du contrat",
+      description: "Création automatique du contrat adapté au pays et type d'embauche",
+      icon: <FileText size={24} />,
+      color: "bg-green-100",
+      textColor: "text-green-600",
+    },
+    {
+      title: "Déclarations sociales",
+      description: "Formalités administratives locales (CNPS, etc.)",
+      icon: <Shield size={24} />,
+      color: "bg-yellow-100",
+      textColor: "text-yellow-600",
+    },
+    {
+      title: "Organisation matérielle",
+      description: "Préparation de l'accueil et des outils de travail",
+      icon: <Briefcase size={24} />,
+      color: "bg-indigo-100",
+      textColor: "text-indigo-600",
+    },
+    {
+      title: "Communication interne",
+      description: "Information du manager et désignation d'un parrain",
+      icon: <UserPlus size={24} />,
+      color: "bg-red-100",
+      textColor: "text-red-600",
+    },
+    {
+      title: "Suivi de l'intégration",
+      description: "Accompagnement pendant la période d'essai",
+      icon: <Award size={24} />,
       color: "bg-purple-100",
       textColor: "text-purple-600",
     },
@@ -193,18 +236,14 @@ function Core() {
                   battant de votre SIRH
                 </h1>
                 <p className="text-lg md:text-xl max-w-lg leading-relaxed mb-8 text-gray-200">
-                  Centralisez vos données de base et processus essentiels RH
-                  dans un référentiel central unifié pour toutes les fonctions
-                  RH de l'entreprise.
+                  Centralisez vos données RH dans un référentiel unifié et simplifiez 
+                  votre gestion administrative pour vous concentrer sur l'essentiel : 
+                  le développement humain.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                  <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
-                    Découvrir Y'Core
-                    <ArrowRight size={18} className="ml-2" />
-                  </button>
-                  <button className="px-6 py-3 bg-white/20 text-white font-semibold rounded-lg shadow-lg hover:bg-white/30 transition-all duration-300 flex items-center justify-center">
+                  <button onClick={() => navigate("/demo")} className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                     Demander une démo
-                    <ChevronRight size={18} className="ml-2" />
+                    <ArrowRight size={18} className="ml-2" />
                   </button>
                 </div>
               </div>
@@ -213,7 +252,7 @@ function Core() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="/api/placeholder/600/400"
+                      src="https://peoplespheres.com/wp-content/uploads/2019/03/integration_des_talents.png"
                       alt="Dashboard YIEL SIRH"
                       className="w-full h-auto rounded"
                     />
@@ -238,13 +277,12 @@ function Core() {
                 VUE D'ENSEMBLE
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
-                Le référentiel <span className="text-[#ea532b]">central</span>{" "}
-                de vos données RH
+                Une gestion RH <span className="text-[#ea532b]">simple et précise</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Le Core RH regroupe toutes les données de base et les processus
-                essentiels liés aux salariés. Il constitue le référentiel RH
-                central, nécessaire à toutes les fonctions RH de l'entreprise.
+                Une bonne organisation naît d'une gestion simple et précise - un principe fondamental qui donne vie à votre socle RH. 
+                La gestion administrative doit être <strong>simple, rapide</strong> et <strong>fiable</strong> pour vous permettre de vous concentrer 
+                sur l'essentiel : <strong>le développement humain</strong> et <strong>la performance</strong>.
               </p>
             </div>
 
@@ -264,6 +302,59 @@ function Core() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-16 bg-gray-50 rounded-xl p-8 shadow-md">
+              <h3 className="text-xl font-bold text-[#2f365b] mb-6">
+                Simplifiez votre gestion administrative
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <p className="text-gray-600 mb-6">
+                    Avec un <strong>dossier RH centralisé</strong> et des <strong>données sécurisées</strong>, 
+                    Y'Core simplifie la vie administrative de votre entreprise et adapté au contexte africain :
+                  </p>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Plus de perte de temps pour récupérer des documents</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Plus de ressaisies inutiles</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Plus de risques d'erreurs dans les données déclaratives</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <h4 className="font-semibold text-[#2f365b] mb-4">Y'Core facilite la gestion RH au quotidien</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Dossier salarié complet et sécurisé</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Organigramme interactif et trombinoscope dynamique</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Workflows RH personnalisables</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Déclarations sociales automatisées (CNPS, etc.)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Archivage numérique conforme aux réglementations locales</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -278,70 +369,61 @@ function Core() {
                 FONCTIONNALITÉS
               </span>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Les composantes essentielles du{" "}
-                <span className="text-orange-500">Core RH</span>
+                Les composantes essentielles du <span className="text-orange-500">Core RH</span>
               </h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 Découvrez les fonctionnalités clés qui font de Y'Core la colonne
-                vertébrale de votre système RH intégré.
+                vertébrale de votre système RH intégré, adapté aux entreprises africaines.
               </p>
             </div>
-
-            {/* Features Cards - Optimized for proper display */}
-            <div className="space-y-12">
+                    
+            {/* Features Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
               {coreFeatures.map((feature) => (
                 <div
                   key={feature.id}
                   id={`feature-${feature.id}`}
-                  className={`bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-700 ease-out transform ${
+                  className={`bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-700 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl ${
                     isVisible[`feature-${feature.id}`]
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-6"
                   }`}
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-2">
-                    {/* Left Part */}
-                    <div className="p-8 lg:p-12 flex flex-col justify-center">
-                      <div
-                        className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${feature.color} ${feature.textColor} mb-6 shadow-md`}
-                      >
-                        {feature.icon}
-                      </div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-[#2f365b] mb-4">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600 text-lg mb-6">
-                        {feature.description}
-                      </p>
-
-                      <ul className="space-y-3 mb-8">
-                        {feature.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-center">
-                            <Check className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
-                            <span className="text-gray-700">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <button className="group relative px-6 py-3 bg-orange-500 text-white font-bold rounded-xl overflow-hidden hover:bg-orange-600 transition-all duration-300 flex items-center">
-                        En savoir plus
-                        <ChevronRight
-                          size={20}
-                          className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
-                        />
-                      </button>
-                    </div>
-
-                    {/* Right Part */}
-                    <div className="relative h-64 lg:h-auto bg-gray-100 overflow-hidden group">
+                  <div className="flex flex-col h-full">
+                    <div className="relative h-96 bg-gray-100 overflow-hidden">
                       <img
                         src={feature.image}
                         alt={feature.title}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out hover:scale-110"
                       />
-                      <div className="absolute bottom-6 right-6 bg-white text-[#2f365b] p-4 rounded-full shadow-lg transition-all duration-300 hover:rotate-6">
-                        {feature.icon}
+                    </div>
+                
+                    <div className="flex-1 p-6 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center space-x-4 mb-4">
+                          <div
+                            className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${feature.color} ${feature.textColor} shadow-md`}
+                          >
+                            {feature.icon}
+                          </div>
+                          <h3 className="text-xl font-bold text-[#2f365b]">
+                            {feature.title}
+                          </h3>
+                        </div>
+                
+                        <p className="text-gray-600 text-base mb-6">
+                          {feature.description}
+                        </p>
                       </div>
+                
+                      <ul className="space-y-3">
+                        {feature.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-center text-gray-700 text-sm">
+                            <Check className="h-5 w-5 text-orange-500 mr-2 flex-shrink-0" />
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -350,18 +432,106 @@ function Core() {
           </div>
         </section>
 
+
+
+        {/* Onboarding Process Section - NEW */}
+        <section id="onboarding" className="py-20 bg-white">
+          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
+                INTÉGRATION
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
+                Un processus d'intégration <span className="text-[#ea532b]">clair et adapté</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Le module d'intégration permet aux <strong>gestionnaires RH</strong> de 
+                piloter facilement toutes les étapes nécessaires à l'accueil des nouveaux collaborateurs,
+                en respectant les particularités du contexte africain.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {onboardingSteps.map((step, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-2"
+                >
+                  <div className={`w-16 h-16 rounded-full ${step.color} flex items-center justify-center ${step.textColor} mb-6`}>
+                    {step.icon}
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="w-8 h-8 rounded-full bg-[#2f365b] text-white flex items-center justify-center font-bold mr-3">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-xl font-bold text-[#2f365b]">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 shadow-md mt-12">
+              <div className="flex items-center justify-center mb-6">
+                <Shield size={32} className="text-[#ea532b] mr-3" />
+                <h3 className="text-2xl font-bold text-[#2f365b]">Avantages clés</h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold text-[#2f365b] mb-3">Pour les RH</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Gestion simplifiée des formalités administratives</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Documents générés automatiquement et conformes</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Suivi rigoureux de la période d'essai</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#2f365b] mb-3">Pour les nouveaux collaborateurs</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Intégration structurée et bien organisée</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Accompagnement personnalisé (parrainage)</span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">Accès rapide aux ressources et informations clés</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Use Cases Section */}
-        <section id="use-cases" className="py-20 bg-white">
+        <section id="use-cases" className="py-20 bg-gray-50">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
                 CAS D'USAGE
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
-                Applications pratiques du <span className="text-[#ea532b]">Core RH</span>
+                Applications pratiques du{" "}
+                <span className="text-[#ea532b]">Core RH</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Découvrez comment Y'Core facilite vos opérations quotidiennes et simplifie la gestion administrative de votre entreprise.
+                Découvrez comment Y'Core facilite vos opérations quotidiennes et
+                simplifie la gestion administrative de votre entreprise en Afrique.
               </p>
             </div>
 
@@ -371,7 +541,9 @@ function Core() {
                   key={index}
                   className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-2"
                 >
-                  <div className={`w-16 h-16 rounded-full ${useCase.color} flex items-center justify-center ${useCase.textColor} mb-6`}>
+                  <div
+                    className={`w-16 h-16 rounded-full ${useCase.color} flex items-center justify-center ${useCase.textColor} mb-6`}
+                  >
                     {useCase.icon}
                   </div>
                   <h3 className="text-xl font-bold text-[#2f365b] mb-3">
@@ -389,7 +561,7 @@ function Core() {
         </section>
 
         {/* Demo card - CNPS */}
-        <section id="demo-cnps" className="py-20 bg-gray-50">
+        <section id="demo-cnps" className="py-20 bg-white">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -399,150 +571,38 @@ function Core() {
                 <h2 className="text-3xl font-bold text-[#2f365b] mb-6">
                   Simplifiez vos déclarations administratives
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  Y'Core centralise toutes les données nécessaires pour vos
-                  déclarations obligatoires, comme la CNPS, en quelques clics
-                  seulement.
+                <p className="text-lg text-gray-600 max-w-xl leading-relaxed mb-8">
+                  Grâce à Y'Core, générez automatiquement vos déclarations CNPS et autres documents administratifs obligatoires en quelques clics, sans ressaisie et sans risque d'erreur.
                 </p>
-
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">
-                      Données employés toujours à jour
-                    </span>
+                    <span className="text-gray-700">Extraction automatique des données salariales</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">
-                      Automatisation des processus déclaratifs
-                    </span>
+                    <span className="text-gray-700">Formulaires pré-remplis conformes aux réglementations locales</span>
                   </li>
                   <li className="flex items-start">
                     <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">
-                      Conformité réglementaire garantie
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">
-                      Interface intuitive pour la génération des déclarations
-                    </span>
+                    <span className="text-gray-700">Archivage automatique des déclarations effectuées</span>
                   </li>
                 </ul>
-
-                <button className="px-6 py-3 bg-[#2f365b] text-white font-semibold rounded-lg shadow-md hover:bg-[#252d4d] transition-all duration-300 flex items-center">
-                  Demander une démo
-                  <ArrowRight size={18} className="ml-2" />
+                <button onClick={() => navigate("/demo")} className="px-6 py-3 bg-[#2f365b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#22293f] transition-all duration-300 flex items-center justify-center">
+                  En savoir plus
+                  <ChevronRight size={18} className="ml-2" />
                 </button>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-3 opacity-20"></div>
-                <div className="relative">
+                <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                   <img
                     src="https://ahoulafricaine.com/wp-content/uploads/2019/05/naslayd-1024x448-1.jpg"
-                    alt="Interface déclaration CNPS"
-                    className="rounded-lg shadow-lg w-full"
+                    alt="Déclaration CNPS"
+                    className="w-full h-auto rounded"
                   />
-                  <div className="absolute -bottom-3 -right-3 bg-[#2f365b] text-white p-3 rounded-lg shadow-lg">
-                    <FileText size={24} />
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Integration Section */}
-        <section id="integration" className="py-20 bg-white">
-          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 rounded-full bg-[#2f365b]/10 text-[#2f365b] font-medium text-sm mb-6">
-                ÉCOSYSTÈME
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
-                Un Core RH <span className="text-[#ea532b]">intégré</span> à votre SIRH
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Y'Core s'intègre naturellement avec tous les modules de la suite YIEL SIRH
-                pour une expérience utilisateur fluide et cohérente.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-b from-gray-50 to-white rounded-2xl p-8 md:p-12 shadow-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h3 className="text-2xl font-bold text-[#2f365b] mb-6">
-                    Le cœur de votre système d'information RH
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    En tant que module central, Y'Core alimente tous les autres composants
-                    de votre SIRH avec des données fiables et à jour.
-                  </p>
-
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-start">
-                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">
-                        Synchronisation automatique avec tous les modules
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">
-                        Mise à jour unique pour une propagation instantanée
-                      </span>
-                    </li>
-                    <li className="flex items-start">
-                      <Check className="h-5 w-5 text-[#ea532b] mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">
-                        APIs ouvertes pour connexion avec vos systèmes existants
-                      </span>
-                    </li>
-                  </ul>
-
-                  <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-md hover:bg-[#d64a27] transition-all duration-300 flex items-center">
-                    Découvrir l'écosystème
-                    <ArrowRight size={18} className="ml-2" />
-                  </button>
-                </div>
-                <div className="relative">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
-                      <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4">
-                        <Users size={20} />
-                      </div>
-                      <h4 className="font-semibold text-[#2f365b] mb-2">Recrutement</h4>
-                      <p className="text-sm text-gray-600">Gestion des talents et acquisition</p>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
-                      <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-4">
-                        <Clock size={20} />
-                      </div>
-                      <h4 className="font-semibold text-[#2f365b] mb-2">Temps & Activités</h4>
-                      <p className="text-sm text-gray-600">Suivi des temps et présences</p>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
-                      <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mb-4">
-                        <FileText size={20} />
-                      </div>
-                      <h4 className="font-semibold text-[#2f365b] mb-2">Paie</h4>
-                      <p className="text-sm text-gray-600">Gestion des rémunérations</p>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all">
-                      <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mb-4">
-                        <UserCog size={20} />
-                      </div>
-                      <h4 className="font-semibold text-[#2f365b] mb-2">Formation</h4>
-                      <p className="text-sm text-gray-600">Développement des compétences</p>
-                    </div>
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-16 h-16 rounded-full bg-[#2f365b] flex items-center justify-center text-white shadow-lg">
-                      <Database size={24} />
-                    </div>
-                  </div>
+                <div className="absolute -bottom-4 -right-4 bg-[#ea532b] text-white p-3 rounded-lg shadow-lg">
+                  <FileText size={24} />
                 </div>
               </div>
             </div>
@@ -566,13 +626,9 @@ function Core() {
                 </p>
               </div>
               <div className="lg:col-span-2 flex flex-col sm:flex-row gap-4">
-                <button className="px-6 py-3 bg-white text-[#ea532b] font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center">
+                <button onClick={() => navigate("/demo")} className="px-6 py-3 bg-white text-[#ea532b] font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center">
                   Demander une démo
                   <ArrowRight size={18} className="ml-2" />
-                </button>
-                <button className="px-6 py-3 bg-[#ea532b]/30 text-white font-semibold rounded-lg shadow-lg hover:bg-[#ea532b]/40 transition-all duration-300 flex items-center justify-center">
-                  Télécharger la brochure
-                  <FileText size={18} className="ml-2" />
                 </button>
               </div>
             </div>

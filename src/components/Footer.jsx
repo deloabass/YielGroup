@@ -31,6 +31,7 @@ const Footer = () => {
         {
           icon: <PenTool size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Conseils en transformation RH",
+          href: "/conseil-en-transformation-RH"
         },
         {
           icon: <Users size={16} className="text-[#ea532b] hover:text-white" />,
