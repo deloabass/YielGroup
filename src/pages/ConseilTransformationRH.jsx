@@ -303,7 +303,7 @@ function ConseilTransformationRH() {
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute inset-0 bg-[url('/api/placeholder/1200/800')] bg-cover bg-center opacity-10"></div>
           </div>
-          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
@@ -347,7 +347,7 @@ function ConseilTransformationRH() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop"
+                      src="/conseil-photo.avif"
                       alt="Conseil en transformation RH"
                       className="w-full h-auto rounded"
                     />
