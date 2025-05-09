@@ -15,6 +15,7 @@ import FAQ from "./components/FAQ";
 import Core from "./pages/Core";
 import Expertise from "./pages/Expertise";
 import ConseilTransformationRH from "./pages/ConseilTransformationRH";
+import HrAnalytics from "./pages/HrAnalytics";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/core" element={<Core />} />
         <Route path="/expertise" element={<Expertise />} />
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
+        <Route path="/Analytics HR" element={<HrAnalytics />} />
       </Routes>
     </Router>
   );
