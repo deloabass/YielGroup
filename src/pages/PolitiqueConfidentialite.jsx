@@ -25,6 +25,9 @@ function PolitiqueConfidentialite() {
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white py-30 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
+          <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
+            Politique de Confidentialité
+            </span>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">Politique de Confidentialité YIEL</h1>
             <p className="text-lg md:text-xl max-w-3xl">
               Chez YIEL, nous accordons une importance capitale à la protection de vos données personnelles. 
