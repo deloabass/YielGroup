@@ -3,18 +3,15 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import {
   PieChart,
-  BarChart2,
   TrendingUp,
   Users,
   Clock,
   AlertTriangle,
   Award,
   BarChart,
-  Download,
   Bell,
   Calendar,
   Briefcase,
-  Edit3,
   Database,
   ChevronRight,
   Check,
@@ -273,7 +270,7 @@ function HrAnalytics() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="/api/placeholder/600/400"
+                      src="https://cdn.dribbble.com/userupload/23739129/file/still-83bdb0ff706f613ec782bae6b37b2253.gif?resize=400x0"
                       alt="Dashboard HR Analytics"
                       className="w-full h-auto rounded"
                     />
@@ -321,7 +318,7 @@ function HrAnalytics() {
             </div>
 
             {/* Dashboard Preview */}
-            <div className="relative mx-auto max-w-5xl mb-16 rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative mx-auto max-w-7xl mb-16 rounded-xl overflow-hidden shadow-2xl">
               <div className="bg-[#2f365b] text-white p-4 flex items-center">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -444,18 +441,6 @@ function HrAnalytics() {
                     <span>Nov</span>
                     <span>Déc</span>
                   </div>
-                </div>
-                
-                {/* Actions row */}
-                <div className="flex justify-end mt-4">
-                  <button className="flex items-center text-sm text-[#2f365b] hover:text-[#ea532b] mr-4">
-                    <Edit3 size={16} className="mr-1" />
-                    Personnaliser
-                  </button>
-                  <button className="flex items-center text-sm text-[#2f365b] hover:text-[#ea532b]">
-                    <Download size={16} className="mr-1" />
-                    Exporter
-                  </button>
                 </div>
               </div>
             </div>
