@@ -259,10 +259,6 @@ function HrAnalytics() {
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
-                  <button className="px-6 cursor-pointer py-3 bg-white text-[#2f365b] font-semibold rounded-lg shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center">
-                    En savoir plus
-                    <ChevronRight size={18} className="ml-2" />
-                  </button>
                 </div>
               </div>
               <div className="relative hidden lg:block">
@@ -482,10 +478,6 @@ function HrAnalytics() {
                 <p className="text-gray-600">
                   De la direction générale aux managers de proximité, chacun accède aux données dont il a besoin pour piloter efficacement ses équipes et ses ressources.
                 </p>
-                <button className="mt-6 px-4 py-2 border border-[#2f365b] text-[#2f365b] rounded-lg hover:bg-[#2f365b] hover:text-white transition-colors duration-300 flex items-center">
-                  Découvrir comment
-                  <ChevronRight size={16} className="ml-1" />
-                </button>
               </div>
             </div>
           </div>

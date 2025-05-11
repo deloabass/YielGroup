@@ -40,11 +40,12 @@ const Footer = () => {
         {
           icon: <Calculator size={16} className="text-[#ea532b] hover:text-white" />,
           text: "HR Analytics & Tableaux de bord",
-          href: "/Analytics HR"
+          href: "/analytics HR"
         },
         {
           icon: <UserPlus size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Recrutement sur-mesure & intégration",
+          href: "/recrutement sur mesure"
         },
         {
           icon: <MessageCircle size={16} className="text-[#ea532b] hover:text-white" />,
