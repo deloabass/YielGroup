@@ -80,7 +80,7 @@ const Header = () => {
           icon: <UserPlus className="text-[#ea532b]" size={20} />,
           title: "Y'Recrute",
           description: "Optimisation du recrutement",
-          path: "/recrute"
+          path: "/recrutement sur mesure"
         },
         {
           icon: <Clock className="text-[#ea532b]" size={20} />,
