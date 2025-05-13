@@ -154,7 +154,7 @@ function MentionsLegales() {
                           { label: "Siège social", value: "Yaoundé, Cameroun" },
                           {
                             label: "RCS / Identifiant",
-                            value: "[Numéro d'immatriculation à compléter]",
+                            value: "RC/YAO/2025/B/359",
                           },
                         ].map((item, index) => (
                           <div

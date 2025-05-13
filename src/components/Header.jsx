@@ -18,7 +18,7 @@ import {
   Building,
   Handshake,
   ChevronRight,
-  MenuIcon
+  Menu as MenuIcon
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -38,13 +38,53 @@ const Header = () => {
 
   // Menu data structure wrapped in useMemo to prevent recreation on each render
   const menuData = useMemo(() => ({
+    NosOffres: {
+      title: "Nos offres",
+      layout: "grid",
+      columns: 2,
+      width: 800,
+      position: "left",
+      navigate: "/nos-offres",
+      items: [
+        {
+          icon: <Handshake className="text-[#ea532b]" size={20} />,
+          title: "Conseils en transformation RH",
+          description: "Solutions pour digitaliser vos processus RH",
+          path: "/conseil-en-transformation-RH"
+        },
+        {
+          icon: <Handshake className="text-[#ea532b]" size={20} />,
+          title: "Pilotage du parcours collaborateur",
+          description: "Optimisation de l'expérience employé",
+          path: "/pilotage-du-parcours-collaborateur"
+        },
+        {
+          icon: <Handshake className="text-[#ea532b]" size={20} />,
+          title: "HR Analytics & Tableaux de bord",
+          description: "Analyse avancée des données RH",
+          path: "/analytics-HR"
+        },
+        {
+          icon: <Handshake className="text-[#ea532b]" size={20} />,
+          title: "Recrutement sur-mesure & intégration",
+          description: "Solutions de recrutement personnalisées",
+          path: "/recrutement-sur-mesure"
+        },
+        {
+          icon: <Handshake className="text-[#ea532b]" size={20} />,
+          title: "Solutions digitales RH",
+          description: "Services numériques pour vos RH",
+          path: "/solutions-digitales-RH"
+        },
+      ]
+    },
     solutions: {
-      title: "Nos solutions",
+      title: "Plateforme SIRH MyYiel",
       layout: "grid",
       columns: 2,
       width: 500,
       position: "center",
-      navigate: "/nos-solution",
+      navigate: "/nos-solutions",
       items: [
         {
           icon: <Briefcase className="text-[#ea532b]" size={20} />,
@@ -80,7 +120,7 @@ const Header = () => {
           icon: <UserPlus className="text-[#ea532b]" size={20} />,
           title: "Y'Recrute",
           description: "Optimisation du recrutement",
-          path: "/recrutement sur mesure"
+          path: "/recrutement-sur-mesure"
         },
         {
           icon: <Clock className="text-[#ea532b]" size={20} />,
@@ -91,17 +131,18 @@ const Header = () => {
       ]
     },
     nous: {
-      title: "Nous",
+      title: "Yielers",
       layout: "grid",
       columns: 2,
       width: 500,
       position: "center",
+      navigate: "/yielers",
       items: [
         {
           icon: <Compass className="text-[#ea532b]" size={20} />,
           title: "Notre Histoire",
           description: "Le parcours de YIEL",
-          path: "/Notre-Histoire"
+          path: "/notre-histoire"
         },
         {
           icon: <Building className="text-[#ea532b]" size={20} />,
@@ -120,6 +161,12 @@ const Header = () => {
           title: "Nous contacter",
           description: "Notre engagement pour vous",
           path: "/contact"
+        },
+        {
+          icon: <UserPlus className="text-[#ea532b]" size={20} />,
+          title: "Devenez un Yieler",
+          description: "Rejoignez notre équipe",
+          path: "/devenez-yieler"
         }
       ]
     },
@@ -129,11 +176,12 @@ const Header = () => {
       columns: 2,
       width: 500,
       position: "right",
+      navigate: "/ressources",
       items: [
         {
           icon: <Handshake className="text-[#ea532b]" size={20} />,
           title: "Nos partenaires",
-          description: "Le parcours de YIEL",
+          description: "Ils nous font confiance",
           path: "/partenaires"
         },
         {
@@ -157,7 +205,7 @@ const Header = () => {
         {
           icon: <Users className="text-[#ea532b]" size={20} />,
           title: "Nos clients",
-          description: "Les principes nous guident",
+          description: "Les entreprises qui nous font confiance",
           path: "/clients"
         },
         {
@@ -167,16 +215,16 @@ const Header = () => {
           path: "/blog-rh"
         }
       ]
-    },
+    }
   }), []);  // Empty dependency array means it only runs once on component mount
 
   // Navigation links also wrapped in useMemo to prevent recreation
   const navLinks = useMemo(() => [
     { title: "Accueil", path: "/", dropdown: false },
-    { title: "Nos solutions", dropdown: true, menuKey: "solutions" },
-    { title: "Nous", dropdown: true, menuKey: "nous" },
+    { title: "Nos offres", dropdown: true, menuKey: "NosOffres" },
+    { title: "Plateforme SIRH MyYiel", dropdown: true, menuKey: "solutions" },
+    { title: "Yielers", dropdown: true, menuKey: "nous" },
     { title: "Ressources", dropdown: true, menuKey: "ressources" },
-    { title: "Devenez un Yieler", path: "/devenez-yieler", dropdown: false }
   ], []);
 
   // Effet pour gérer le défilement
@@ -212,26 +260,34 @@ const Header = () => {
   }, [searchOpen]);
 
   // Effet pour mettre à jour le lien actif en fonction de la route
-  // Using stable references to menuData and navLinks
-// Effet pour mettre à jour le lien actif en fonction de la route
-useEffect(() => {
-  const path = location.pathname;
-  const activeNavLink = navLinks.find(link => link.path === path || (link.dropdown && menuData[link.menuKey]?.items.some(item => item.path === path)));
-
-  if (activeNavLink) {
-    setActiveLink(activeNavLink.title);
-  } else if (path === "/") {
-    setActiveLink("Accueil");
-  } else if (Object.values(menuData.solutions.items).some(item => item.path === path)) {
-    setActiveLink("Nos solutions");
-  } else if (Object.values(menuData.nous.items).some(item => item.path === path)) {
-    setActiveLink("Nous");
-  } else if (Object.values(menuData.ressources.items).some(item => item.path === path)) {
-    setActiveLink("Ressources");
-  } else {
-    setActiveLink("Page");
-  }
-}, [location, navLinks, menuData]);
+  useEffect(() => {
+    const path = location.pathname;
+    
+    // First check direct path matches
+    const directMatch = navLinks.find(link => link.path === path);
+    if (directMatch) {
+      setActiveLink(directMatch.title);
+      return;
+    }
+    
+    // Then check menu items
+    for (const navLink of navLinks) {
+      if (navLink.dropdown && menuData[navLink.menuKey]) {
+        const menuItem = menuData[navLink.menuKey].items.find(item => item.path === path);
+        if (menuItem) {
+          setActiveLink(navLink.title);
+          return;
+        }
+      }
+    }
+    
+    // Default to "Accueil" for home page
+    if (path === "/") {
+      setActiveLink("Accueil");
+    } else {
+      // Keep previous active link if no match found
+    }
+  }, [location.pathname, navLinks, menuData]);
 
   // Handle hover effect for desktop dropdown menus
   const handleMouseEnter = (menu) => {
@@ -272,7 +328,7 @@ useEffect(() => {
         ref={(ref) => (dropdownRefs.current[menuKey] = ref)}
         className={`absolute ${
           activeMenu === menuKey ? "opacity-100 visible" : "opacity-0 invisible"
-        } bg-white shadow-xl rounded-lg p-4 transition-all duration-300 ease-in-out ${positionClass} z-50 mt-3`}
+        } bg-white shadow-xl rounded-lg w-auto p-4 transition-all duration-300 ease-in-out ${positionClass} z-50 mt-3`}
         style={{ width: `${menu.width}px`, transitionProperty: "opacity, visibility, transform", transform: activeMenu === menuKey ? "translateY(0)" : "translateY(-10px)" }}
       >
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-4 bg-white transform rotate-45"></div>
@@ -281,7 +337,7 @@ useEffect(() => {
           {menu.items.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg group cursor-pointer transition-all duration-300 hover:shadow-md"
+              className="flex text-nowrap items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg group cursor-pointer transition-all duration-300 hover:shadow-md"
               onClick={() => handleLinkClick(item.title, item.path)}
             >
               <div className="p-1.5 rounded-full bg-gray-100 group-hover:bg-[#ea532b]/10 transition-colors">
@@ -291,7 +347,7 @@ useEffect(() => {
                 <div className="font-medium text-[#2f365b] group-hover:text-[#ea532b] transition-colors">
                   {item.title}
                 </div>
-                <span className="text-sm text-gray-600">{item.description}</span>
+                <span className="text-sm text-gray-600">{item.description} </span>
               </div>
             </div>
           ))}
@@ -451,24 +507,24 @@ useEffect(() => {
 
           {/* Menu mobile burger et icones */}
           <div className="flex items-center space-x-3 lg:hidden">
-          <button
-            onClick={toggleSearch}
-            className="p-2 rounded-full hover:bg-gray-100 text-[#2f365b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ea532b]/50"
-            aria-label="Rechercher"
-          >
-            <Search size={20} className="stroke-1.5" />
-          </button>
-          <button
-            onClick={toggleMenu}
-            className="p-2 rounded-full hover:bg-gray-100 text-[#2f365b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ea532b]/50"
-            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          >
-            {isOpen ? (
-              <X size={24} className="stroke-1.5" />
-            ) : (
-              <MenuIcon size={24} className="stroke-1.5" />
-            )}
-          </button>
+            <button
+              onClick={toggleSearch}
+              className="p-2 rounded-full hover:bg-gray-100 text-[#2f365b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ea532b]/50"
+              aria-label="Rechercher"
+            >
+              <Search size={20} className="stroke-1.5" />
+            </button>
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-full hover:bg-gray-100 text-[#2f365b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ea532b]/50"
+              aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              {isOpen ? (
+                <X size={24} className="stroke-1.5" />
+              ) : (
+                <MenuIcon size={24} className="stroke-1.5" />
+              )}
+            </button>
           </div>
         </div>
 

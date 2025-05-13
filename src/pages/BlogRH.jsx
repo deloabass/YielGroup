@@ -8,7 +8,7 @@ const BlogRH = () => {
   const [activeCategory, setActiveCategory] = useState("Tous");
   
   // Catégories de blog
-  const categories = ["Tous", "Recrutement", "Formation", "Législation", "Management", "Bien-être", "Paie"];
+  const categories = ["Tous", "Recrutement", "Formation & Compétences", "Législations RH", "Management & Leadership", "Bien-être & QVT", "Transformations RH Changement", "Paie & ADP"];
   
   // Articles de blog
   const blogPosts = [
@@ -28,7 +28,7 @@ const BlogRH = () => {
       id: 2,
       title: "Les nouvelles réglementations du droit du travail",
       excerpt: "Mise à jour des changements législatifs importants concernant le code du travail et leur impact sur votre politique RH.",
-      category: "Législation",
+      category: "Législations RH",
       image: "https://iseeop.com/wp-content/uploads/2023/10/droit-du-travail-1-1.png",
       author: "Thomas Martin",
       authorRole: "Juriste RH",
@@ -40,7 +40,7 @@ const BlogRH = () => {
       id: 3,
       title: "Développer une culture d'entreprise inclusive",
       excerpt: "Stratégies concrètes pour créer un environnement de travail diversifié et inclusif qui valorise tous les employés.",
-      category: "Management",
+      category: "Management & Leadership",
       image: "/api/placeholder/800/400",
       author: "Sophie Bernard",
       authorRole: "DRH",
@@ -52,7 +52,7 @@ const BlogRH = () => {
       id: 4,
       title: "Guide complet sur la gestion des talents",
       excerpt: "Comment identifier, développer et fidéliser les talents clés au sein de votre organisation.",
-      category: "Management",
+      category: "Management & Leadership",
       image: "/api/placeholder/800/400",
       author: "Pierre Leroy",
       authorRole: "Consultant RH",
@@ -64,7 +64,7 @@ const BlogRH = () => {
       id: 5,
       title: "Digitalisation des processus RH : par où commencer ?",
       excerpt: "Les étapes essentielles pour réussir la transformation digitale de votre département RH.",
-      category: "Formation",
+      category: "Formation & Compétences",
       image: "/api/placeholder/800/400",
       author: "Julie Moreau",
       authorRole: "Directrice Transformation Digitale",
@@ -76,7 +76,31 @@ const BlogRH = () => {
       id: 6,
       title: "Prévention du burn-out : guide pour les managers",
       excerpt: "Reconnaître les signes et mettre en place des actions préventives pour protéger le bien-être de vos équipes.",
-      category: "Bien-être",
+      category: "Bien-être & QVT",
+      image: "/api/placeholder/800/400",
+      author: "Alexandre Dupont",
+      authorRole: "Psychologue du Travail",
+      date: "22 Mars 2025",
+      readTime: "9 min",
+      featured: false
+    },
+    {
+      id: 7,
+      title: "Prévention du burn-out : guide pour les managers",
+      excerpt: "Reconnaître les signes et mettre en place des actions préventives pour protéger le bien-être de vos équipes.",
+      category: "Transformations RH Changement",
+      image: "/api/placeholder/800/400",
+      author: "Alexandre Dupont",
+      authorRole: "Psychologue du Travail",
+      date: "22 Mars 2025",
+      readTime: "9 min",
+      featured: false
+    },
+    {
+      id: 8,
+      title: "Prévention du burn-out : guide pour les managers",
+      excerpt: "Reconnaître les signes et mettre en place des actions préventives pour protéger le bien-être de vos équipes.",
+      category: "Paie & ADP",
       image: "/api/placeholder/800/400",
       author: "Alexandre Dupont",
       authorRole: "Psychologue du Travail",
@@ -121,7 +145,7 @@ const BlogRH = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="pt-28 pb-16 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog RH & Ressources</h1>
               <p className="text-lg md:text-xl text-gray-100 mb-8">
@@ -145,7 +169,7 @@ const BlogRH = () => {
         
         {/* Articles à la une */}
         <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-[#2f365b] mb-8">Articles à la une</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -191,9 +215,12 @@ const BlogRH = () => {
         
         {/* Tous les articles */}
         <section className="py-12 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center py-5">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2f365b] mb-4 md:mb-0">Tous nos articles</h2>
+
+            </div>
+            <div className="flex  flex-col md:flex-row justify-center items-start md:items-center mb-8">
               
               {/* Filtres pour mobile */}
               <div className="md:hidden w-full mb-4">
@@ -287,7 +314,7 @@ const BlogRH = () => {
         
         {/* Section d'inscription à la newsletter */}
         <section className="py-16 bg-[#2f365b]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-r from-[#ea532b] to-[#f07c5e] rounded-xl py-12 px-6 md:px-12 shadow-xl">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="mb-6 md:mb-0 md:mr-8">
@@ -322,7 +349,7 @@ const BlogRH = () => {
         
         {/* Section ressources RH */}
         <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-[#2f365b] mb-8">Ressources RH</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

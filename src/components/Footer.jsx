@@ -106,16 +106,16 @@ const Footer = () => {
           icon: <MessageCircle size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Nous contacter",
         },
-        {
-          icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
-          text: "Mentions légales",
-          href: "/Mentions-legale",
-        },
-        {
-          icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
-          text: "Politique de confidentialité",
-          href: "/politique-de-confidentialite",
-        },
+        // {
+        //   icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
+        //   text: "Mentions légales",
+        //   href: "/Mentions-legale",
+        // },
+        // {
+        //   icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
+        //   text: "Politique de confidentialité",
+        //   href: "/politique-de-confidentialite",
+        // },
       ]
     },
     {
@@ -158,7 +158,8 @@ const Footer = () => {
     { icon: <Clock size={18} />, text: "Sam - Dim: Fermé" }
   ];
 
-  const copyrightLinks = ["CGU", "CGV", "Confidentialité", "Cookies"];
+  const copyrightLinks = ["Mentions légales", "Confidentialité", "Cookies"];
+  // lien vers la page de politique de confidentialité (/politique-de-confidentialite)
 
   const appStores = [
     {
