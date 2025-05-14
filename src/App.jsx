@@ -30,14 +30,14 @@ function App() {
         <Route path="/partenaires" element={<NosPartenaires />} />
         <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
         <Route path="/mentions-legale" element={<Mentionslegale />} />
-        <Route path="/notre-Histoire" element={<NotreHistoire />} />
+        <Route path="/notre-histoire" element={<NotreHistoire />} />
         <Route path="/nos-solution" element={<NosSolution />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/core" element={<Core />} />
         <Route path="/expertise" element={<Expertise />} />
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
-        <Route path="/analytics HR" element={<HrAnalytics />} />
-        <Route path="/recrutement sur mesure" element={<RecrutementSurMesure />} />
+        <Route path="/analytics-HR" element={<HrAnalytics />} />
+        <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
       </Routes>
     </Router>
   );

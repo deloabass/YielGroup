@@ -8,6 +8,7 @@ import {
   FaXTwitter, FaTiktok, FaLinkedin, 
   FaFacebook, FaInstagram, FaYoutube
 } from "react-icons/fa6";
+import { FiFileText } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -40,12 +41,12 @@ const Footer = () => {
         {
           icon: <Calculator size={16} className="text-[#ea532b] hover:text-white" />,
           text: "HR Analytics & Tableaux de bord",
-          href: "/analytics HR"
+          href: "/analytics-HR"
         },
         {
           icon: <UserPlus size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Recrutement sur-mesure & intégration",
-          href: "/recrutement sur mesure"
+          href: "/recrutement-sur-mesure"
         },
         {
           icon: <MessageCircle size={16} className="text-[#ea532b] hover:text-white" />,
@@ -92,7 +93,7 @@ const Footer = () => {
         {
           icon: <Compass size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Notre Histoire",
-          href: "/Notre-Histoire",
+          href: "/notre-histoire",
         },
         {
           icon: <Building size={16} className="text-[#ea532b] hover:text-white" />,
@@ -106,16 +107,6 @@ const Footer = () => {
           icon: <MessageCircle size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Nous contacter",
         },
-        // {
-        //   icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
-        //   text: "Mentions légales",
-        //   href: "/Mentions-legale",
-        // },
-        // {
-        //   icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
-        //   text: "Politique de confidentialité",
-        //   href: "/politique-de-confidentialite",
-        // },
       ]
     },
     {
@@ -158,8 +149,26 @@ const Footer = () => {
     { icon: <Clock size={18} />, text: "Sam - Dim: Fermé" }
   ];
 
-  const copyrightLinks = ["Mentions légales", "Confidentialité", "Cookies"];
-  // lien vers la page de politique de confidentialité (/politique-de-confidentialite)
+
+
+  const copyrightLinks = [
+    {
+      icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
+      text: "Mentions légales",
+      href: "/Mentions-legale",
+    },
+    {
+      icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
+      text: "Politique de confidentialité",
+      href: "/politique-de-confidentialite",
+    },
+    {
+      icon: <FiFileText size={16} className="text-[#ea532b] hover:text-white" />,
+      text: "Cookies",
+      href: "/cookies",
+    },
+  ];
+   
 
   const appStores = [
     {
@@ -352,16 +361,25 @@ const Footer = () => {
             © {new Date().getFullYear()} YIEL. Tous droits réservés.
           </div>
           <div className="flex flex-wrap justify-center gap-6">
-            {copyrightLinks.map((link, index) => (
-              <a 
-                key={index}
-                href="#" 
-                className="hover:text-[#ea532b] transition-colors"
-              >
-                {link}
-              </a>
-            ))}
+          {copyrightLinks.map((link, index) => (
+  <a
+    key={index}
+    href={link.href}
+    className="flex items-center gap-2 hover:text-[#ea532b] transition-colors"
+  >
+    {link.icon}
+    {link.text}
+  </a>
+))}
+
           </div>
+        {/* icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
+             text: "Mentions légales",
+             href: "/Mentions-legale",
+             icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
+             text: "Politique de confidentialité",
+             href: "/politique-de-confidentialite", */}
+
         </div>
       </div>
       

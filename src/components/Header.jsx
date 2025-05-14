@@ -82,7 +82,7 @@ const Header = () => {
       title: "Plateforme SIRH MyYiel",
       layout: "grid",
       columns: 2,
-      width: 500,
+      width: 530,
       position: "center",
       navigate: "/nos-solutions",
       items: [
@@ -120,7 +120,7 @@ const Header = () => {
           icon: <UserPlus className="text-[#ea532b]" size={20} />,
           title: "Y'Recrute",
           description: "Optimisation du recrutement",
-          path: "/recrutement-sur-mesure"
+          path: "/recrute"
         },
         {
           icon: <Clock className="text-[#ea532b]" size={20} />,
@@ -134,7 +134,7 @@ const Header = () => {
       title: "Yielers",
       layout: "grid",
       columns: 2,
-      width: 500,
+      width: 550,
       position: "center",
       navigate: "/yielers",
       items: [
@@ -174,7 +174,7 @@ const Header = () => {
       title: "Ressources",
       layout: "grid",
       columns: 2,
-      width: 500,
+      width: 610,
       position: "right",
       navigate: "/ressources",
       items: [
@@ -261,31 +261,45 @@ const Header = () => {
 
   // Effet pour mettre à jour le lien actif en fonction de la route
   useEffect(() => {
-    const path = location.pathname;
+    const currentPath = location.pathname;
     
-    // First check direct path matches
-    const directMatch = navLinks.find(link => link.path === path);
-    if (directMatch) {
-      setActiveLink(directMatch.title);
-      return;
-    }
-    
-    // Then check menu items
-    for (const navLink of navLinks) {
-      if (navLink.dropdown && menuData[navLink.menuKey]) {
-        const menuItem = menuData[navLink.menuKey].items.find(item => item.path === path);
-        if (menuItem) {
-          setActiveLink(navLink.title);
-          return;
+    // Function to find a navLink that matches the current path
+    const findMatchingNavLink = () => {
+      // 1. Check for direct path match with navLinks
+      const directMatch = navLinks.find(link => link.path === currentPath);
+      if (directMatch) {
+        return directMatch.title;
+      }
+      
+      // 2. Check for matches with dropdown items
+      for (const navLink of navLinks) {
+        if (navLink.dropdown && menuData[navLink.menuKey]) {
+          // Check if current path matches any submenu item's path
+          const hasMatchingSubmenuItem = menuData[navLink.menuKey].items.some(
+            item => item.path === currentPath
+          );
+          
+          // Check if current path matches the dropdown's main navigation path
+          const matchesMainNavPath = menuData[navLink.menuKey].navigate === currentPath;
+          
+          if (hasMatchingSubmenuItem || matchesMainNavPath) {
+            return navLink.title;
+          }
         }
       }
-    }
-    
-    // Default to "Accueil" for home page
-    if (path === "/") {
-      setActiveLink("Accueil");
-    } else {
-      // Keep previous active link if no match found
+      
+      // 3. Handle home page
+      if (currentPath === "/" || currentPath === "") {
+        return "Accueil";
+      }
+      
+      // 4. No match found - keep current activeLink
+      return null;
+    };
+
+    const matchedNavLink = findMatchingNavLink();
+    if (matchedNavLink) {
+      setActiveLink(matchedNavLink);
     }
   }, [location.pathname, navLinks, menuData]);
 
@@ -331,7 +345,7 @@ const Header = () => {
         } bg-white shadow-xl rounded-lg w-auto p-4 transition-all duration-300 ease-in-out ${positionClass} z-50 mt-3`}
         style={{ width: `${menu.width}px`, transitionProperty: "opacity, visibility, transform", transform: activeMenu === menuKey ? "translateY(0)" : "translateY(-10px)" }}
       >
-        <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-4 bg-white transform rotate-45"></div>
+         <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-4 bg-white transform rotate-45"></div>
 
         <div className={`grid grid-cols-${menu.columns} gap-4`}>
           {menu.items.map((item, idx) => (
@@ -382,26 +396,44 @@ const Header = () => {
             activeMobileMenu === menuKey ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           } mt-2 ml-2 border-l-2 border-[#ea532b]/20 pl-3`}
         >
-          {menu.items.map((item, idx) => (
-            <div
-              key={idx}
-              className={`py-2.5 flex items-center space-x-3 cursor-pointer transition-all duration-300 ${
-                activeLink === item.title
-                  ? "text-[#ea532b]"
-                  : "text-[#2f365b] hover:text-[#ea532b]"
-              } hover:translate-x-1`}
-              onClick={() => handleLinkClick(item.title, item.path)}
-            >
-              <div className={`p-1 rounded-full ${activeLink === item.title ? "bg-[#ea532b]/10" : "bg-gray-100"}`}>
-                {item.icon}
+          {menu.items.map((item, idx) => {
+            // Determine if this item's path matches the current location
+            const isActive = location.pathname === item.path;
+            
+            return (
+              <div
+                key={idx}
+                className={`py-2.5 flex items-center space-x-3 cursor-pointer transition-all duration-300 ${
+                  isActive
+                    ? "text-[#ea532b]"
+                    : "text-[#2f365b] hover:text-[#ea532b]"
+                } hover:translate-x-1`}
+                onClick={() => handleLinkClick(item.title, item.path)}
+              >
+                <div className={`p-1 rounded-full ${isActive ? "bg-[#ea532b]/10" : "bg-gray-100"}`}>
+                  {item.icon}
+                </div>
+                <span className="font-medium">{item.title}</span>
+                <ChevronRight size={16} className="ml-auto text-gray-400" />
               </div>
-              <span className="font-medium">{item.title}</span>
-              <ChevronRight size={16} className="ml-auto text-gray-400" />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     );
+  };
+
+  // Helper function to check if a navLink is active based on current path
+  const isNavLinkActive = (link) => {
+    if (!link.dropdown && link.path === location.pathname) {
+      return true;
+    }
+    
+    if (link.dropdown && activeLink === link.title) {
+      return true;
+    }
+    
+    return false;
   };
 
   return (
@@ -449,7 +481,7 @@ const Header = () => {
               >
                 <button
                   className={`flex items-center px-3 py-2 text-nowrap rounded-md transition-all duration-300 cursor-pointer relative ${
-                    (link.dropdown && activeMenu === link.menuKey) || activeLink === link.title
+                    isNavLinkActive(link)
                       ? "text-[#ea532b] font-medium"
                       : "text-[#2f365b] hover:text-[#ea532b] font-medium"
                   }`}
@@ -472,7 +504,7 @@ const Header = () => {
 
                   {/* Animated underline */}
                   <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#ea532b] rounded-full transform origin-left transition-transform duration-300 ${
-                    (link.dropdown && activeMenu === link.menuKey) || activeLink === link.title
+                    isNavLinkActive(link)
                       ? "scale-x-100"
                       : "scale-x-0"
                   }`}></span>
