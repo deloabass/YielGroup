@@ -37,6 +37,7 @@ const Footer = () => {
         {
           icon: <Users size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Pilotage du parcours collaborateur",
+          href: "/pilotage-du-parcours-collaborateur"
         },
         {
           icon: <Calculator size={16} className="text-[#ea532b] hover:text-white" />,

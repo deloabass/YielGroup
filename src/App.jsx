@@ -17,6 +17,7 @@ import Expertise from "./pages/Expertise";
 import ConseilTransformationRH from "./pages/ConseilTransformationRH";
 import HrAnalytics from "./pages/HrAnalytics";
 import RecrutementSurMesure from "./pages/RecrutementSurMesure";
+import ParcoursCollaborateur from "./pages/ParcoursCollaborateur";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
         <Route path="/analytics-HR" element={<HrAnalytics />} />
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
+        <Route path="/pilotage-du-parcours-collaborateur" element={<ParcoursCollaborateur />} />
       </Routes>
     </Router>
   );
