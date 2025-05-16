@@ -52,6 +52,7 @@ const Footer = () => {
         {
           icon: <MessageCircle size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Solutions digitales RH",
+          href: "/solutions-digitales-RH"
         },
       ]
     },

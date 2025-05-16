@@ -363,7 +363,7 @@ const Home = () => {
             </div>
             
             {/* Contenu principal */}
-            <div className="w-full md:w-1/2 z-10 px-2 sm:px-4">
+            <div className="w-full md:w-1/2 z-10 px-2 py-5 sm:px-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
                 <span className="block">Transformez votre </span>
                 <span className="relative flex h-12 sm:h-16 lg:h-20">
@@ -755,26 +755,6 @@ const Home = () => {
             </div>
           </div>
         </section>
-
-        {/* Statistiques */}
-        {/* <section 
-          ref={observerRefs.statistics}
-          className={`py-16 md:py-24 bg-[#2f365b] text-white transition-all duration-1000 ease-out ${isVisible.statistics ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'}`}
-        >
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {statistics.map((stat, index) => (
-                <div 
-                key={index} 
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <h3 className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</h3>
-                <p className="text-white/80">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
         <section className="py-16 md:py-24 bg-[#2f365b] text-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -804,7 +784,7 @@ const Home = () => {
               </p>
               <a
                 href="#contact"
-                className="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors duration-300"
+                className="inline-block px-8 py-4 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-lg transition-colors duration-300"
               >
                 Découvrir notre solution
               </a>
