@@ -188,7 +188,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#2F365B] text-white">
+    <footer className="relative  bg-[#2F365B] text-white">
       {/* Orange accent bar */}
       <div className="h-2 bg-[#EA532C]"></div>
       
