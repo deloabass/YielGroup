@@ -540,7 +540,7 @@ function RecrutementSurMesure() {
               <div className="lg:col-span-3 bg-white rounded-xl overflow-hidden shadow-lg">
                 <div className="relative h-64 md:h-96">
                   <img
-                    src="https://i.ytimg.com/vi/jBka409srM0/maxresdefault.jpg"
+                    src="/analytics.jpeg"
                     // src="https://blog.candidatus.com/wp-content/uploads/2024/11/v2-m5bqi-f74zp.jpg"
                     // src="https://www.avature.net/wp-content/uploads/2021/02/07-ATS-Gain-Clarity-On-Your-Recruitment-Programs-FR.png"
                     alt="Notre Application de Suivi des Talents"
