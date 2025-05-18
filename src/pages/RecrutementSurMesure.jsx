@@ -540,7 +540,8 @@ function RecrutementSurMesure() {
               <div className="lg:col-span-3 bg-white rounded-xl overflow-hidden shadow-lg">
                 <div className="relative h-64 md:h-96">
                   <img
-                    src="https://blog.candidatus.com/wp-content/uploads/2024/11/v2-m5bqi-f74zp.jpg"
+                    src="https://i.ytimg.com/vi/jBka409srM0/maxresdefault.jpg"
+                    // src="https://blog.candidatus.com/wp-content/uploads/2024/11/v2-m5bqi-f74zp.jpg"
                     // src="https://www.avature.net/wp-content/uploads/2021/02/07-ATS-Gain-Clarity-On-Your-Recruitment-Programs-FR.png"
                     alt="Notre Application de Suivi des Talents"
                     className="w-full h-full object-cover"
@@ -835,7 +836,7 @@ function RecrutementSurMesure() {
         {/* CTA Section */}
         <section id="cta" className="py-20 bg-[#2f365b]">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-12 shadow-xl relative overflow-hidden">
+            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-5 shadow-xl relative overflow-hidden">
               <div className="absolute inset-0 bg-[url('/api/placeholder/1200/800')] bg-cover bg-center opacity-10"></div>
               <div className="relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -859,7 +860,7 @@ function RecrutementSurMesure() {
 
                   {/* Boutons déplacés ici */}
                   <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row space-y-4 sm:space-y-0 md:space-y-4 lg:space-y-0 lg:space-x-4">
-                    <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+                    <button className="px-6 text-nowrap py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                       Prendre rendez-vous
                       <Calendar size={18} className="ml-2" />
                     </button>
