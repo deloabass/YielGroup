@@ -187,6 +187,7 @@ function ConseilTransformationRH() {
   // Cases d'usage internationaux
   const caseStudies = [
     {
+      image: "https://blogger.googleusercontent.com/img/a/AVvXsEjUEiORoF9CLgxcXWech7gqHUeiB-gLMG5QqmXsXWqxG56jnzKGciN4EswFLqaC6cxa9HlWy-DmjlMEyaXKVUxdiVYl274w5a_giGOOx_4SX7UiAvtNsppXGnhphlh7YeBo347G64PJFvPiCz5uYBToaT3UMhC8JLq85q2CuT4aut7wCKzXL7_oDKEnFNo%3Ds16000",
       title: "Digitalisation RH pour un groupe bancaire",
       industry: "Finance",
       description:
@@ -198,6 +199,7 @@ function ConseilTransformationRH() {
       ],
     },
     {
+      image: "https://static.latribune.fr/1554479/la-jeunesse-africaine-innove-pour-l-energie-startup-pme-equipe-rh-ressources-humaine.png",
       title: "Transformation des pratiques managériales",
       industry: "Télécommunications",
       description:
@@ -209,6 +211,7 @@ function ConseilTransformationRH() {
       ],
     },
     {
+      image: "https://www.economiematin.fr/wp-content/uploads/2022/09/icarus-media-digital-societe-experte-marketing-digital-1.jpeg",
       title: "Modernisation de la gestion des talents",
       industry: "Énergie",
       description:
@@ -777,7 +780,7 @@ function ConseilTransformationRH() {
                 >
                   <div className="h-48 bg-gray-200 relative">
                     <img
-                      src="/api/placeholder/800/400"
+                      src={caseStudy.image}
                       alt={caseStudy.title}
                       className="w-full h-full object-cover"
                     />
