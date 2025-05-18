@@ -289,10 +289,6 @@ function RecrutementSurMesure() {
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
-                  {/* <button className="px-6 cursor-pointer py-3 bg-white/10 backdrop-blur text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
-                    Nos secteurs d'expertise
-                    <ChevronRight size={18} className="ml-2" />
-                  </button> */}
                 </div>
               </div>
               <div className="relative hidden lg:block">
@@ -300,7 +296,7 @@ function RecrutementSurMesure() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="/api/placeholder/600/400"
+                      src="https://orapartenaires.ca/wp-content/uploads/2024/04/Couverture-Article-LinkedIn-31-1024x576.png"
                       alt="Recrutement sur mesure"
                       className="w-full h-auto rounded"
                     />
@@ -418,7 +414,9 @@ function RecrutementSurMesure() {
                 </div>
                 <div className="relative rounded-lg overflow-hidden shadow-lg">
                   <img
-                    src="/api/placeholder/600/400"
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+                  // src="https://st2.depositphotos.com/4017441/11116/v/450/depositphotos_111165312-stock-illustration-round-table-talks-thirteen-persons.jpg"
+                    // src="https://img.freepik.com/vecteurs-premium/dessin-reunion-equipe-au-bureau_1108271-130.jpg"
                     alt="Recrutement sur mesure"
                     className="w-full h-auto object-cover"
                   />
@@ -542,7 +540,8 @@ function RecrutementSurMesure() {
               <div className="lg:col-span-3 bg-white rounded-xl overflow-hidden shadow-lg">
                 <div className="relative h-64 md:h-96">
                   <img
-                    src="/api/placeholder/800/600"
+                    src="https://blog.candidatus.com/wp-content/uploads/2024/11/v2-m5bqi-f74zp.jpg"
+                    // src="https://www.avature.net/wp-content/uploads/2021/02/07-ATS-Gain-Clarity-On-Your-Recruitment-Programs-FR.png"
                     alt="Notre Application de Suivi des Talents"
                     className="w-full h-full object-cover"
                   />

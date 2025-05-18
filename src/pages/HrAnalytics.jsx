@@ -266,7 +266,7 @@ function HrAnalytics() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="https://cdn.dribbble.com/userupload/23739129/file/still-83bdb0ff706f613ec782bae6b37b2253.gif?resize=400x0"
+                      src="https://www.datocms-assets.com/17507/1606814827-exempletableaudebordrhexcel1.gif"
                       alt="Dashboard HR Analytics"
                       className="w-full h-auto rounded"
                     />
