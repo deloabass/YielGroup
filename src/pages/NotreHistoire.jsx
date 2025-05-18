@@ -146,26 +146,26 @@ const NotreHistoire = () => {
   ];
 
   // Témoignages
-  const testimonials = [
-    {
-      name: "Mariam Diallo",
-      position: "DRH, Tech Solutions Africa",
-      text: "YIEL a transformé notre manière de gérer les talents. L'interface intuitive et les fonctionnalités adaptées à nos besoins ont considérablement amélioré notre efficacité.",
-      image: "/api/placeholder/100/100",
-    },
-    {
-      name: "Jean-Pierre Kouassi",
-      position: "CEO, InnoGroup",
-      text: "La vision de YIEL représente exactement ce dont les entreprises africaines ont besoin aujourd'hui. Une solution qui comprend nos défis spécifiques.",
-      image: "/api/placeholder/100/100",
-    },
-    {
-      name: "Fatima Mbeki",
-      position: "Responsable Formation, EduTech",
-      text: "L'équipe de YIEL fait toute la différence. Leur accompagnement personnalisé nous a permis d'adopter rapidement leur solution SIRH.",
-      image: "/api/placeholder/100/100",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     name: "Mariam Diallo",
+  //     position: "DRH, Tech Solutions Africa",
+  //     text: "YIEL a transformé notre manière de gérer les talents. L'interface intuitive et les fonctionnalités adaptées à nos besoins ont considérablement amélioré notre efficacité.",
+  //     image: "/api/placeholder/100/100",
+  //   },
+  //   {
+  //     name: "Jean-Pierre Kouassi",
+  //     position: "CEO, InnoGroup",
+  //     text: "La vision de YIEL représente exactement ce dont les entreprises africaines ont besoin aujourd'hui. Une solution qui comprend nos défis spécifiques.",
+  //     image: "/api/placeholder/100/100",
+  //   },
+  //   {
+  //     name: "Fatima Mbeki",
+  //     position: "Responsable Formation, EduTech",
+  //     text: "L'équipe de YIEL fait toute la différence. Leur accompagnement personnalisé nous a permis d'adopter rapidement leur solution SIRH.",
+  //     image: "/api/placeholder/100/100",
+  //   },
+  // ];
 
   // Données de l'équipe
   const team = [
@@ -638,7 +638,7 @@ const NotreHistoire = () => {
         </section>
 
         {/* Témoignages */}
-        <section
+        {/* <section
           id="temoignages"
           className={`py-20 bg-gradient-to-b from-gray-50 to-white ${
             isVisible["temoignages"] ? "animate-fadeIn" : ""
@@ -715,7 +715,7 @@ const NotreHistoire = () => {
               </button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Notre Équipe */}
         <section

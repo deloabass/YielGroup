@@ -160,32 +160,32 @@ function RecrutementSurMesure() {
   ];
 
   // Témoignages clients
-  const testimonials = [
-    {
-      quote:
-        "Le processus de recrutement sur mesure de YIEL nous a permis de trouver rapidement des talents parfaitement adaptés à nos besoins spécifiques en Côte d'Ivoire.",
-      author: "Marie Koné",
-      position: "DRH, Société de Télécommunications",
-      company: "Orange CI",
-      avatar: "/api/placeholder/100/100",
-    },
-    {
-      quote:
-        "L'accompagnement personnalisé lors de l'intégration a considérablement réduit notre turnover et amélioré la productivité de nos nouvelles recrues.",
-      author: "Amadou Diallo",
-      position: "Directeur Général",
-      company: "Banque Atlantique",
-      avatar: "/api/placeholder/100/100",
-    },
-    {
-      quote:
-        "Leur outil ATS nous a fait gagner un temps précieux dans le suivi des candidatures et la collaboration entre nos équipes RH et nos managers.",
-      author: "Sarah Mensah",
-      position: "Responsable RH",
-      company: "MTN Group",
-      avatar: "/api/placeholder/100/100",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     quote:
+  //       "Le processus de recrutement sur mesure de YIEL nous a permis de trouver rapidement des talents parfaitement adaptés à nos besoins spécifiques en Côte d'Ivoire.",
+  //     author: "Marie Koné",
+  //     position: "DRH, Société de Télécommunications",
+  //     company: "Orange CI",
+  //     avatar: "/api/placeholder/100/100",
+  //   },
+  //   {
+  //     quote:
+  //       "L'accompagnement personnalisé lors de l'intégration a considérablement réduit notre turnover et amélioré la productivité de nos nouvelles recrues.",
+  //     author: "Amadou Diallo",
+  //     position: "Directeur Général",
+  //     company: "Banque Atlantique",
+  //     avatar: "/api/placeholder/100/100",
+  //   },
+  //   {
+  //     quote:
+  //       "Leur outil ATS nous a fait gagner un temps précieux dans le suivi des candidatures et la collaboration entre nos équipes RH et nos managers.",
+  //     author: "Sarah Mensah",
+  //     position: "Responsable RH",
+  //     company: "MTN Group",
+  //     avatar: "/api/placeholder/100/100",
+  //   },
+  // ];
 
   // Secteurs d'expertise
   const expertiseSectors = [
@@ -250,6 +250,8 @@ function RecrutementSurMesure() {
     "Alertes automatiques et tableaux de bord",
     "Suivi post-recrutement intégré",
     "Traçabilité complète des décisions",
+    "Planification entretien intégrée",
+    "messagerie interne"
   ];
 
   return (
@@ -278,10 +280,9 @@ function RecrutementSurMesure() {
                   pour une intégration réussie
                 </h1>
                 <p className="text-lg md:text-xl max-w-lg leading-relaxed mb-8 text-gray-200">
-                  Nous sommes un cabinet de recrutement spécialisé qui
-                  accompagne les entreprises dans la sélection, l'évaluation et
-                  l'intégration durable de leurs talents, avec une solution clé
-                  en main.
+                  Une solution clé en main pour accompagner les entreprises dans
+                  la sélection, l’évaluation et l’intégration durable de leurs
+                  talents.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                   <button className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
@@ -673,7 +674,7 @@ function RecrutementSurMesure() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="py-24 bg-white">
+        {/* <section id="testimonials" className="py-24 bg-white">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
@@ -741,7 +742,7 @@ function RecrutementSurMesure() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Secteurs d'expertise Section */}
         <section id="sectors" className="py-24 bg-gray-50">
@@ -832,45 +833,47 @@ function RecrutementSurMesure() {
           </div>
         </section>
 
-  {/* CTA Section */}
-<section id="cta" className="py-20 bg-[#2f365b]">
-  <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-12 shadow-xl relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/api/placeholder/1200/800')] bg-cover bg-center opacity-10"></div>
-      <div className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
-              DÉMARREZ MAINTENANT
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Prêt à transformer votre{" "}
-              <span className="text-[#ea532b]">processus de recrutement</span>{" "}?
-            </h2>
-            <p className="text-lg text-gray-200 mb-8">
-              Contactez-nous dès aujourd'hui pour un diagnostic gratuit
-              de vos besoins en recrutement et découvrez comment notre
-              approche sur mesure peut vous aider.
-            </p>
-          </div>
+        {/* CTA Section */}
+        <section id="cta" className="py-20 bg-[#2f365b]">
+          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-12 shadow-xl relative overflow-hidden">
+              <div className="absolute inset-0 bg-[url('/api/placeholder/1200/800')] bg-cover bg-center opacity-10"></div>
+              <div className="relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
+                      DÉMARREZ MAINTENANT
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                      Prêt à transformer votre{" "}
+                      <span className="text-[#ea532b]">
+                        processus de recrutement
+                      </span>{" "}
+                      ?
+                    </h2>
+                    <p className="text-lg text-gray-200 mb-8">
+                      Contactez-nous dès aujourd'hui pour un diagnostic gratuit
+                      de vos besoins en recrutement et découvrez comment notre
+                      approche sur mesure peut vous aider.
+                    </p>
+                  </div>
 
-          {/* Boutons déplacés ici */}
-          <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row space-y-4 sm:space-y-0 md:space-y-4 lg:space-y-0 lg:space-x-4">
-            <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
-              Prendre rendez-vous
-              <Calendar size={18} className="ml-2" />
-            </button>
-            <button className="px-6 py-3 bg-white/10 backdrop-blur text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
-              Nous contacter
-              <ArrowRight size={18} className="ml-2" />
-            </button>
+                  {/* Boutons déplacés ici */}
+                  <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row space-y-4 sm:space-y-0 md:space-y-4 lg:space-y-0 lg:space-x-4">
+                    <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+                      Prendre rendez-vous
+                      <Calendar size={18} className="ml-2" />
+                    </button>
+                    <button className="px-6 py-3 bg-white/10 backdrop-blur text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                      Nous contacter
+                      <ArrowRight size={18} className="ml-2" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+        </section>
       </main>
 
       {/* --- FOOTER --- */}

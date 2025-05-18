@@ -36,7 +36,7 @@ const Home = () => {
   });
 
   // État pour la navigation entre témoignages
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  // const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
 
   // Références pour les animations au défilement
@@ -81,13 +81,13 @@ const Home = () => {
   }, []);
 
   // Rotation automatique des témoignages
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 8000);
-    return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+  //   }, 8000);
+  //   return () => clearInterval(interval);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   // Rotation automatique des étapes
   useEffect(() => {
@@ -252,32 +252,32 @@ const Home = () => {
   ];
 
   // Données des témoignages
-  const testimonials = [
-    {
-      name: "Emmanuelle Diop",
-      position: "Expert RH | Secteur Banque",
-      rating: 5,
-      date: "21/03/2025",
-      quote:
-        "Depuis que nous utilisons YIEL, la gestion de nos talents est plus fluide et efficace. Un véritable gain de temps pour notre équipe RH !",
-    },
-    {
-      name: "Stéphanie Kouamé",
-      position: "SIRH | Secteur Télécommunications",
-      rating: 5,
-      date: "18/03/2025",
-      quote:
-        "Votre solution RH est vraiment une bonne chose pour nous les RH et nous permet d'être rapides sur notre travail tout en gérant efficacement le flux de demandes quotidiennes.",
-    },
-    {
-      name: "Thomas Mensah",
-      position: "DRH | Secteur Assurance",
-      rating: 5,
-      date: "15/03/2025",
-      quote:
-        "La transition vers YIEL a été remarquablement simple. L'équipe de support est réactive et les fonctionnalités correspondent parfaitement aux défis RH que nous rencontrons au quotidien.",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     name: "Emmanuelle Diop",
+  //     position: "Expert RH | Secteur Banque",
+  //     rating: 5,
+  //     date: "21/03/2025",
+  //     quote:
+  //       "Depuis que nous utilisons YIEL, la gestion de nos talents est plus fluide et efficace. Un véritable gain de temps pour notre équipe RH !",
+  //   },
+  //   {
+  //     name: "Stéphanie Kouamé",
+  //     position: "SIRH | Secteur Télécommunications",
+  //     rating: 5,
+  //     date: "18/03/2025",
+  //     quote:
+  //       "Votre solution RH est vraiment une bonne chose pour nous les RH et nous permet d'être rapides sur notre travail tout en gérant efficacement le flux de demandes quotidiennes.",
+  //   },
+  //   {
+  //     name: "Thomas Mensah",
+  //     position: "DRH | Secteur Assurance",
+  //     rating: 5,
+  //     date: "15/03/2025",
+  //     quote:
+  //       "La transition vers YIEL a été remarquablement simple. L'équipe de support est réactive et les fonctionnalités correspondent parfaitement aux défis RH que nous rencontrons au quotidien.",
+  //   },
+  // ];
 
   // Logos des clients (placeholder)
   const clients = [
@@ -793,7 +793,7 @@ const Home = () => {
         </section>
 
         {/* Témoignages */}
-        <section
+        {/* <section
           id="testimonials"
           ref={observerRefs.testimonials}
           className={`py-16 md:py-24 bg-gray-50 transition-all duration-1000 ease-out ${
@@ -827,7 +827,6 @@ const Home = () => {
                     <div className="flex items-center mb-6">
                       <div className="mr-4">
                         <div className="bg-gray-200 w-12 h-12 rounded-full overflow-hidden">
-                          {/* Placeholder pour photo de profil */}
                         </div>
                       </div>
                       <div>
@@ -858,8 +857,6 @@ const Home = () => {
                     </blockquote>
                   </div>
                 ))}
-
-                {/* Navigation */}
                 <div className="flex justify-center mt-8 space-x-2">
                   {testimonials.map((_, index) => (
                     <button
@@ -877,7 +874,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA */}
         <section id="demo" className="py-16 md:py-24 bg-[#2f365b] text-white">

@@ -38,7 +38,7 @@ function ConseilTransformationRH() {
   const [isVisible, setIsVisible] = useState({});
 
   // État pour gérer l'onglet actif des témoignages
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  // const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   // Animation au scroll
   useEffect(() => {
@@ -259,33 +259,33 @@ function ConseilTransformationRH() {
   ];
 
   // Témoignages clients
-  const testimonials = [
-    {
-      name: "Aminata Diallo",
-      position: "DRH, Groupe financier panafricain",
-      quote:
-        "L'accompagnement de YIEL nous a permis de structurer notre démarche de transformation RH et d'accélérer la digitalisation de nos processus. Nous avons gagné en efficacité et amélioré significativement l'expérience de nos collaborateurs.",
-      image: "/api/placeholder/400/400",
-    },
-    {
-      name: "Emmanuel Koné",
-      position: "CEO, Entreprise de télécommunications",
-      quote:
-        "Grâce aux conseils stratégiques de YIEL, nous avons pu aligner notre vision RH avec nos objectifs de croissance. La méthodologie structurée et l'expertise des consultants ont fait toute la différence dans la réussite de notre projet.",
-      image: "/api/placeholder/400/400",
-    },
-    {
-      name: "Fatou Sow",
-      position: "Responsable RH, Groupe industriel",
-      quote:
-        "YIEL a parfaitement compris nos enjeux locaux et nous a accompagnés dans l'implémentation de solutions adaptées à notre contexte. L'approche pragmatique et le suivi rigoureux ont permis une adoption rapide par les équipes.",
-      image: "/api/placeholder/400/400",
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     name: "Aminata Diallo",
+  //     position: "DRH, Groupe financier panafricain",
+  //     quote:
+  //       "L'accompagnement de YIEL nous a permis de structurer notre démarche de transformation RH et d'accélérer la digitalisation de nos processus. Nous avons gagné en efficacité et amélioré significativement l'expérience de nos collaborateurs.",
+  //     image: "/api/placeholder/400/400",
+  //   },
+  //   {
+  //     name: "Emmanuel Koné",
+  //     position: "CEO, Entreprise de télécommunications",
+  //     quote:
+  //       "Grâce aux conseils stratégiques de YIEL, nous avons pu aligner notre vision RH avec nos objectifs de croissance. La méthodologie structurée et l'expertise des consultants ont fait toute la différence dans la réussite de notre projet.",
+  //     image: "/api/placeholder/400/400",
+  //   },
+  //   {
+  //     name: "Fatou Sow",
+  //     position: "Responsable RH, Groupe industriel",
+  //     quote:
+  //       "YIEL a parfaitement compris nos enjeux locaux et nous a accompagnés dans l'implémentation de solutions adaptées à notre contexte. L'approche pragmatique et le suivi rigoureux ont permis une adoption rapide par les équipes.",
+  //     image: "/api/placeholder/400/400",
+  //   },
+  // ];
 
-  const changeTestimonial = (index) => {
-    setActiveTestimonial(index);
-  };
+  // const changeTestimonial = (index) => {
+  //   setActiveTestimonial(index);
+  // };
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* --- HEADER --- */}
@@ -747,7 +747,7 @@ function ConseilTransformationRH() {
         {/* Case Studies Section */}
         <section
           id="case-studies"
-          className={`py-16 md:py-20 bg-white ${
+          className={`py-16 md:py-20 bg-gray-50 ${
             isVisible["case-studies"]
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-10"
@@ -815,7 +815,7 @@ function ConseilTransformationRH() {
         </section>
 
         {/* Testimonials Section */}
-        <section
+        {/* <section
           id="testimonials"
           className={`py-16 md:py-20 bg-gray-50 ${
             isVisible["testimonials"]
@@ -888,7 +888,7 @@ function ConseilTransformationRH() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* FAQ Section */}
         <FAQ faqs={faqs} />
