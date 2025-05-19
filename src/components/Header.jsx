@@ -72,7 +72,7 @@ const Header = () => {
         },
         {
           icon: <Handshake className="text-[#ea532b]" size={20} />,
-          title: "Solutions digitales RH",
+          title: "Solutions digitales",
           description: "Services numériques pour vos RH",
           path: "/solutions-digitales-RH"
         },
