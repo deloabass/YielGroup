@@ -18,7 +18,8 @@ import {
   Building,
   Handshake,
   ChevronRight,
-  Menu as MenuIcon
+  Menu as MenuIcon,
+  Mic
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -82,7 +83,7 @@ const Header = () => {
       title: "Plateforme SIRH MyYiel",
       layout: "grid",
       columns: 2,
-      width: 530,
+      width: 650,
       position: "center",
       navigate: "/nos-solutions",
       items: [
@@ -127,6 +128,13 @@ const Header = () => {
           title: "Y'Time",
           description: "Absences & Congés",
           path: "/time"
+        },
+        {
+          icon: <Mic className="text-[#ea532b]" size={20} />,
+          title: "Y’Voix ",
+          description: "La voix RH d’aujourd’hui et de demain.",
+          path: "/voix"
+          
         }
       ]
     },
