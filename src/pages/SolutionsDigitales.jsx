@@ -684,9 +684,7 @@ function SolutionsDigitales() {
         {/* CTA Section */}
         <section id="cta" className="py-20 bg-[#2f365b]">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p- shadow-xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-[url('/api/placeholder/1200/800')] bg-cover bg-center opacity-10"></div>
-
+            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-4 shadow-xl relative overflow-hidden">
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
