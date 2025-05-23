@@ -102,7 +102,7 @@ function SolutionsDigitales() {
       color: "bg-[#2f365b]",
       accent: "text-[#ea532b]",
       image:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+        "./createSiteImage.avif",
     },
     {
       id: "applications",
@@ -131,8 +131,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#ea532b]",
       accent: "text-[#2f365b]",
-      image:
-        "https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      image: "./DevOutil.png",
     },
     {
       id: "design",
@@ -161,8 +160,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#2f365b]",
       accent: "text-[#ea532b]",
-      image:
-        "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
+      image: "./designUX-UI.avif",
     },
     {
       id: "marketing",
@@ -185,8 +183,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#ea532b]",
       accent: "text-[#2f365b]",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80",
+      image: "MarketingDigital.avif",
     },
     {
       id: "automatisation",
@@ -401,7 +398,7 @@ function SolutionsDigitales() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                      src="./solution-Hero-image.avif"
                       alt="Solutions digitales"
                       className="w-full h-auto rounded"
                     />
