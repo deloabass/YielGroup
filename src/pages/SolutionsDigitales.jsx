@@ -19,18 +19,14 @@ import {
   Database,
   Layers,
   Briefcase,
-  Coffee,
   Grid,
   PenTool,
-  Aperture,
   Figma,
   Image,
   Edit,
-  Share2,
   BarChart2,
   Mail,
   Users,
-  ChevronRight,
   MessageCircle,
   CheckCircle,
   Clock,
@@ -183,7 +179,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#ea532b]",
       accent: "text-[#2f365b]",
-      image: "MarketingDigital.avif",
+      image: "./MarketingDigital.avif",
     },
     {
       id: "automatisation",
@@ -211,8 +207,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#2f365b]",
       accent: "text-[#ea532b]",
-      image:
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      image: "./outilcollaboratifs.avif",
     },
     {
       id: "maintenance",
@@ -239,7 +234,7 @@ function SolutionsDigitales() {
       color: "bg-[#ea532b]",
       accent: "text-[#2f365b]",
       image:
-        "https://images.unsplash.com/photo-1537432376769-00f5c2f4c8d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80",
+        "./maintenanceHébergement.avif",
     },
   ];
 
@@ -681,7 +676,7 @@ function SolutionsDigitales() {
         {/* CTA Section */}
         <section id="cta" className="py-20 bg-[#2f365b]">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-4 shadow-xl relative overflow-hidden">
+            <div className="bg-gradient-to-r from-[#2f365b] to-[#3a4272] rounded-xl p-5 shadow-xl relative overflow-hidden">
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -724,58 +719,99 @@ function SolutionsDigitales() {
                 </div>
 
                 <div className="bg-white p-3 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold text-[#2f365b] mb-6">
-                    Demandez votre devis personnalisé
-                  </h3>
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <input
-                        type="text"
-                        placeholder="Nom"
-                        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Prénom"
-                        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-                      />
-                    </div>
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-                    />
-                    <input
-                      type="tel"
-                      placeholder="Téléphone"
-                      className="w-full px-4 placeholder-gray-400 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-                    />
-                    <select className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent">
-                      <option value="" className="">
-                        Service qui vous intéresse
-                      </option>
-                      <option value="sites">Création de sites internet</option>
-                      <option value="applications">
-                        Développement d'applications
-                      </option>
-                      <option value="design">Identité visuelle & design</option>
-                      <option value="marketing">Marketing digital</option>
-                      <option value="automatisation">Automatisation</option>
-                      <option value="maintenance">
-                        Hébergement & maintenance
-                      </option>
-                    </select>
-                    <textarea
-                      placeholder="Décrivez brièvement votre projet"
-                      rows={4}
-                      className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-                    ></textarea>
-                    <button className="w-full px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
-                      Envoyer ma demande
-                      <ArrowRight size={18} className="ml-2" />
-                    </button>
-                  </form>
-                </div>
+  <h3 className="text-xl font-bold text-[#2f365b] mb-6">
+    Demandez votre devis personnalisé
+  </h3>
+  <form className="space-y-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label className="block text-gray-600 text-sm mb-1">
+          Nom <span className="text-red-600">*</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Nom"
+          required
+          className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+        />
+      </div>
+      <div>
+        <label className="block text-gray-600 text-sm mb-1">
+          Prénom <span className="text-red-600">*</span>
+        </label>
+        <input
+          type="text"
+          placeholder="Prénom"
+          required
+          className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label className="block text-gray-600 text-sm mb-1">
+        Email <span className="text-red-600">*</span>
+      </label>
+      <input
+        type="email"
+        placeholder="Email"
+        required
+        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+      />
+    </div>
+
+    <div>
+      <label className="block text-gray-600 text-sm mb-1">
+        Téléphone <span className="text-red-600">*</span>
+      </label>
+      <input
+        type="tel"
+        placeholder="Téléphone"
+        required
+        className="w-full px-4 placeholder-gray-400 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+      />
+    </div>
+
+    <div>
+      <label className="block text-gray-600 text-sm mb-1">
+        Service qui vous intéresse <span className="text-red-600">*</span>
+      </label>
+      <select
+        required
+        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+      >
+        <option value="">Choisissez un service</option>
+        <option value="sites">Création de sites internet</option>
+        <option value="applications">Développement d'applications</option>
+        <option value="design">Identité visuelle & design</option>
+        <option value="marketing">Marketing digital</option>
+        <option value="automatisation">Automatisation</option>
+        <option value="maintenance">Hébergement & maintenance</option>
+      </select>
+    </div>
+
+    <div>
+      <label className="block text-gray-600 text-sm mb-1">
+        Décrivez votre projet <span className="text-red-600">*</span>
+      </label>
+      <textarea
+        placeholder="Décrivez brièvement votre projet"
+        rows={4}
+        required
+        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      className="w-full px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+    >
+      Envoyer ma demande
+      <ArrowRight size={18} className="ml-2" />
+    </button>
+  </form>
+</div>
+
               </div>
             </div>
           </div>
