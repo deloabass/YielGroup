@@ -19,6 +19,7 @@ import {
   Database,
   Layers,
   Briefcase,
+  Figma,
   Grid,
   PenTool,
   Image,
