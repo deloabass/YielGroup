@@ -447,10 +447,36 @@ const Home = () => {
               ></path>
             </svg>
           </div> */}
+             <div
+          ref={observerRefs.clients}
+          className={`py-12 transition-all duration-1000 ease-out ${
+          isVisible.hero ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div className="container mx-auto px-4">
+            <h2 className="text-center text-lg font-medium text-[#ea532b] mb-3">
+              Rejoignez une communauté grandissante d'entreprises
+            </h2>
+            <p className="text-center text-white mb-8 p-1 rounded-full bg-[#A4A8B8]">
+              Ils nous ont fait confiance, nous vous invitons à faire de même...
+            </p>
+
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+              {clients.map((client, index) => (
+                <div
+                  key={index}
+                  className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+                >
+                  <img src={client.logo} alt={client.name} className="h-12" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
         </section>
 
         {/* Logos des clients */}
-        <section
+        {/* <section
           ref={observerRefs.clients}
           className={`py-12 bg-[#2f365b] transition-all duration-1000 ease-out ${
             isVisible.clients
@@ -477,7 +503,7 @@ const Home = () => {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Pourquoi YIEL */}
         <section

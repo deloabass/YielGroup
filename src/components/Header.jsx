@@ -83,7 +83,7 @@ const Header = () => {
       title: "Plateforme SIRH MyYiel",
       layout: "grid",
       columns: 2,
-      width: 650,
+      width: 960,
       position: "center",
       navigate: "/nos-solutions",
       items: [
@@ -95,47 +95,40 @@ const Header = () => {
         },
         {
           icon: <Users className="text-[#ea532b]" size={20} />,
-          title: "Y'Expertise",
-          description: "Notes de frais",
+          title: "Y’Expense",
+          description: "Simplifiez les notes de frais. Gagnez du temps.",
           path: "/expertise"
         },
         {
           icon: <Users className="text-[#ea532b]" size={20} />,
           title: "Y'Talents",
-          description: "Gestion des talents",
+          description: "Repérez, suivez et faites grandir vos talents.",
           path: "/talents"
         },
         {
           icon: <Book className="text-[#ea532b]" size={20} />,
           title: "Y'Learn",
-          description: "Formation",
+          description: "Boostez les compétences de vos équipes, à votre rythme.",
           path: "/learn"
         },
         {
           icon: <PenTool className="text-[#ea532b]" size={20} />,
           title: "Y'Sign",
-          description: "Signature électronique",
+          description: "Signez en toute sécurité.",
           path: "/sign"
         },
         {
           icon: <UserPlus className="text-[#ea532b]" size={20} />,
-          title: "Y'Recrute",
-          description: "Optimisation du recrutement",
+          title: "Y'Recrute - (ATS)",
+          description: "Recrutez local, visez global.",
           path: "/recrute"
         },
         {
           icon: <Clock className="text-[#ea532b]" size={20} />,
-          title: "Y'Time",
-          description: "Absences & Congés",
+          title: "Y’Temps - (GTA)",
+          description: "Gérez le time & présence avec stress.",
           path: "/time"
         },
-        {
-          icon: <Mic className="text-[#ea532b]" size={20} />,
-          title: "Y’Voix ",
-          description: "La voix RH d’aujourd’hui et de demain.",
-          path: "/voix"
-          
-        }
       ]
     },
     nous: {
@@ -182,7 +175,7 @@ const Header = () => {
       title: "Ressources",
       layout: "grid",
       columns: 2,
-      width: 610,
+      width: 650,
       position: "right",
       navigate: "/ressources",
       items: [
@@ -221,6 +214,13 @@ const Header = () => {
           title: "Blog RH",
           description: "Explorez nos articles",
           path: "/blog-rh"
+        }, 
+        {
+          icon: <Mic className="text-[#ea532b]" size={20} />,
+          title: "Y’Voix - Notre Blog RH ",
+          description: "La voix RH d’aujourd’hui et de demain.",
+          path: "/voix"
+          
         }
       ]
     }
