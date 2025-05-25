@@ -21,7 +21,6 @@ import {
   Briefcase,
   Grid,
   PenTool,
-  Figma,
   Image,
   Edit,
   BarChart2,
@@ -97,8 +96,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#2f365b]",
       accent: "text-[#ea532b]",
-      image:
-        "./createSiteImage.avif",
+      image: "./createSiteImage.avif",
     },
     {
       id: "applications",
@@ -233,8 +231,7 @@ function SolutionsDigitales() {
       ],
       color: "bg-[#ea532b]",
       accent: "text-[#2f365b]",
-      image:
-        "./maintenanceHébergement.avif",
+      image: "./maintenanceHébergement.avif",
     },
   ];
 
@@ -719,99 +716,108 @@ function SolutionsDigitales() {
                 </div>
 
                 <div className="bg-white p-3 rounded-lg shadow-lg">
-  <h3 className="text-xl font-bold text-[#2f365b] mb-6">
-    Demandez votre devis personnalisé
-  </h3>
-  <form className="space-y-4">
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
-        <label className="block text-gray-600 text-sm mb-1">
-          Nom <span className="text-red-600">*</span>
-        </label>
-        <input
-          type="text"
-          placeholder="Nom"
-          required
-          className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-        />
-      </div>
-      <div>
-        <label className="block text-gray-600 text-sm mb-1">
-          Prénom <span className="text-red-600">*</span>
-        </label>
-        <input
-          type="text"
-          placeholder="Prénom"
-          required
-          className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-        />
-      </div>
-    </div>
+                  <h3 className="text-xl font-bold text-[#2f365b] mb-6">
+                    Demandez votre devis personnalisé
+                  </h3>
+                  <form className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-gray-600 text-sm mb-1">
+                          Nom <span className="text-red-600">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Nom"
+                          required
+                          className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-gray-600 text-sm mb-1">
+                          Prénom <span className="text-red-600">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Prénom"
+                          required
+                          className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+                        />
+                      </div>
+                    </div>
 
-    <div>
-      <label className="block text-gray-600 text-sm mb-1">
-        Email <span className="text-red-600">*</span>
-      </label>
-      <input
-        type="email"
-        placeholder="Email"
-        required
-        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-      />
-    </div>
+                    <div>
+                      <label className="block text-gray-600 text-sm mb-1">
+                        Email <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        required
+                        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+                      />
+                    </div>
 
-    <div>
-      <label className="block text-gray-600 text-sm mb-1">
-        Téléphone <span className="text-red-600">*</span>
-      </label>
-      <input
-        type="tel"
-        placeholder="Téléphone"
-        required
-        className="w-full px-4 placeholder-gray-400 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-      />
-    </div>
+                    <div>
+                      <label className="block text-gray-600 text-sm mb-1">
+                        Téléphone <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="Téléphone"
+                        required
+                        className="w-full px-4 placeholder-gray-400 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+                      />
+                    </div>
 
-    <div>
-      <label className="block text-gray-600 text-sm mb-1">
-        Service qui vous intéresse <span className="text-red-600">*</span>
-      </label>
-      <select
-        required
-        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-      >
-        <option value="">Choisissez un service</option>
-        <option value="sites">Création de sites internet</option>
-        <option value="applications">Développement d'applications</option>
-        <option value="design">Identité visuelle & design</option>
-        <option value="marketing">Marketing digital</option>
-        <option value="automatisation">Automatisation</option>
-        <option value="maintenance">Hébergement & maintenance</option>
-      </select>
-    </div>
+                    <div>
+                      <label className="block text-gray-600 text-sm mb-1">
+                        Service qui vous intéresse{" "}
+                        <span className="text-red-600">*</span>
+                      </label>
+                      <select
+                        required
+                        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+                      >
+                        <option value="">Choisissez un service</option>
+                        <option value="sites">
+                          Création de sites internet
+                        </option>
+                        <option value="applications">
+                          Développement d'applications
+                        </option>
+                        <option value="design">
+                          Identité visuelle & design
+                        </option>
+                        <option value="marketing">Marketing digital</option>
+                        <option value="automatisation">Automatisation</option>
+                        <option value="maintenance">
+                          Hébergement & maintenance
+                        </option>
+                      </select>
+                    </div>
 
-    <div>
-      <label className="block text-gray-600 text-sm mb-1">
-        Décrivez votre projet <span className="text-red-600">*</span>
-      </label>
-      <textarea
-        placeholder="Décrivez brièvement votre projet"
-        rows={4}
-        required
-        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-      ></textarea>
-    </div>
+                    <div>
+                      <label className="block text-gray-600 text-sm mb-1">
+                        Décrivez votre projet{" "}
+                        <span className="text-red-600">*</span>
+                      </label>
+                      <textarea
+                        placeholder="Décrivez brièvement votre projet"
+                        rows={4}
+                        required
+                        className="w-full placeholder-gray-400 px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+                      ></textarea>
+                    </div>
 
-    <button
-      type="submit"
-      className="w-full px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
-    >
-      Envoyer ma demande
-      <ArrowRight size={18} className="ml-2" />
-    </button>
-  </form>
-</div>
-
+                    <button
+                      type="submit"
+                      className="w-full px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+                    >
+                      Envoyer ma demande
+                      <ArrowRight size={18} className="ml-2" />
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -820,7 +826,7 @@ function SolutionsDigitales() {
         <FAQ faqs={faqs} />
 
         {/* Testimonials Section */}
-        {/* <section id="testimonials" className="py-20 bg-white">
+       {/* <section id="testimonials" className="py-20 bg-white">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
@@ -872,74 +878,6 @@ function SolutionsDigitales() {
                         {item === 1 ? "Directeur, Agence Marketing" : item === 2 ? "DRH, Groupe industriel" : "CEO, Startup Tech"}
                       </p>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
-        {/* FAQ Section */}
-        {/* <section id="faq" className="py-20 bg-gray-50">
-          <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 rounded-full bg-[#2f365b]/10 text-[#2f365b] font-medium text-sm mb-6">
-                QUESTIONS FRÉQUENTES
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
-                Vous avez des{" "}
-                <span className="text-[#ea532b]">questions</span> ?
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Consultez les réponses aux questions les plus fréquemment posées
-                sur nos solutions digitales.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto space-y-6">
-              {[
-                {
-                  question: "Combien coûte un projet digital avec YIEL ?",
-                  answer: "Chaque projet est unique et nécessite une approche personnalisée. Le coût dépend de nombreux facteurs comme la complexité, les fonctionnalités requises et les délais. Nous établissons un devis détaillé après une première consultation pour comprendre précisément vos besoins."
-                },
-                {
-                  question: "Quels sont les délais de réalisation ?",
-                  answer: "Les délais varient selon la nature et l'ampleur du projet. Un site vitrine simple peut être réalisé en 3 à 4 semaines, tandis qu'une application métier complexe peut nécessiter plusieurs mois. Nous définissons ensemble un calendrier réaliste avec des étapes claires."
-                },
-                {
-                  question: "Proposez-vous des formations pour utiliser les outils ?",
-                  answer: "Absolument ! Nous intégrons systématiquement des sessions de formation à nos prestations pour assurer une prise en main optimale de vos nouveaux outils. Des supports documentaires sont également fournis et un accompagnement post-lancement est disponible."
-                },
-                {
-                  question: "Comment se déroule la maintenance des solutions ?",
-                  answer: "Nous proposons différentes formules de maintenance technique et évolutive. Nos contrats incluent les mises à jour de sécurité, l'assistance technique, les sauvegardes régulières et la possibilité d'implémenter de nouvelles fonctionnalités selon vos besoins."
-                }
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
-                >
-                  <div className="flex justify-between items-center">
-                    <h4 className="text-lg font-semibold text-[#2f365b]">
-                      {item.question}
-                    </h4>
-                    <button className="w-8 h-8 rounded-full bg-[#ea532b]/10 flex items-center justify-center text-[#ea532b]">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div className="mt-4">
-                    <p className="text-gray-600">{item.answer}</p>
                   </div>
                 </div>
               ))}
