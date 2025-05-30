@@ -13,12 +13,25 @@ import NotreHistoire from "./pages/NotreHistoire";
 import NosSolution from "./pages/NosSolution";
 import FAQ from "./components/FAQ";
 import Core from "./pages/Core";
-import Expertise from "./pages/Expertise";
+import Expense from "./pages/Expense";
 import ConseilTransformationRH from "./pages/ConseilTransformationRH";
 import HrAnalytics from "./pages/HrAnalytics";
 import RecrutementSurMesure from "./pages/RecrutementSurMesure";
 import ParcoursCollaborateur from "./pages/ParcoursCollaborateur";
 import SolutionsDigitales from "./pages/SolutionsDigitales";
+import Talents from "./pages/Talents";
+import Learn from "./pages/Learn";
+import Sign from "./pages/Sign";
+import Recrute from "./pages/Recrute";
+import Temps from "./pages/Temps";
+import NosValeurs from "./pages/NosValeurs";
+import TeamsYIELERS from "./pages/TeamsYIELERS";
+import NousContacter from "./pages/NousContacter";
+import NosMetiers from "./pages/NosMetiers";
+import CentreDaideFAQ from "./pages/CentreDaideFAQ";
+import CalculateurROI from "./pages/CalculateurROI";
+import NosClients from "./pages/NosClients";
+import VoixNotreBlogRH from "./pages/VoixNotreBlogRH";
 
 function App() {
   return (
@@ -33,10 +46,24 @@ function App() {
         <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
         <Route path="/mentions-legale" element={<Mentionslegale />} />
         <Route path="/notre-histoire" element={<NotreHistoire />} />
+        <Route path="/valeurs" element={<NosValeurs />} />
+        <Route path="/equipe" element={<TeamsYIELERS />} />
+        <Route path="/contact" element={<NousContacter />} />
+        <Route path="/metiers" element={<NosMetiers />} />
+        <Route path="/aide" element={<CentreDaideFAQ />} />
+        <Route path="/calculateur" element={<CalculateurROI />} />
+        <Route path="/clients" element={<NosClients />} />
+        <Route path="/voix" element={<VoixNotreBlogRH />} />
+        {/* revoir cette composent là  nos-solution */}
         <Route path="/nos-solution" element={<NosSolution />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/core" element={<Core />} />
-        <Route path="/expertise" element={<Expertise />} />
+        <Route path="/expense" element={<Expense />} />
+        <Route path="/talents" element={<Talents />} />
+        <Route path="/learn" element={<Learn />} />
+        <Route path="/sign" element={<Sign />} />
+        <Route path="/recrute" element={<Recrute />} />
+        <Route path="/time" element={<Temps />} />
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
         <Route path="/analytics-HR" element={<HrAnalytics />} />
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />

@@ -97,7 +97,7 @@ const Header = () => {
           icon: <Users className="text-[#ea532b]" size={20} />,
           title: "Y’Expense",
           description: "Simplifiez les notes de frais. Gagnez du temps.",
-          path: "/expertise"
+          path: "/expense"
         },
         {
           icon: <Users className="text-[#ea532b]" size={20} />,

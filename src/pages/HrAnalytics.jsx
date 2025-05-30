@@ -22,8 +22,10 @@ import {
   Target,
   RefreshCw
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 function HrAnalytics() {
+  const navigate = useNavigate()
   // État pour les animations au défilement
   const [isVisible, setIsVisible] = useState({});
   const [activeTab, setActiveTab] = useState('general');
@@ -255,7 +257,7 @@ function HrAnalytics() {
                   unifiée de l'ensemble des dynamiques RH de votre organisation.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                  <button className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+                  <button onClick={() => navigate("/demo")} className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
@@ -758,13 +760,13 @@ function HrAnalytics() {
               Demandez une démo personnalisée et découvrez comment notre module HR Analytics peut répondre à vos besoins spécifiques.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <button className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+              <button onClick={() => navigate("/demo")} className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                 Demander une démo
                 <ArrowRight size={18} className="ml-2" />
               </button>
-              <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
+              {/* <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
                 Contacter un conseiller
-              </button>
+              </button> */}
             </div>
           </div>
         </section>

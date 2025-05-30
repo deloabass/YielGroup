@@ -22,8 +22,10 @@ import {
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import FAQ from "../components/FAQ";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   // États pour les animations au défilement
   const [isVisible, setIsVisible] = useState({
     hero: false,
@@ -809,10 +811,10 @@ const Home = () => {
                 évolutive.
               </p>
               <a
-                href="#contact"
+                onClick={() => navigate("/solutions-digitales-RH")}
                 className="inline-block px-8 py-4 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-lg transition-colors duration-300"
               >
-                Découvrir notre solution
+                Découvrir nos solution
               </a>
             </div>
           </div>

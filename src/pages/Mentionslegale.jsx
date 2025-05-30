@@ -709,7 +709,15 @@ function MentionsLegales() {
                       </h3>
                       <address className="not-italic">
                         <p>YIEL GROUP</p>
-                        <p>Yaoundé, Cameroun</p>
+                        <a
+                        // href="https://www.google.com/maps?q=Yaoundé,+Cameroun"
+                        href="https://www.google.com/maps?q=Yaoundé+Centre-ville,+Cameroun"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#ea532b] hover:underline"
+                      >
+                        Yaoundé, Cameroun
+                      </a>
                       </address>
                     </div>
                     <div className="mt-6 text-center">

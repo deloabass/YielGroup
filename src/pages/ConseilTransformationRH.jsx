@@ -326,10 +326,10 @@ function ConseilTransformationRH() {
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                   <button
-                    onClick={() => navigate("/contact")}
+                    onClick={() => navigate("/demo")}
                     className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
                   >
-                    Parler à un expert
+                    Demander une démo
                     <ArrowRight className="h-5 w-5 ml-2" />
                   </button>
                   <button
@@ -441,7 +441,7 @@ function ConseilTransformationRH() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Pôle 1 */}
               <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
-                <div className="p-1 bg-gradient-to-r from-[#2f365b] to-[#3a4272]">
+                <div className="p-1">
                   <div className="bg-white p-6 md:p-8">
                     <div className="w-16 h-16 rounded-full bg-[#ea532b]/10 flex items-center justify-center text-[#ea532b] mb-6">
                       <BarChart2 className="h-8 w-8" />
@@ -480,20 +480,20 @@ function ConseilTransformationRH() {
                         </span>
                       </div>
                     </div>
-                    <a
+                    {/* <a
                       href="#"
                       className="inline-flex items-center text-[#ea532b] font-medium mt-6"
                     >
                       En savoir plus
                       <ChevronRight className="h-4 w-4 ml-1" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
 
               {/* Pôle 2 */}
               <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
-                <div className="p-1 bg-gradient-to-r from-[#2f365b] to-[#3a4272]">
+                <div className="p-1">
                   <div className="bg-white p-6 md:p-8">
                     <div className="w-16 h-16 rounded-full bg-[#ea532b]/10 flex items-center justify-center text-[#ea532b] mb-6">
                       <Users className="h-8 w-8" />
@@ -532,20 +532,20 @@ function ConseilTransformationRH() {
                         </span>
                       </div>
                     </div>
-                    <a
+                    {/* <a
                       href="#"
                       className="inline-flex items-center text-[#ea532b] font-medium mt-6"
                     >
                       En savoir plus
                       <ChevronRight className="h-4 w-4 ml-1" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
 
               {/* Pôle 3 */}
               <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden">
-                <div className="p-1 bg-gradient-to-r from-[#2f365b] to-[#3a4272]">
+                <div className="p-1">
                   <div className="bg-white p-6 md:p-8">
                     <div className="w-16 h-16 rounded-full bg-[#ea532b]/10 flex items-center justify-center text-[#ea532b] mb-6">
                       <Activity className="h-8 w-8" />
@@ -583,13 +583,13 @@ function ConseilTransformationRH() {
                         </span>
                       </div>
                     </div>
-                    <a
+                    {/* <a
                       href="#"
                       className="inline-flex items-center text-[#ea532b] font-medium mt-6"
                     >
                       En savoir plus
                       <ChevronRight className="h-4 w-4 ml-1" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
@@ -803,13 +803,13 @@ function ConseilTransformationRH() {
                         </div>
                       ))}
                     </div>
-                    <a
+                    {/* <a
                       href="#"
                       className="inline-flex items-center text-[#ea532b] font-medium mt-6"
                     >
                       Lire l'étude de cas
                       <ChevronRight className="h-4 w-4 ml-1" />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               ))}
@@ -918,10 +918,10 @@ function ConseilTransformationRH() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <button
-                  onClick={() => navigate("/contact")}
+                  onClick={() => navigate("/demo")}
                   className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
                 >
-                  Planifier un échange
+                  Demander une démo
                   <Calendar className="h-5 w-5 ml-2" />
                 </button>
                 <button

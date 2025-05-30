@@ -23,8 +23,10 @@ import {
   Shield,
   DollarSign,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function RecrutementSurMesure() {
+  const navigate = useNavigate();
   // État pour les animations au défilement
   const [isVisible, setIsVisible] = useState({});
 
@@ -285,7 +287,7 @@ function RecrutementSurMesure() {
                   talents.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                  <button className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+                  <button onClick={() => navigate("/demo")} className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
