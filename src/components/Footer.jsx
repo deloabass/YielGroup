@@ -62,30 +62,37 @@ const Footer = () => {
         {
           icon: <Briefcase size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Y'Core",
+          href: "/core"
         },
         {
           icon: <Users size={16} className="text-[#ea532b] hover:text-white" />,
-          text: "Y'Expertise",
+          text: "Y’Expense",
+          href: "/expense"
         },
         {
           icon: <Book size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Y'Talents",
+          href: "/talents"
         },
         {
           icon: <PenTool size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Y'Learn",
+          href: "/learn"
         },
         {
           icon: <FileCheck size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Y'Sign",
+          href: "/sign"
         },
         {
           icon: <UserPlus size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Y'Recrute",
+          href: "/recrute"
         },
         {
           icon: <Clock size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Y'Time",
+          href: "/time"
         },
       ]
     },
@@ -100,14 +107,17 @@ const Footer = () => {
         {
           icon: <Building size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Nos valeurs",
+          href: "/valeurs",
         },
         {
           icon: <Users size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Teams YIELERS",
+          href: "/equipe",
         },
         {
           icon: <MessageCircle size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Nous contacter",
+          href: "/contact",
         },
       ]
     },
@@ -117,14 +127,17 @@ const Footer = () => {
         {
           icon: <Briefcase size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Nos métiers",
+          href: "/metiers",
         },
         {
           icon: <HelpCircle size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Centre d'aide & FAQ",
+          href: "/aide",
         },
         {
           icon: <Calculator size={16} className="text-[#ea532b] hover:text-white" />,
           text: "Calculateur ROI",
+          href: "/calculateur",
         },
         {
           icon: <Newspaper size={16} className="text-[#ea532b] hover:text-white" />,

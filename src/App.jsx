@@ -32,6 +32,7 @@ import CentreDaideFAQ from "./pages/CentreDaideFAQ";
 import CalculateurROI from "./pages/CalculateurROI";
 import NosClients from "./pages/NosClients";
 import VoixNotreBlogRH from "./pages/VoixNotreBlogRH";
+import CookieConsent from "./CookieConsent";
 
 function App() {
   return (
@@ -69,7 +70,9 @@ function App() {
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
         <Route path="/pilotage-du-parcours-collaborateur" element={<ParcoursCollaborateur />} />
         <Route path="/solutions-digitales-RH" element={<SolutionsDigitales />} />
+        <Route path="/cookies" element={<SolutionsDigitales />} />
       </Routes>
+      <CookieConsent />
     </Router>
   );
 }
