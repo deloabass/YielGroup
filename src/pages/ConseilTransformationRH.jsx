@@ -187,7 +187,7 @@ function ConseilTransformationRH() {
   // Cases d'usage internationaux
   const caseStudies = [
     {
-      image: "https://blogger.googleusercontent.com/img/a/AVvXsEjUEiORoF9CLgxcXWech7gqHUeiB-gLMG5QqmXsXWqxG56jnzKGciN4EswFLqaC6cxa9HlWy-DmjlMEyaXKVUxdiVYl274w5a_giGOOx_4SX7UiAvtNsppXGnhphlh7YeBo347G64PJFvPiCz5uYBToaT3UMhC8JLq85q2CuT4aut7wCKzXL7_oDKEnFNo%3Ds16000",
+      image: "./DigitalisationRHImage.png",
       title: "Digitalisation RH pour un groupe bancaire",
       industry: "Finance",
       description:
@@ -199,7 +199,7 @@ function ConseilTransformationRH() {
       ],
     },
     {
-      image: "https://static.latribune.fr/1554479/la-jeunesse-africaine-innove-pour-l-energie-startup-pme-equipe-rh-ressources-humaine.png",
+      image: "./TransformationdespratiquesImage.webp",
       title: "Transformation des pratiques managériales",
       industry: "Télécommunications",
       description:
@@ -211,7 +211,7 @@ function ConseilTransformationRH() {
       ],
     },
     {
-      image: "https://www.economiematin.fr/wp-content/uploads/2022/09/icarus-media-digital-societe-experte-marketing-digital-1.jpeg",
+      image: "./ModernisationdelagestionImage.webp",
       title: "Modernisation de la gestion des talents",
       industry: "Énergie",
       description:
@@ -304,7 +304,7 @@ function ConseilTransformationRH() {
           } transition-opacity duration-1000`}
         >
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/api/placeholder/1200/800')] bg-cover bg-center opacity-10"></div>
+            <div className="absolute inset-0 bg-[url('./VisionYiel.png')] bg-cover bg-center opacity-10"></div>
           </div>
           <div className="container max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

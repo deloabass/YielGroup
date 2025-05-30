@@ -296,7 +296,7 @@ function RecrutementSurMesure() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="https://orapartenaires.ca/wp-content/uploads/2024/04/Couverture-Article-LinkedIn-31-1024x576.png"
+                      src="./HeroRecrutementSurmesure.png"
                       alt="Recrutement sur mesure"
                       className="w-full h-auto rounded"
                     />
@@ -414,7 +414,7 @@ function RecrutementSurMesure() {
                 </div>
                 <div className="relative rounded-lg overflow-hidden shadow-lg">
                   <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+                  src="./Heroparcourscollaborateur.avif"
                   // src="https://st2.depositphotos.com/4017441/11116/v/450/depositphotos_111165312-stock-illustration-round-table-talks-thirteen-persons.jpg"
                     // src="https://img.freepik.com/vecteurs-premium/dessin-reunion-equipe-au-bureau_1108271-130.jpg"
                     alt="Recrutement sur mesure"

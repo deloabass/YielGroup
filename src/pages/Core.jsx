@@ -61,8 +61,7 @@ function Core() {
       icon: <Users size={24} />,
       color: "bg-blue-100",
       textColor: "text-blue-600",
-      image:
-        "https://www.docsvault.com/wordpress/wp-content/uploads/2024/03/human-resource-dms.jpg",
+      image: "./dossiersalarie-Image.jpg",
       details: [
         "Informations personnelles (nom, prénom, adresse, contact...)",
         "Données administratives (numéro de sécurité sociale, documents d'identité...)",
@@ -77,8 +76,7 @@ function Core() {
       icon: <UserCog size={24} />,
       color: "bg-green-100",
       textColor: "text-green-600",
-      image:
-        "https://images.businessnewsdaily.com/app/uploads/2020/09/17124103/Hierarchical-Structure.png",
+      image:"./Organisation-Interne-image.png",
       details: [
         "Postes occupés et fiches de poste",
         "Liens hiérarchiques avec organigramme interactif",
@@ -93,7 +91,7 @@ function Core() {
       icon: <Clock size={24} />,
       color: "bg-purple-100",
       textColor: "text-purple-600",
-      image: "https://tcpsoftware.com/wp-content/uploads/Blog-SettingWorkSchedules.webp",
+      image: "./workflow-approbation-image.webp",
       details: [
         "Circuits d'approbation personnalisables",
         "Validation multi-niveaux",
@@ -108,8 +106,7 @@ function Core() {
       icon: <FileText size={24} />,
       color: "bg-yellow-100",
       textColor: "text-yellow-600",
-      image:
-        "https://media.istockphoto.com/id/1659825850/photo/businesswoman-signing-an-official-document.jpg?s=612x612&w=0&k=20&c=2MDP8ddyEuQqes83arGh2AkZBWMvwkuaxgWhtUsjdZo=",
+      image: "./docs-rh-image.jpg",
       details: [
         "Contrats types adaptés aux réglementations locales",
         "Fiches de poste dynamiques",
@@ -223,7 +220,7 @@ function Core() {
           className="relative py-28 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white overflow-hidden"
         >
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('https://peoplespheres.com/wp-content/uploads/2019/03/integration_des_talents.png')] bg-cover bg-center opacity-10"></div>
+            <div className="absolute inset-0 bg-[url('./VisionYiel.png')] bg-cover bg-center opacity-10"></div>
           </div>
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -252,7 +249,7 @@ function Core() {
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#2f365b] to-[#ea532b] rounded-lg transform rotate-6 opacity-20"></div>
                   <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                     <img
-                      src="https://peoplespheres.com/wp-content/uploads/2019/03/integration_des_talents.png"
+                      src="./integration_des_talentsYCore.webp"
                       alt="Dashboard YIEL SIRH"
                       className="w-full h-auto rounded"
                     />
@@ -610,7 +607,7 @@ function Core() {
               <div className="relative">
                 <div className="relative bg-white p-2 rounded-lg shadow-2xl">
                   <img
-                    src="https://ahoulafricaine.com/wp-content/uploads/2019/05/naslayd-1024x448-1.jpg"
+                    src="./DeclarationCNPS-Image.jpg"
                     alt="Déclaration CNPS"
                     className="w-full h-auto rounded"
                   />
