@@ -443,11 +443,6 @@ const ParcoursCollaborateur = () => {
         {/* Avantages Section */}
         <section id="avantages" className="py-20 bg-white">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="w-[100%] justify-center items-center flex">
-              <span className="inline-block px-4 mx-auto py-1 rounded-full bg-[#2f365b]/10 text-[#2f365b] font-medium text-sm mb-6">
-                CE QUE NOS CLIENTS RECHERCHENT
-              </span>
-            </div>
             <div className="grid grid-cols-1 mx-auto lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
