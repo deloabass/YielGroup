@@ -177,11 +177,6 @@ const Footer = () => {
       text: "Politique de confidentialité",
       href: "/politique-de-confidentialite",
     },
-    {
-      icon: <FiFileText size={16} className="text-[#ea532b] hover:text-white" />,
-      text: "Cookies",
-      href: "/cookies",
-    },
   ];
    
 
