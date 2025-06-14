@@ -49,7 +49,6 @@ const Header = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeMobileMenu, setActiveMobileMenu] = useState(null);
   const [activeMobileSubMenu, setActiveMobileSubMenu] = useState(null);
-  // activeLink is now used in isNavLinkActive to apply active styles
   const [activeLink, setActiveLink] = useState("Accueil");
 
   const [isLoading, setIsLoading] = useState(false);
@@ -94,7 +93,7 @@ const Header = () => {
       title: "Nos offres",
       layout: "grid",
       columns: 2,
-      width: 850,
+      width: 900,
       position: "left",
       navigate: "/nos-offres",
       gradient: "from-blue-50 to-indigo-50",
@@ -314,7 +313,7 @@ const Header = () => {
       title: "Ressources",
       layout: "grid",
       columns: 2,
-      width: 700,
+      width: 760,
       position: "right",
       navigate: "/ressources",
       gradient: "from-purple-50 to-pink-50",
@@ -846,14 +845,14 @@ const Header = () => {
           <button
             key={idx}
             onClick={() => handleLinkClick(item.title, item.path)}
-            className="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-50 rounded-xl transition-all duration-300"
+            className="w-full flex items-center space-x-3 px-3 py-3 text-left hover:bg-gray-50 rounded-xl transition-all duration-300"
           >
             <div className={`p-2 rounded-lg ${getColorClasses(item.color)}`}>
               {React.cloneElement(item.icon, { size: 16 })}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-medium text-[#2f365b] text-nowrap">
+                <span className="font-medium text-xs text-[#2f365b] text-nowrap">
                   {item.title}
                 </span>
                 {item.badge && (
@@ -896,7 +895,7 @@ const Header = () => {
             : "bg-transparent"
         } ${isOpen ? "bg-white shadow-lg" : ""}`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-1 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div
@@ -928,7 +927,7 @@ const Header = () => {
               {navLinks.map((link) => (
                 <div
                   key={link.title}
-                  className="relative group" // Added group for potential hover effects on parent
+                  className="relative group"
                   onMouseEnter={() => link.dropdown && handleMouseEnterMenu(link.menuKey)}
                   onMouseLeave={link.dropdown ? handleMouseLeaveMenu : null}
                 >
@@ -950,8 +949,8 @@ const Header = () => {
                           className: isNavLinkActive(link)
                             ? "text-[#ea532b]"
                             : (scrolled || isOpen)
-                            ? "text-[#2f365b] group-hover:text-[#ea532b]" // Group-hover for desktop non-active
-                            : "text-white group-hover:text-[#ea532b]", // Group-hover for desktop non-active, transparent header
+                            ? "text-[#2f365b] group-hover:text-[#ea532b]"
+                            : "text-white group-hover:text-[#ea532b]",
                         })}
                       </span>
                     )}
@@ -1059,10 +1058,11 @@ const Header = () => {
           )}
 
           {/* Mobile Navigation */}
+          {/* IMPORTANT CHANGE: Added overflow-y-auto to allow scrolling */}
           <div
             className={`lg:hidden transition-all duration-500 ease-out ${
               isOpen
-                ? "max-h-screen opacity-100 pb-6"
+                ? "max-h-screen opacity-100 pb-6 overflow-y-auto" // Added overflow-y-auto here
                 : "max-h-0 opacity-0 overflow-hidden"
             }`}
           >
@@ -1108,17 +1108,15 @@ const Header = () => {
                   </button>
 
                   {/* Mobile Dropdown Content */}
-                  {link.dropdown && (
-                    <div
-                      className={`overflow-hidden transition-all duration-500 ease-out ${
-                        activeMobileMenu === link.menuKey
-                          ? "max-h-screen opacity-100 mt-2"
-                          : "max-h-0 opacity-0"
-                      }`}
-                    >
-                      {renderMobileMenuItems(link.menuKey)}
-                    </div>
-                  )}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-out ${
+                      activeMobileMenu === link.menuKey
+                        ? "max-h-screen opacity-100 mt-2"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    {renderMobileMenuItems(link.menuKey)}
+                  </div>
                 </div>
               ))}
 
