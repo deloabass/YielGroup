@@ -35,6 +35,7 @@ import {
   DownloadCloud,
   Sparkles,
   Zap,
+  Home,
 } from "lucide-react";
 
 const Header = () => {
@@ -48,10 +49,10 @@ const Header = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeMobileMenu, setActiveMobileMenu] = useState(null);
   const [activeMobileSubMenu, setActiveMobileSubMenu] = useState(null);
+  // activeLink is now used in isNavLinkActive to apply active styles
   const [activeLink, setActiveLink] = useState("Accueil");
+
   const [isLoading, setIsLoading] = useState(false);
-  console.log("Active Link", activeLink);
-  
 
   // New state to manage the active section within the SIRH dropdown
   const [activeSirhSection, setActiveSirhSection] = useState(null);
@@ -70,6 +71,7 @@ const Header = () => {
       setActiveMenu(menuKey);
       // Initialize activeSirhSection when the SIRH menu opens
       if (menuKey === "solutions" && !activeSirhSection) {
+        // Set the first item of 'solutions' as the default active section
         setActiveSirhSection(menuData.solutions.items[0]?.id || null);
       }
     }
@@ -139,128 +141,135 @@ const Header = () => {
     solutions: {
       title: "Plateforme SIRH MyYiel",
       layout: "custom-factorial-grid",
-      columns: 3,
+      columns: 1,
       width: 1200,
       position: "center",
       navigate: "/plateforme-sirh-myyiel",
       gradient: "from-orange-50 to-red-50",
       items: [
         {
-          id: "suivi",
-          title: "Suivi du temps",
-          icon: <Clock size={20} />,
+          id: "ytalent",
+          title: "Y’Talent",
+          icon: <GraduationCap size={20} />,
           color: "blue",
           options: [
             {
               icon: <CalendarDays size={20} />,
-              title: "Gestion des absences",
-              description: "Gérez les demandes de congés et absences de vos collaborateurs.",
-              path: "/sirh/gestion-absences",
-            },
-            {
-              icon: <Clock size={20} />,
-              title: "Gestion du temps de travail",
-              description: "Analysez les performances de vos collaborateurs et augmentez leur productivité.",
-              path: "/sirh/gestion-temps-travail",
-            },
-            {
-              icon: <CalendarCheck size={20} />,
-              title: "Gestion des plannings",
-              description: "Définissez les plannings horaires de vos collaborateurs.",
-              path: "/sirh/gestion-plannings",
-            },
-          ],
-          linkText: "En savoir plus sur la gestion des temps",
-          linkPath: "/sirh/gestion-temps-global",
-        },
-        {
-          id: "talent",
-          title: "Gestion des talents",
-          icon: <UserCog size={20} />,
-          color: "green",
-          options: [
-            {
-              icon: <UserCheck size={20} />,
               title: "Recrutement",
-              description: "Gérez vos processus de recrutement et suivez les candidatures.",
+              description: "Attirez les meilleurs profils grâce à un processus de recrutement fluide et optimisé.",
               path: "/sirh/recrutement",
             },
             {
-              icon: <ClipboardList size={20} />,
+              icon: <Clock size={20} />,
+              title: "Onboarding & Offboarding",
+              description: "Assurez un accueil structuré des nouveaux arrivants et une sortie professionnelle des partants.",
+              path: "/sirh/onboarding-offboarding",
+            },
+            {
+              icon: <CalendarCheck size={20} />,
               title: "Entretiens & Évolution",
-              description: "Accompagnez chaque collaborateur dans son parcours professionnel.",
+              description: "Accompagnez chaque collaborateur dans son parcours professionnel avec des entretiens réguliers et ciblés.",
               path: "/sirh/entretiens-evolution",
             },
             {
-              icon: <GraduationCap size={20} />,
-              title: "Formation & Compétences",
-              description: "Déployez des plans de formation adaptés.",
-              path: "/sirh/formation-competences",
+              icon: <Book size={20} />,
+              title: "Formation",
+              description: "Déployez des plans de formation adaptés et suivez les acquis tout au long de l’année.",
+              path: "/sirh/formation",
+            },
+            {
+              icon: <Target size={20} />,
+              title: "Suivi des Objectifs & Performances",
+              description: "Fixez, suivez et ajustez les objectifs individuels ou collectifs en toute agilité.",
+              path: "/sirh/objectifs-performances",
             },
           ],
           linkText: "En savoir plus sur la gestion des talents",
           linkPath: "/sirh/gestion-talents-global",
         },
         {
-          id: "paie",
-          title: "Gestion de la paie",
-          icon: <FileText size={20} />,
+          id: "ytime",
+          title: "Y'Time",
+          icon: <Clock size={20} />,
+          color: "green",
+          options: [
+            {
+              icon: <UserCheck size={20} />,
+              title: "Absences & Congés",
+              description: "Planifiez, suivez et analysez les absences de vos collaborateurs en temps réel.",
+              path: "/sirh/absences-conges",
+            },
+            {
+              icon: <ClipboardList size={20} />,
+              title: "Planning & Présences",
+              description: "Gérez les horaires et les emplois du temps de vos équipes facilement",
+              path: "/sirh/planning-presences",
+            },
+          ],
+          linkText: "En savoir plus sur la gestion des temps",
+          linkPath: "/sirh/gestion-temps-global",
+        },
+        {
+          id: "yexpense",
+          title: "Y’Expense",
+          icon: <Calculator size={20} />,
           color: "purple",
           options: [
             {
               icon: <FileText size={20} />,
-              title: "Bulletins de salaire",
-              description: "Générez et distribuez les fiches de paie automatiquement.",
-              path: "/sirh/bulletins-salaire",
+              title: "Notes de frais",
+              description: "Déclarez, contrôlez et validez les dépenses professionnelles sans paperasse.",
+              path: "/sirh/notes-de-frais",
+            },
+            {
+              icon: <RefreshCcw size={20} />,
+              title: "Demandes d’acompte",
+              description: "Anticipez les besoins de trésorerie de vos équipes terrain.",
+              path: "/sirh/demandes-acompte",
             },
           ],
-          linkText: "En savoir plus sur la paie",
-          linkPath: "/sirh/gestion-paie-global",
+          linkText: "En savoir plus sur la gestion des dépenses",
+          linkPath: "/sirh/gestion-depenses-global",
         },
         {
-          id: "finances",
-          title: "Finances",
-          icon: <BarChart2 size={20} />,
-          color: "indigo",
+          id: "plus",
+          title: "Les + de MyYiel",
+          icon: <Sparkles size={20} />,
+          color: "orange",
           options: [
             {
-              icon: <BarChart2 size={20} />,
-              title: "Rapports financiers",
-              description: "Analysez vos dépenses RH avec des rapports détaillés.",
-              path: "/sirh/rapports-financiers",
+              icon: <DownloadCloud size={20} />,
+              title: "GED",
+              description: "Stockez et partagez facilement tous les documents RH : contrats, attestations, fiches de paie, certificats…",
+              path: "/sirh/ged",
             },
-          ],
-          linkText: "En savoir plus sur les finances",
-          linkPath: "/sirh/finances-global",
+            {
+              icon: <Grid size={20} />,
+              title: "Portail collaborateur",
+              description: "Un espace dédié pour chaque collaborateur, accessible depuis n'importe quel appareil.",
+              path: "/sirh/portail-collaborateur",
+            },
+            {
+              icon: <BarChart2 size={20} />,
+              title: "Tableau de bord RH & KPIs",
+              description: "Suivez vos indicateurs clés : absentéisme, mobilité, formation, performance et plus encore, en temps réel.",
+              path: "/sirh/tableau-de-bord",
+            },
+            {
+              icon: <Users size={20} />,
+              title: "Organigramme",
+              description: "Visualisez la structure de l’entreprise, les rattachements hiérarchiques et les fiches de poste en un clic.",
+              path: "/sirh/organigramme",
+            },
+            {
+              icon: <Newspaper size={20} />,
+              title: "Intranet & vie d’entreprise",
+              description: "Diffusez vos actualités internes, événements, sondages ou annonces officielles depuis l’espace collaborateur.",
+              path: "/sirh/intranet-vie-entreprise",
+            },
+          ]
         },
       ],
-      yTalentBlock: {
-        title: "Y'Talent",
-        items: [
-          {
-            icon: <UserCheck size={20} />,
-            title: "Recrutement & Attractivité",
-            description: "Attirez les meilleurs profils grâce à un processus de recrutement fluide et optimisé.",
-            path: "/y-talent/recrutement-attractivite",
-          },
-          {
-            icon: <RefreshCcw size={20} />,
-            title: "Parcours d'Intégration & de Sortie",
-            description: "Assurez un accueil structuré des nouveaux arrivants.",
-            path: "/y-talent/integration-sortie",
-          },
-          {
-            icon: <GraduationCap size={20} />,
-            title: "Formation & Montée en Compétences",
-            description: "Déployez des plans de formation adaptés.",
-            path: "/y-talent/formation-competences",
-          },
-        ],
-        link: {
-          text: "Découvrir Y'Talent",
-          path: "/y-talent",
-        },
-      },
     },
     nous: {
       title: "Yielers",
@@ -328,8 +337,8 @@ const Header = () => {
           icon: <Calculator size={20} />,
           title: "Calculateur ROI",
           description: "Mesurez l'impact du logiciel",
-          path: "/calculateur",
           badge: "Outil",
+          path: "/calculateur",
           color: "purple"
         },
         {
@@ -351,13 +360,13 @@ const Header = () => {
     },
   }), []);
 
-  // Memoized navigation links
+  // Memoized navigation links with added icons
   const navLinks = useMemo(() => [
-    { title: "Accueil", path: "/", dropdown: false },
-    { title: "Nos offres", dropdown: true, menuKey: "NosOffres" },
-    { title: "Plateforme SIRH MyYiel", dropdown: true, menuKey: "solutions" },
-    { title: "Yielers", dropdown: true, menuKey: "nous" },
-    { title: "Ressources", dropdown: true, menuKey: "ressources" },
+    { title: "Accueil", path: "/", dropdown: false, icon: <Home size={20} /> },
+    { title: "Nos offres", dropdown: true, menuKey: "NosOffres", icon: <Briefcase size={20} /> },
+    { title: "Plateforme SIRH MyYiel", dropdown: true, menuKey: "solutions", icon: <Building size={20} /> },
+    { title: "Yielers", dropdown: true, menuKey: "nous", icon: <Users size={20} /> },
+    { title: "Ressources", dropdown: true, menuKey: "ressources", icon: <Book size={20} /> },
   ], []);
 
   // Effect to handle scroll for header styling
@@ -374,23 +383,28 @@ const Header = () => {
     const currentPath = location.pathname;
 
     const findMatchingNavLink = () => {
+      // Direct path match
       const directMatch = navLinks.find((link) => link.path === currentPath);
       if (directMatch) {
         return directMatch.title;
       }
 
+      // Check dropdown menus for path matches
       for (const navLink of navLinks) {
         if (navLink.dropdown && menuData[navLink.menuKey]) {
           const menu = menuData[navLink.menuKey];
 
+          // Check if the main navigation path for the dropdown matches
           if (menu.navigate === currentPath) {
             return navLink.title;
           }
 
+          // Check direct items within the dropdown
           if (menu.items?.some((item) => item.path === currentPath)) {
             return navLink.title;
           }
 
+          // Special handling for the 'solutions' (SIRH) menu due to nested options
           if (navLink.menuKey === "solutions") {
             const hasMatchingSirhOption = menu.items.some(topItem =>
               topItem.options?.some(option => option.path === currentPath)
@@ -399,16 +413,10 @@ const Header = () => {
               return navLink.title;
             }
           }
-
-          if (menu.yTalentBlock?.items?.some((item) => item.path === currentPath)) {
-            return navLink.title;
-          }
-          if (menu.yTalentBlock?.link?.path === currentPath) {
-            return navLink.title;
-          }
         }
       }
 
+      // Default to "Accueil" if no specific path matches
       if (currentPath === "/" || currentPath === "") {
         return "Accueil";
       }
@@ -464,17 +472,18 @@ const Header = () => {
   // Handles navigation and loading state
   const handleLinkClick = (linkTitle, path) => {
     setIsLoading(true);
-    setActiveLink(linkTitle);
+    setActiveLink(linkTitle); // Set activeLink when a link is clicked
     setActiveMenu(null); // Close desktop dropdown
     setActiveSirhSection(null); // Reset SIRH section
     setIsOpen(false); // Close mobile menu
     setActiveMobileMenu(null); // Close mobile main dropdown
     setActiveMobileSubMenu(null); // Close mobile sub-dropdown
 
+    // Simulate network delay for loading effect
     setTimeout(() => {
       setIsLoading(false);
       if (path) navigate(path);
-    }, 500); // Simulate network delay
+    }, 500);
   };
 
   const handleSearch = (e) => {
@@ -517,12 +526,9 @@ const Header = () => {
   };
 
   // Component for the "Plateforme SIRH MyYiel" desktop dropdown
-  const PlatformSIRHMenuCard = ({ hoveredSection, setHoveredSection }) => { // Receive as props
+  const PlatformSIRHMenuCard = ({ hoveredSection, setHoveredSection }) => {
     const menu = menuData.solutions;
     const [isAnimating, setIsAnimating] = useState(false); // For transition effect on content change
-
-    // No longer need a local `hoveredSection` state, it's passed from parent
-    // The `useEffect` to set default is now handled in `handleMouseEnterMenu`
 
     // Handles the hover state for the left sidebar sections
     const handleSectionHover = (sectionId) => {
@@ -548,14 +554,13 @@ const Header = () => {
             : "opacity-0 invisible translate-y-[-10px] scale-95"
         } bg-white shadow-2xl rounded-2xl w-auto p-0 transition-all duration-500 ease-out left-1/2 -translate-x-1/2 z-50 mt-4 border border-gray-100`}
         style={{ width: `${menu.width}px` }}
-        // IMPORTANT: Add mouse event handlers here for the entire dropdown
-        onMouseEnter={() => clearTimeout(debounceTimeoutRef.current)} // Clear close timeout when mouse enters dropdown
-        onMouseLeave={handleMouseLeaveMenu} // Apply debounce when mouse leaves the dropdown
+        onMouseEnter={() => clearTimeout(debounceTimeoutRef.current)}
+        onMouseLeave={handleMouseLeaveMenu}
       >
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-4 bg-white transform rotate-45 border-l border-t border-gray-100"></div>
 
         <div className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="md:col-span-2 flex flex-col md:flex-row bg-gradient-to-br from-gray-50 to-blue-50/30 rounded-xl overflow-hidden border border-gray-100">
               {/* Left Sidebar for SIRH modules */}
               <div className="w-full md:w-1/3 bg-white/80 backdrop-blur-sm p-6 space-y-2">
@@ -566,11 +571,11 @@ const Header = () => {
                 {menu.items.map((item) => (
                   <div
                     key={item.id}
-                    onMouseEnter={() => handleSectionHover(item.id)} // Hover event to update content
+                    onMouseEnter={() => handleSectionHover(item.id)}
                     className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all duration-300 group ${
                       hoveredSection === item.id
-                        ? "bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white shadow-lg transform scale-105" // Active state
-                        : "hover:bg-white hover:shadow-md text-[#2f365b]" // Hover state for non-active
+                        ? "bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white shadow-lg transform scale-105"
+                        : "hover:bg-white hover:shadow-md text-[#2f365b]"
                     }`}
                   >
                     <div className={`p-2 rounded-full transition-all duration-300 ${
@@ -589,12 +594,12 @@ const Header = () => {
               <div className="w-full md:w-2/3 p-6 bg-white">
                 <div className={`transition-all duration-300 ${isAnimating ? 'opacity-50 transform translate-y-2' : 'opacity-100 transform translate-y-0'}`}>
                   <h3 className="font-bold text-xl text-[#2f365b] mb-6 flex items-center gap-2">
-                    {currentOptions?.title || "Sélectionnez une option"}
+                    {currentOptions?.title || "Sélectionnez un module"}
                     <ArrowRight size={16} className="text-[#ea532b]" />
                   </h3>
 
                   {currentOptions?.options.length > 0 ? (
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {currentOptions.options.map((opt, idx) => (
                         <div
                           key={idx}
@@ -619,7 +624,7 @@ const Header = () => {
                       ))}
 
                       {currentOptions.linkText && (
-                        <div className="mt-6 pt-4 border-t border-gray-200">
+                        <div className="mt-6 pt-4 border-t border-gray-200 md:col-span-2">
                           <button
                             onClick={() => handleLinkClick(currentOptions.linkText, currentOptions.linkPath)}
                             className="text-[#ea532b] font-medium hover:text-[#d44620] flex items-center gap-2 transition-all duration-300 group"
@@ -631,66 +636,11 @@ const Header = () => {
                       )}
                     </div>
                   ) : (
-                    <p className="text-gray-500 text-sm">Découvrez plus de détails sur cette section.</p>
+                    <p className="text-gray-500 text-sm">Sélectionnez un module dans le menu de gauche pour découvrir ses fonctionnalités.</p>
                   )}
                 </div>
               </div>
             </div>
-
-            {/* Y'Talent Block - part of the SIRH menu */}
-            {menu.yTalentBlock && (
-              <div className="md:col-span-1 bg-gradient-to-br from-[#ea532b]/5 via-orange-50 to-red-50 p-6 rounded-xl border border-[#ea532b]/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#ea532b]/10 to-transparent rounded-bl-full"></div>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="p-2 bg-gradient-to-br from-[#ea532b] to-[#d44620] rounded-full">
-                      <Sparkles size={18} className="text-white" />
-                    </div>
-                    <h4 className="font-bold text-lg text-[#2f365b] text-nowrap">{menu.yTalentBlock.title}</h4>
-                  </div>
-
-                  <p className="text-gray-700 text-sm mb-6 leading-relaxed">
-                    Explorez nos modules de gestion des talents pour accompagner vos collaborateurs.
-                  </p>
-
-                  <div className="space-y-4 mb-6">
-                    {menu.yTalentBlock.items.map((subItem, subIdx) => (
-                      <div
-                        key={subIdx}
-                        className="flex items-start gap-3 cursor-pointer group p-3 hover:bg-white/60 rounded-lg transition-all duration-300"
-                        onClick={() => handleLinkClick(subItem.title, subItem.path)}
-                      >
-                        <div className="p-1.5 bg-[#ea532b]/10 group-hover:bg-[#ea532b] rounded-full transition-all duration-300">
-                          {React.cloneElement(subItem.icon, {
-                            size: 16,
-                            className: "text-[#ea532b] group-hover:text-white transition-colors duration-300",
-                          })}
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-medium text-[#2f365b] group-hover:text-[#ea532b] transition-colors duration-300 text-sm text-nowrap">
-                            {subItem.title}
-                          </p>
-                          <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                            {subItem.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {menu.yTalentBlock.link && (
-                    <button
-                      onClick={() => handleLinkClick(menu.yTalentBlock.link.text, menu.yTalentBlock.link.path)}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white font-medium rounded-xl hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                    >
-                      {menu.yTalentBlock.link.text}
-                      <ArrowRight size={16} />
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -706,7 +656,6 @@ const Header = () => {
     if (menu.position === "right") positionClass = "right-0";
     else if (menu.position === "left") positionClass = "left-0";
 
-    // Pass activeSirhSection and its setter to PlatformSIRHMenuCard
     if (menuKey === "solutions") {
       return <PlatformSIRHMenuCard hoveredSection={activeSirhSection} setHoveredSection={setActiveSirhSection} />;
     }
@@ -720,9 +669,8 @@ const Header = () => {
             : "opacity-0 invisible translate-y-[-10px] scale-95"
         } bg-white shadow-2xl rounded-2xl w-auto p-0 transition-all duration-500 ease-out ${positionClass} z-50 mt-4 border border-gray-100`}
         style={{ width: `${menu.width}px` }}
-        // IMPORTANT: Add mouse event handlers here for the entire dropdown
-        onMouseEnter={() => clearTimeout(debounceTimeoutRef.current)} // Clear close timeout when mouse enters dropdown
-        onMouseLeave={handleMouseLeaveMenu} // Apply debounce when mouse leaves the dropdown
+        onMouseEnter={() => clearTimeout(debounceTimeoutRef.current)}
+        onMouseLeave={handleMouseLeaveMenu}
       >
         <div className="absolute -top-2 left-1/2 -translate-x-1/2 h-4 w-4 bg-white transform rotate-45 border-l border-t border-gray-100"></div>
 
@@ -776,40 +724,46 @@ const Header = () => {
     );
   };
 
-  // Determines if a mobile navigation link is active
-  const isMobileNavLinkActive = (link, currentPath) => {
-    if (link.path && link.path === currentPath) {
+  // Determines if a navigation link is active based on current path or activeLink state
+  const isNavLinkActive = (link) => {
+    // Primary check: if the link's title matches the activeLink state
+    if (link.title === activeLink) {
       return true;
     }
-    if (link.dropdown && menuData[link.menuKey]?.navigate === currentPath) {
-      return true;
-    }
-    if (link.dropdown && menuData[link.menuKey]?.items?.some(item => item.path === currentPath)) {
+
+    // Fallback/additional check: if current path directly matches the link's path
+    // This is useful for direct links like "Accueil"
+    if (link.path && location.pathname === link.path) {
         return true;
     }
-    // Special check for SIRH menu's nested paths
-    if (link.menuKey === "solutions" && menuData.solutions) {
-        const sirhMenu = menuData.solutions;
-        if (sirhMenu.items?.some(section => section.path === currentPath)) {
+
+    // For dropdowns, check if any of their contained paths match the current location
+    if (link.dropdown && menuData[link.menuKey]) {
+        const menu = menuData[link.menuKey];
+
+        // Check if the main navigation path for the dropdown matches
+        if (menu.navigate && location.pathname === menu.navigate) {
             return true;
         }
-        if (sirhMenu.items?.some(section => section.options?.some(option => option.path === currentPath))) {
+
+        // Check direct items within the dropdown
+        if (menu.items?.some((item) => item.path === location.pathname)) {
             return true;
         }
-        if (sirhMenu.yTalentBlock?.items?.some(item => item.path === currentPath)) {
-            return true;
-        }
-        if (sirhMenu.yTalentBlock?.link?.path === currentPath) {
-            return true;
+
+        // Special handling for the 'solutions' (SIRH) menu due to nested options
+        if (link.menuKey === "solutions") {
+            const hasMatchingSirhOption = menu.items.some(topItem =>
+                topItem.options?.some(option => option.path === location.pathname)
+            );
+            if (hasMatchingSirhOption) {
+                return true;
+            }
         }
     }
     return false;
-  };
+};
 
-  // Determines if a desktop navigation link is active (uses the same logic as mobile for consistency)
-  const isNavLinkActive = (link) => {
-    return isMobileNavLinkActive(link, location.pathname);
-  };
 
   // Renders items for the mobile dropdown menus
   const renderMobileMenuItems = (menuKey) => {
@@ -881,39 +835,6 @@ const Header = () => {
               </div>
             </div>
           ))}
-          {/* Y'Talent block for SIRH on mobile */}
-          <div className="pl-4 pt-4 mt-2 border-t border-gray-200">
-            <h4 className="font-bold text-lg text-[#2f365b] mb-3 flex items-center gap-2">
-              <Sparkles size={18} className="text-[#ea532b]" />
-              {menu.yTalentBlock.title}
-            </h4>
-            <div className="space-y-1">
-              {menu.yTalentBlock.items.map((subItem, subIdx) => (
-                <button
-                  key={`y-talent-mobile-${subIdx}`}
-                  onClick={() => handleLinkClick(subItem.title, subItem.path)}
-                  className="w-full flex items-center space-x-3 px-4 py-3 text-left hover:bg-gray-50 rounded-xl transition-all duration-300"
-                >
-                  <div className="p-2 rounded-lg bg-[#ea532b]/10">
-                    {React.cloneElement(subItem.icon, { size: 16, className: "text-[#ea532b]" })}
-                  </div>
-                  <div>
-                    <span className="font-medium text-[#2f365b] text-nowrap">{subItem.title}</span>
-                    <p className="text-sm text-gray-600">{subItem.description}</p>
-                  </div>
-                </button>
-              ))}
-              {menu.yTalentBlock.link && (
-                <button
-                  onClick={() => handleLinkClick(menu.yTalentBlock.link.text, menu.yTalentBlock.link.path)}
-                  className="w-full flex items-center space-x-2 px-4 py-3 text-left text-[#ea532b] hover:underline rounded-xl transition-all duration-300"
-                >
-                  <span>{menu.yTalentBlock.link.text}</span>
-                  <ArrowRight size={16} />
-                </button>
-              )}
-            </div>
-          </div>
         </div>
       );
     }
@@ -979,41 +900,36 @@ const Header = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div
-      className="flex-shrink-0 flex items-center cursor-pointer"
-      onClick={() => handleLinkClick("Accueil", "/")}
-    >
-      {/* Logo dans un fond dégradé */}
-      <div className="w-10 h-10 bg-gradient-to-br from-[#ea532b] to-[#d44620] rounded-xl flex items-center justify-center shadow-lg">
-        <img
-          src="../logo.webp"
-          alt="YIEL Logo"
-          className="w-full h-full object-contain rounded-xl "
-        />
-      </div>
+              className="flex-shrink-0 flex items-center cursor-pointer"
+              onClick={() => handleLinkClick("Accueil", "/")}
+            >
+              {/* Logo dans un fond dégradé */}
+              <div className="w-10 h-10 bg-gradient-to-br from-[#ea532b] to-[#d44620] rounded-xl flex items-center justify-center shadow-lg">
+                <img
+                  src="../logo.webp"
+                  alt="YIEL Logo"
+                  className="w-full h-full object-contain rounded-xl "
+                />
+              </div>
 
-      {/* Texte à droite du logo */}
-      <div className="ml-3">
-        <span className={`font-bold text-xl whitespace-nowrap block ${scrolled ? "text-[#2f365b]" : "text-amber-50" }`}>
-          YIEL
-        </span>
-        <div className="text-sm text-[#ea532b] font-semibold">
-          Système d'Information RH
-        </div>
-      </div>
-    </div>
-            
+              {/* Texte à droite du logo */}
+              <div className="ml-3">
+                <span className={`font-bold text-xl whitespace-nowrap block ${scrolled ? "text-[#2f365b]" : "text-white" }`}>
+                  YIEL
+                </span>
+                <div className="text-sm text-[#ea532b] font-semibold">
+                  Système d'Information RH
+                </div>
+              </div>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
               {navLinks.map((link) => (
                 <div
                   key={link.title}
-                  className="relative"
-                  // Handle mouse enter on the nav link itself
-                  onMouseEnter={() =>
-                    link.dropdown && handleMouseEnterMenu(link.menuKey)
-                  }
-                  // Handle mouse leave on the nav link, applying the debounce
+                  className="relative group" // Added group for potential hover effects on parent
+                  onMouseEnter={() => link.dropdown && handleMouseEnterMenu(link.menuKey)}
                   onMouseLeave={link.dropdown ? handleMouseLeaveMenu : null}
                 >
                   <button
@@ -1026,6 +942,19 @@ const Header = () => {
                         : "text-white hover:text-[#ea532b] hover:bg-white/10"
                     }`}
                   >
+                    {/* Render icon for main nav links */}
+                    {link.icon && (
+                      <span className="mr-2">
+                        {React.cloneElement(link.icon, {
+                          size: 18,
+                          className: isNavLinkActive(link)
+                            ? "text-[#ea532b]"
+                            : (scrolled || isOpen)
+                            ? "text-[#2f365b] group-hover:text-[#ea532b]" // Group-hover for desktop non-active
+                            : "text-white group-hover:text-[#ea532b]", // Group-hover for desktop non-active, transparent header
+                        })}
+                      </span>
+                    )}
                     {link.title}
                     {link.dropdown && (
                       <ChevronDown
@@ -1036,7 +965,6 @@ const Header = () => {
                       />
                     )}
                   </button>
-                  {/* The dropdown itself also needs onMouseEnter/onMouseLeave */}
                   {link.dropdown && renderDesktopDropdown(link.menuKey)}
                 </div>
               ))}
@@ -1152,12 +1080,23 @@ const Header = () => {
                       }
                     }}
                     className={`w-full flex items-center justify-between px-4 py-3 text-left font-medium rounded-xl transition-all duration-300 ${
-                      isMobileNavLinkActive(link, location.pathname)
+                      isNavLinkActive(link) // Use the centralized active check
                         ? "text-[#ea532b] bg-gradient-to-r from-[#ea532b]/10 to-[#ea532b]/5"
                         : "text-[#2f365b] hover:bg-gray-50"
                     }`}
                   >
-                    <span className="text-nowrap">{link.title}</span>
+                    <div className="flex items-center space-x-3">
+                        {/* Render icon for mobile main nav links */}
+                        {link.icon && (
+                            <span className={`p-2 rounded-lg ${isNavLinkActive(link) ? "bg-[#ea532b]/10" : "bg-gray-50"}`}>
+                                {React.cloneElement(link.icon, {
+                                    size: 20,
+                                    className: isNavLinkActive(link) ? "text-[#ea532b]" : "text-gray-600",
+                                })}
+                            </span>
+                        )}
+                        <span className="text-nowrap">{link.title}</span>
+                    </div>
                     {link.dropdown && (
                       <ChevronDown
                         size={16}
