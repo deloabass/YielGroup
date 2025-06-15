@@ -36,6 +36,7 @@ import {
   Sparkles,
   Zap,
   Home,
+  PenLine,
 } from "lucide-react";
 
 const Header = () => {
@@ -266,6 +267,12 @@ const Header = () => {
               description: "Diffusez vos actualités internes, événements, sondages ou annonces officielles depuis l’espace collaborateur.",
               path: "/sirh/intranet-vie-entreprise",
             },
+            {
+              icon: <PenLine size={20} />,
+              title: "Y’SiGn",
+              description: "la signature électronique dans le module.",
+              path: "/sirh/siGn",
+            }
           ]
         },
       ],
