@@ -539,10 +539,10 @@ const Header = () => {
     // Handles the hover state for the left sidebar sections
     const handleSectionHover = (sectionId) => {
       if (hoveredSection !== sectionId) {
-        setIsAnimating(true); // Start animation
+        setIsAnimating(true); 
         setTimeout(() => {
           setHoveredSection(sectionId); // Update parent state
-          setIsAnimating(false); // End animation
+          setIsAnimating(false); 
         }, 150); // Small delay to allow animation
       }
     };
