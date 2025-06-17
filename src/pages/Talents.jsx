@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   Users,
   UserPlus,
@@ -41,13 +41,27 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
+import { useSearchParams } from "react-router-dom";
+
+
+
 
 
 function Talents() {
-  const [activeTab, setActiveTab] = useState("recrutement");
+  const [seachParams] = useSearchParams();
+  const id = seachParams.get("id");
+
+
+
+  const [activeTab, setActiveTab] = useState(id || modules[0].id);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
+  useEffect(() => {
+    if (id && modules.some((mod) => mod.id === id)) {
+      setActiveTab(id);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
   // Animation au scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,6 +79,7 @@ function Talents() {
   }, []);
 
   // Modules Y'Talent
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const modules = [
     {
       id: "recrutement",
@@ -222,6 +237,11 @@ function Talents() {
       ]
     }
   ];
+  const selectedModule = useMemo(() => {
+    return modules.find((mod) => mod.id === activeTab) || modules[0];
+  }, [activeTab, modules]);
+
+  useEffect(() => console.log(`Module sélectionné : ${selectedModule.title}`), [selectedModule])
 
   // Données d'exemple pour le dashboard
   const dashboardStats = [
@@ -400,7 +420,7 @@ function Talents() {
           {modules.map((module) => (
             <div
               key={module.id}
-              className={`${activeTab === module.id ? "block" : "hidden"}`}
+              className={`${selectedModule.id === module.id ? "block" : "hidden"}`}
             >
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2">

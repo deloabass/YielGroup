@@ -43,6 +43,7 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -51,7 +52,6 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(null);
   const [activeMobileSubMenu, setActiveMobileSubMenu] = useState(null);
   const [activeLink, setActiveLink] = useState("Accueil");
-
   const [isLoading, setIsLoading] = useState(false);
 
   // New state to manage the active section within the SIRH dropdown
@@ -157,31 +157,31 @@ const Header = () => {
               icon: <CalendarDays size={20} />,
               title: "Recrutement",
               description: "Attirez les meilleurs profils grâce à un processus de recrutement fluide et optimisé.",
-              path: "/sirh/recrutement",
+              path: "/talents?id=recrutement",
             },
             {
               icon: <Clock size={20} />,
               title: "Onboarding & Offboarding",
               description: "Assurez un accueil structuré des nouveaux arrivants et une sortie professionnelle des partants.",
-              path: "/sirh/onboarding-offboarding",
+              path: "/talents?id=onboarding",
             },
             {
               icon: <CalendarCheck size={20} />,
               title: "Entretiens & Évolution",
               description: "Accompagnez chaque collaborateur dans son parcours professionnel avec des entretiens réguliers et ciblés.",
-              path: "/sirh/entretiens-evolution",
+              path: "/talents?id=entretiens",
             },
             {
               icon: <Book size={20} />,
               title: "Formation",
               description: "Déployez des plans de formation adaptés et suivez les acquis tout au long de l’année.",
-              path: "/sirh/formation",
+              path: "/talents?id=formation",
             },
             {
               icon: <Target size={20} />,
               title: "Suivi des Objectifs & Performances",
               description: "Fixez, suivez et ajustez les objectifs individuels ou collectifs en toute agilité.",
-              path: "/sirh/objectifs-performances",
+              path: "/talents?id=performance",
             },
           ],
           linkText: "En savoir plus sur la gestion des talents",
@@ -732,43 +732,38 @@ const Header = () => {
 
   // Determines if a navigation link is active based on current path or activeLink state
   const isNavLinkActive = (link) => {
-    // Primary check: if the link's title matches the activeLink state
-    if (link.title === activeLink) {
-      return true;
+    const fullPath = location.pathname + location.search;
+  
+    // 1. Ne rendre "Accueil" actif QUE si on est exactement sur "/"
+    if (link.path === "/" && location.pathname !== "/") {
+      return false;
     }
-
-    // Fallback/additional check: if current path directly matches the link's path
-    // This is useful for direct links like "Accueil"
-    if (link.path && location.pathname === link.path) {
-        return true;
-    }
-
-    // For dropdowns, check if any of their contained paths match the current location
+  
+    // 2. Si le titre du lien correspond à celui cliqué
+    if (link.title === activeLink) return true;
+  
+    // 3. Si le lien correspond exactement à la route actuelle (avec query params)
+    if (link.path && fullPath === link.path) return true;
+  
+    // 4. Gestion des menus déroulants
     if (link.dropdown && menuData[link.menuKey]) {
-        const menu = menuData[link.menuKey];
-
-        // Check if the main navigation path for the dropdown matches
-        if (menu.navigate && location.pathname === menu.navigate) {
-            return true;
-        }
-
-        // Check direct items within the dropdown
-        if (menu.items?.some((item) => item.path === location.pathname)) {
-            return true;
-        }
-
-        // Special handling for the 'solutions' (SIRH) menu due to nested options
-        if (link.menuKey === "solutions") {
-            const hasMatchingSirhOption = menu.items.some(topItem =>
-                topItem.options?.some(option => option.path === location.pathname)
-            );
-            if (hasMatchingSirhOption) {
-                return true;
-            }
-        }
+      const menu = menuData[link.menuKey];
+  
+      if (menu.navigate && fullPath === menu.navigate) return true;
+  
+      if (menu.items?.some((item) => item.path === fullPath)) return true;
+  
+      if (link.menuKey === "solutions") {
+        const hasMatchingSirhOption = menu.items.some(topItem =>
+          topItem.options?.some(option => option.path === fullPath)
+        );
+        if (hasMatchingSirhOption) return true;
+      }
     }
+  
     return false;
-};
+  };
+  
 
 
   // Renders items for the mobile dropdown menus
