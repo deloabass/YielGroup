@@ -76,8 +76,7 @@ function Talents() {
   }, []);
 
   // Modules Y'Talent data
-  const modules = useMemo(
-    () => [
+  const modules = useMemo(() => [
       {
         id: "recrutement",
         title: "Recrutement",
