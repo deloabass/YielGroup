@@ -66,7 +66,8 @@ function Talents() {
       {
         id: "recrutement",
         title: "Recrutement",
-        image: "https://img.freepik.com/vecteurs-libre/illustration-du-concept-entrevue-emploi_114360-24598.jpg?semt=ais_hybrid&w=740",
+        image: "./cardeRecrutement.png",
+        // image: "https://img.freepik.com/vecteurs-libre/illustration-du-concept-entrevue-emploi_114360-24598.jpg?semt=ais_hybrid&w=740",
         subtitle: "Attirez, sélectionnez et intégrez les meilleurs talents",
         icon: <UserPlus size={24} />,
         color: "bg-[#2f365b]",
@@ -639,13 +640,9 @@ function Talents() {
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Statut</span>
                       <span
-                        className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          employee.status === "Actif"
-                            ? "bg-green-100 text-green-800"
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${ employee.status === "Actif" ? "bg-green-100 text-green-800"
                             : employee.status === "En Formation"
-                            ? "bg-blue-100 text-blue-800"
-                            : "bg-orange-100 text-orange-800"
-                        }`}
+                            ? "bg-blue-100 text-blue-800" : "bg-orange-100 text-orange-800"}`}
                       >
                         {employee.status}
                       </span>
