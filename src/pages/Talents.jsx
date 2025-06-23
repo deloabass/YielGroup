@@ -176,13 +176,11 @@ function Talents() {
         color: "bg-[#ea532b]",
         accent: "text-[#2f365b]",
         image: "https://img.freepik.com/vecteurs-libre/gens-plats-organiques-illustration-formation-commerciale_23-2148957256.jpg", // New Image
-        description:
-          "La montée en compétences au cœur de la performance durable. Pilotez votre plan de formation de A à Z.",
+        description: "La montée en compétences au cœur de la performance durable. Pilotez votre plan de formation de A à Z.",
         features: [
           {
             title: "Plan de Formation",
-            description:
-              "Recueil automatisé des besoins et construction budgétée",
+            description: "Recueil automatisé des besoins et construction budgétée",
             icon: <Target size={20} />,
           },
           {
@@ -210,31 +208,26 @@ function Talents() {
         color: "bg-[#2f365b]",
         accent: "text-[#ea532b]",
         image: "https://img.freepik.com/vecteurs-premium/illustration-vectorielle-evaluation-performances-du-concept-retroaction-clients_675567-4026.jpg?semt=ais_hybrid&w=740", // New Image
-        description:
-          "Transformez vos ambitions en actions concrètes. Alignez les efforts individuels avec la stratégie globale.",
+        description: "Transformez vos ambitions en actions concrètes. Alignez les efforts individuels avec la stratégie globale.",
         features: [
           {
             title: "Objectifs Sur-Mesure",
-            description:
-              "Individuels, équipe ou collectifs avec pondération personnalisée",
+            description: "Individuels, équipe ou collectifs avec pondération personnalisée",
             icon: <Target size={20} />,
           },
           {
             title: "Suivi Dynamique",
-            description:
-              "Interface claire avec commentaires et feedbacks continus",
+            description: "Interface claire avec commentaires et feedbacks continus",
             icon: <Eye size={20} />,
           },
           {
             title: "Évaluation Collaborative",
-            description:
-              "Autoévaluation et liens avec les campagnes d'entretiens",
+            description: "Autoévaluation et liens avec les campagnes d'entretiens",
             icon: <Users size={20} />,
           },
           {
             title: "Pilotage Objectif",
-            description:
-              "Rapports analytiques pour primes, promotions et formations",
+            description: "Rapports analytiques pour primes, promotions et formations",
             icon: <Award size={20} />,
           },
         ],
@@ -247,7 +240,6 @@ function Talents() {
     return modules.find((mod) => mod.id === activeTab) || modules[0];
   }, [activeTab, modules]);
 
-  // console.log(`Module sélectionné : ${selectedModule.title}`); // Keep for debugging if needed
 
   // Sample data for the dashboard
   const dashboardStats = [

@@ -23,7 +23,7 @@ import Talents from "./pages/Talents";
 import Learn from "./pages/Learn";
 import Sign from "./pages/Sign";
 import Recrute from "./pages/Recrute";
-import Temps from "./pages/Temps";
+import Temes from "./pages/Temes";
 import NosValeurs from "./pages/NosValeurs";
 import TeamsYIELERS from "./pages/TeamsYIELERS";
 import NousContacter from "./pages/NousContacter";
@@ -64,7 +64,7 @@ function App() {
         <Route path="/learn" element={<Learn />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="/recrute" element={<Recrute />} />
-        <Route path="/time" element={<Temps />} />
+        <Route path="/time" element={<Temes />} />
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
         <Route path="/analytics-HR" element={<HrAnalytics />} />
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
