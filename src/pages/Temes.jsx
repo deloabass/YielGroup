@@ -6,22 +6,22 @@ import {
   BarChart3,
   Smartphone,
   ArrowRight,
-  PlayCircle,
   UserCheck,
   CalendarDays,
   Bell,
   TrendingUp,
   MapPin,
   Zap,
-  ChevronLeft, // Changed from ChevronDown for calendar navigation
-  ChevronRight, // Added for calendar navigation
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import Header from "../components/Header";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Temes() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id"); // To pre-select a feature based on URL param
   const [activeFeature, setActiveFeature] = useState("absences"); // State for active tab in features section
@@ -35,9 +35,8 @@ function Temes() {
     return () => clearInterval(timer);
   }, []);
 
-  // Define features outside of useMemo initially for cleaner dependency array
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const allFeatures = [
+  // Define and memoize features directly within useMemo
+  const features = useMemo(() => [
     {
       id: "absences",
       title: "Absences & Congés",
@@ -51,7 +50,8 @@ function Temes() {
         "Alertes personnalisées",
       ],
       mockup: "calendar",
-      footerText: "👉 Vos collaborateurs gagnent en autonomie, vos RH gagnent du temps."
+      footerText:
+        "👉 Vos collaborateurs gagnent en autonomie, vos RH gagnent du temps.",
     },
     {
       id: "planning",
@@ -66,19 +66,16 @@ function Temes() {
         "Gestion des imprévus",
       ],
       mockup: "schedule",
-      footerText: "👉 Un outil léger, pratique, et adapté à tous les secteurs."
+      footerText: "👉 Un outil léger, pratique, et adapté à tous les secteurs.",
     },
-  ];
-
-  // Memoize features
-  const features = useMemo(() => allFeatures, [allFeatures]);
+  ], []); // Empty dependency array as this data is static
 
   // Update active feature based on URL param
   useEffect(() => {
     if (id && features.some((mod) => mod.id === id)) {
       setActiveFeature(id);
     }
-  }, [id, features]); // Add 'features' to dependency array
+  }, [id, features]); // 'features' is a stable reference now due to useMemo
 
   // Memoize selected module for efficient rendering
   const selectedModule = useMemo(() => {
@@ -91,126 +88,149 @@ function Temes() {
       label: "Présents aujourd'hui",
       value: "187",
       icon: <UserCheck size={20} />,
-      color: "text-green-500", // Adjusted to standard green
-      bgColor: "bg-green-50", // Not used in current hero, but good for consistency
+      color: "text-green-400", // Adjusted for better contrast on dark background
+      bgColor: "bg-green-50",
     },
     {
       label: "En congé",
       value: "23",
       icon: <Calendar size={20} />,
-      color: "text-blue-500", // Adjusted to standard blue
+      color: "text-blue-400", // Adjusted
       bgColor: "bg-blue-50",
     },
     {
       label: "Demandes en attente",
       value: "8",
       icon: <Clock size={20} />,
-      color: "text-orange-500", // Adjusted to standard orange
+      color: "text-orange-400 animate-spin", // Adjusted
       bgColor: "bg-orange-50",
     },
     {
       label: "Heures ce mois",
       value: "3,247",
       icon: <BarChart3 size={20} />,
-      color: "text-indigo-500", // Changed for better contrast
+      color: "text-indigo-400", // Adjusted
       bgColor: "bg-indigo-50",
     },
   ];
-
   // FAQ data
   const faqs = [
     {
-      question:
-        "Est-ce que je peux utiliser Y'Time même si je n'ai jamais eu de système de pointage ou de gestion des congés ?",
-      answer:
-        "Oui, totalement. Y'Time a été conçu pour vous accompagner pas à pas, même si vous partez de zéro. L'outil est simple, clair, et vous pouvez commencer uniquement par la gestion des congés, puis activer les autres fonctionnalités à votre rythme.",
+      id: 1,
+      question: "Est-ce que je peux utiliser Y'Time même si je n'ai jamais eu de système de pointage ou de gestion des congés ?",
+      answer: "Oui, totalement. Y'Time a été conçu pour vous accompagner pas à pas, même si vous partez de zéro. L'outil est simple, clair, et vous pouvez commencer uniquement par la gestion des congés, puis activer les autres fonctionnalités à votre rythme.",
     },
     {
-      question:
-        "Mes collaborateurs ne sont pas tous à l'aise avec le digital, comment ça se passe ?",
-      answer:
-        "Pas besoin d'être un expert. Chaque salarié reçoit un accès simple, avec des boutons clairs pour faire une demande d'absence ou consulter son planning. Et s'ils ne peuvent pas se connecter, le RH peut tout saisir pour eux manuellement.",
+      id: 2,
+      question: "Mes collaborateurs ne sont pas tous à l'aise avec le digital, comment ça se passe ?",
+      answer: "Pas besoin d'être un expert. Chaque salarié reçoit un accès simple, avec des boutons clairs pour faire une demande d'absence ou consulter son planning. Et s'ils ne peuvent pas se connecter, le RH peut tout saisir pour eux manuellement.",
     },
     {
-      question:
-        "Est-ce que je peux adapter le planning aux horaires irréguliers ?",
-      answer:
-        "Oui, Y'Time prend en compte les réalités du terrain : horaires décalés, roulements, absences imprévues, jours fériés locaux… Vous construisez votre propre grille, à votre façon.",
+      id: 3,
+      question: "Est-ce que je peux adapter le planning aux horaires irréguliers ?",
+      answer: "Oui, Y'Time prend en compte les réalités du terrain : horaires décalés, roulements, absences imprévues, jours fériés locaux… Vous construisez votre propre grille, à votre façon.",
     },
     {
+      id: 4,
       question: "Vais-je devoir tout gérer moi-même chaque jour ?",
-      answer:
-        "Non. L'outil vous envoie des rappels, affiche les alertes importantes et automatise les tâches répétitives (calcul des soldes de congés, mise à jour des plannings…). Vous gardez le contrôle, mais sans la charge mentale.",
+      answer: "Non. L'outil vous envoie des rappels, affiche les alertes importantes et automatise les tâches répétitives (calcul des soldes de congés, mise à jour des plannings…). Vous gardez le contrôle, mais sans la charge mentale.",
     },
     {
+      id: 5,
       question: "Est-ce que c'est sécurisé et conforme ?",
-      answer:
-        "Oui. Toutes les données sont protégées et stockées en toute sécurité. Vous gardez un historique complet des absences et présences, en cas de contrôle ou de litige.",
+      answer: "Oui. Toutes les données sont protégées et stockées en toute sécurité. Vous gardez un historique complet des absences et présences, en cas de contrôle ou de litige.",
     },
   ];
 
   // --- Calendar Mockup Component ---
-  const CalendarMockup = () => (
-    <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
-      <div className="flex items-center justify-between mb-4">
-        <h4 className="font-semibold text-[#2f365b]">Janvier 2025</h4>
-        <div className="flex space-x-2">
-          <button className="p-1 hover:bg-gray-100 rounded">
-            <ChevronLeft size={16} className="text-gray-600" />
-          </button>
-          <button className="p-1 hover:bg-gray-100 rounded">
-            <ChevronRight size={16} className="text-gray-600" />
-          </button>
-        </div>
-      </div>
-      <div className="grid grid-cols-7 gap-1 mb-2">
-        {["L", "M", "M", "J", "V", "S", "D"].map((day, i) => (
-          <div
-            key={i}
-            className="text-center text-xs font-medium text-gray-500 p-2"
-          >
-            {day}
-          </div>
-        ))}
-      </div>
-      <div className="grid grid-cols-7 gap-1">
-        {Array.from({ length: 35 }, (_, i) => {
-          const day = i - 2; // Adjust to start days from 1
-          const isToday = day === 23 && new Date().getMonth() === 0 && new Date().getFullYear() === 2025; // Simulate current date more accurately for 2025
-          const hasLeave = [8, 12, 19, 26].includes(day); // Specific days with leave
-          const isWeekend = (i % 7 === 5 || i % 7 === 6); // Saturday and Sunday (0-indexed)
+  const CalendarMockup = () => {
+    // Current date for simulation in the mockup
+    const today = new Date();
+    const currentMonth = today.getMonth(); // 0-indexed
+    const currentYear = today.getFullYear();
 
-          return (
+    // Set the month for the mockup to January 2025 as per your initial mockup
+    const mockupMonth = 0; // January
+    const mockupYear = 2025;
+    const daysInMonth = new Date(mockupYear, mockupMonth + 1, 0).getDate();
+    const firstDayOfMonth = new Date(mockupYear, mockupMonth, 1).getDay(); // 0 for Sunday, 1 for Monday...
+
+    // Adjust firstDayOfMonth to start week on Monday (1 for Mon, 0 for Sun)
+    const startDayOffset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // If Sunday (0), map to 6 (end of week), else minus 1
+
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="font-semibold text-[#2f365b]">Janvier 2025</h4>
+          <div className="flex space-x-2">
+            <button className="p-1 hover:bg-gray-100 rounded">
+              <ChevronLeft size={16} className="text-gray-600" />
+            </button>
+            <button className="p-1 hover:bg-gray-100 rounded">
+              <ChevronRight size={16} className="text-gray-600" />
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-7 gap-1 mb-2">
+          {["L", "M", "M", "J", "V", "S", "D"].map((day, i) => (
             <div
               key={i}
-              className={`
-              aspect-square flex items-center justify-center text-sm relative rounded-lg
-              ${day > 0 && day <= 31 ? "hover:bg-gray-100 cursor-pointer" : "text-gray-300"}
-              ${isToday ? "bg-[#ea532b] text-white font-semibold" : ""}
-              ${hasLeave && !isToday ? "bg-blue-100 text-blue-700" : ""}
-              ${isWeekend && day > 0 && day <= 31 && !isToday && !hasLeave ? "text-gray-400" : ""}
-            `}
+              className="text-center text-xs font-medium text-gray-500 p-2"
             >
-              {day > 0 && day <= 31 ? day : ""}
-              {hasLeave && !isToday && (
-                <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-              )}
+              {day}
             </div>
-          );
-        })}
-      </div>
-      <div className="mt-4 space-y-2">
-        <div className="flex items-center text-xs">
-          <div className="w-3 h-3 bg-[#ea532b] rounded-sm mr-2"></div>
-          <span>Aujourd'hui</span>
+          ))}
         </div>
-        <div className="flex items-center text-xs">
-          <div className="w-3 h-3 bg-blue-100 rounded-sm mr-2"></div>
-          <span>Congés planifiés</span>
+        <div className="grid grid-cols-7 gap-1">
+          {Array.from({ length: daysInMonth + startDayOffset }, (_, i) => {
+            const day = i - startDayOffset + 1; // Actual day number
+            const isTodayInMockup =
+              day === today.getDate() && // Check if it's the 23rd
+              mockupMonth === currentMonth && // Check if it's January
+              mockupYear === currentYear; // Check if it's 2025
+            const hasLeave = [8, 12, 19, 26].includes(day); // Specific days with leave
+            const isWeekend = (i % 7 === 5 || i % 7 === 6); // Saturday and Sunday (0-indexed week from Monday)
+
+            return (
+              <div
+                key={i}
+                className={`
+                  aspect-square flex items-center justify-center text-sm relative rounded-lg
+                  ${
+                    day > 0 && day <= daysInMonth
+                      ? "hover:bg-gray-100 cursor-pointer"
+                      : "text-gray-300"
+                  }
+                  ${isTodayInMockup ? "bg-[#ea532b] text-white font-semibold" : ""}
+                  ${hasLeave && !isTodayInMockup ? "bg-blue-100 text-blue-700" : ""}
+                  ${
+                    isWeekend && day > 0 && day <= daysInMonth && !isTodayInMockup && !hasLeave
+                      ? "text-gray-400"
+                      : ""
+                  }
+                `}
+              >
+                {day > 0 && day <= daysInMonth ? day : ""}
+                {hasLeave && !isTodayInMockup && (
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-4 space-y-2">
+          <div className="flex items-center text-xs">
+            <div className="w-3 h-3 bg-[#ea532b] rounded-sm mr-2"></div>
+            <span>Aujourd'hui</span>
+          </div>
+          <div className="flex items-center text-xs">
+            <div className="w-3 h-3 bg-blue-100 rounded-sm mr-2"></div>
+            <span>Congés planifiés</span>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   // --- Schedule Mockup Component ---
   const ScheduleMockup = () => (
@@ -285,33 +305,34 @@ function Temes() {
       </div>
     </div>
   );
+  const abassa = 300
+  console.log(`${abassa}`);
+  
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
 
       {/* --- Hero Section --- */}
-      <section className="relative py-28 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white overflow-hidden">
+      <section
+        id="hero"
+        className="relative py-28 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white overflow-hidden"
+      >
         <div className="absolute inset-0 overflow-hidden">
-          {/* Background VisionYiel image */}
           <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
         </div>
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Darker gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2f365b]/90 to-[#3a4272]/90"></div>
-          {/* Animated blur circles */}
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/10 rounded-full blur-2xl animate-pulse delay-700"></div>
-            <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2f365b]/0 to-[#3a4272]/90"></div>
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
         </div>
 
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column: Text Content */}
             <div>
-              <span className="inline-block px-4 py-2 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6 animate-bounce">
+              <span className="inline-block px-4 py-2 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
                 Y'TIME - GESTION DU TEMPS
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
@@ -356,16 +377,15 @@ function Temes() {
               </div>
 
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center group">
+                <button
+                  onClick={() => navigate("/demo")}
+                  className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center group"
+                >
                   Découvrir Y'Time
                   <ArrowRight
                     size={18}
                     className="ml-2 group-hover:translate-x-1 transition-transform"
                   />
-                </button>
-                <button className="px-6 py-3 bg-white/20 backdrop-blur text-white font-semibold rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center justify-center">
-                  <PlayCircle size={18} className="mr-2" />
-                  Voir la démo
                 </button>
               </div>
             </div>
@@ -376,7 +396,7 @@ function Temes() {
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-semibold text-white">Tableau de bord</h4>
                   <div className="flex items-center text-sm text-gray-200">
-                    <Clock size={16} className="mr-1" />
+                    <Clock size={16} className="mr-1 animate-spin" />
                     {currentTime.toLocaleTimeString("fr-FR", {
                       hour: "2-digit",
                       minute: "2-digit",
@@ -407,10 +427,10 @@ function Temes() {
               </div>
 
               {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 bg-[#ea532b] text-white p-3 rounded-lg shadow-lg animate-bounce">
+              <div className="absolute -top-4 -right-4 bg-[#ea532b] text-white p-3 rounded-lg shadow-lg">
                 <Bell size={24} />
               </div>
-              <div className="absolute -bottom-4 -left-4 bg-white/20 backdrop-blur text-white p-3 rounded-lg shadow-lg">
+              <div className="absolute  -bottom-4 -left-4 bg-white/20 backdrop-blur text-white p-3 rounded-lg shadow-lg">
                 <TrendingUp size={24} />
               </div>
             </div>
@@ -426,7 +446,7 @@ function Temes() {
             preserveAspectRatio="none"
           >
             <path
-              fill="#F9FAFB"
+              fill="#ea532b"
               fillOpacity="1"
               d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
             ></path>
@@ -452,12 +472,11 @@ function Temes() {
 
           {/* Feature Tabs */}
           <div className="flex flex-col md:flex-row justify-center mb-12">
-            <div className="flex bg-gray-100 rounded-lg p-1 max-w-md mx-auto">
-              {/* Corrected mapping for feature tabs */}
+            <div className="flex bg-gray-100 rounded-lg p-1 max-w-lg mx-auto">
               {features.map((feature) => (
                 <button
                   key={feature.id}
-                  className={`px-6 py-3 rounded-lg text-nowrap font-medium transition-all duration-300 flex items-center ${
+                  className={`px-6 py-3 rounded-lg whitespace-nowrap font-medium transition-all duration-300 flex items-center ${
                     activeFeature === feature.id
                       ? "bg-[#2f365b] text-white shadow-lg"
                       : "text-[#2f365b] hover:bg-gray-200"
@@ -465,11 +484,7 @@ function Temes() {
                   onClick={() => setActiveFeature(feature.id)}
                 >
                   {feature.icon}
-                  <span className="ml-2 hidden sm:inline">
-                    {feature.title}
-                  </span>
-                  {/* Show only icon on small screens, full text on larger */}
-                  <span className="sm:hidden">{feature.icon}</span>
+                  <span className="ml-2 hidden sm:inline">{feature.title}</span>
                 </button>
               ))}
             </div>
@@ -500,10 +515,7 @@ function Temes() {
                     {selectedModule.benefits.map((benefit, index) => (
                       <div key={index} className="flex items-center">
                         <div className="w-8 h-8 rounded-full bg-[#ea532b]/10 flex items-center justify-center mr-3">
-                          <CheckCircle
-                            size={16}
-                            className="text-[#ea532b]"
-                          />
+                          <CheckCircle size={16} className="text-[#ea532b]" />
                         </div>
                         <span className="text-gray-700">{benefit}</span>
                       </div>
@@ -599,7 +611,9 @@ function Temes() {
 
       {/* --- FAQ Section --- */}
       <section className="py-20 bg-gray-50">
-        <FAQ faqs={faqs} />
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FAQ faqs={faqs} />
+        </div>
       </section>
 
       {/* --- CTA Section --- */}
@@ -617,8 +631,11 @@ function Temes() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
-            <button className="px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center justify-center">
-              <Calendar size={20} className="mr-2" />
+            <button
+              onClick={() => navigate("/demo")}
+              className="px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center justify-center group"
+            >
+              <Calendar size={20} className="mr-2 group-hover:scale-110 transition-transform" />
               Demander une démo
             </button>
           </div>

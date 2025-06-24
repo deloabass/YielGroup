@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from "react";
 import {
-  MapPin, Mail, Clock, Briefcase, Book, Users, PenTool,
-  UserPlus, MessageCircle, HelpCircle, Calculator,
-  Newspaper, Compass, Building, FileCheck, ChevronUp, ChevronDown
+  MapPin,
+  Mail,
+  Clock,
+  Briefcase,
+  Book,
+  Users,
+  PenTool,
+  UserPlus,
+  MessageCircle,
+  HelpCircle,
+  Calculator,
+  Newspaper,
+  Compass,
+  Building,
+  FileCheck,
+  ChevronUp,
+  ChevronDown,
 } from "lucide-react";
 import {
-  FaXTwitter, FaTiktok, FaLinkedin,
-  FaFacebook, FaInstagram, FaYoutube
+  FaXTwitter,
+  FaTiktok,
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
 } from "react-icons/fa6";
 import { FiFileText } from "react-icons/fi"; // This import seems unused, you might want to remove it
 import { useNavigate } from "react-router-dom";
@@ -30,122 +48,219 @@ const Footer = () => {
       title: "Nos offres",
       links: [
         {
-          icon: <PenTool size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <PenTool
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Conseils en transformation RH",
-          href: "/conseil-en-transformation-RH"
+          href: "/conseil-en-transformation-RH",
         },
         {
-          icon: <Users size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Users
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Pilotage du parcours collaborateur",
-          href: "/pilotage-du-parcours-collaborateur"
+          href: "/pilotage-du-parcours-collaborateur",
         },
         {
-          icon: <Calculator size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Calculator
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "HR Analytics & Tableaux de bord",
-          href: "/analytics-HR"
+          href: "/analytics-HR",
         },
         {
-          icon: <UserPlus size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <UserPlus
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Recrutement sur-mesure & intégration",
-          href: "/recrutement-sur-mesure"
+          href: "/recrutement-sur-mesure",
         },
         {
-          icon: <MessageCircle size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <MessageCircle
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Solutions digitales RH",
-          href: "/solutions-digitales-RH"
+          href: "/solutions-digitales-RH",
         },
-      ]
+      ],
     },
     {
       title: "Plateforme SIRH MyYiel",
       links: [
         {
-          icon: <Briefcase size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Briefcase
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Y'Core",
-          href: "/core"
+          href: "/core",
         },
         {
-          icon: <Users size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Users
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Y’Expense",
-          href: "/expense"
+          href: "/expense",
         },
         {
-          icon: <Book size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Book size={16} className="text-[#ea532b] group-hover:text-white" />
+          ),
           text: "Y'Talents",
-          href: "/talents"
+          href: "/talents",
         },
         {
-          icon: <PenTool size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <PenTool
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Y'Learn",
-          href: "/learn"
+          href: "/learn",
         },
         {
-          icon: <FileCheck size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <FileCheck
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Y'Sign",
-          href: "/sign"
+          href: "/sign",
         },
         {
-          icon: <UserPlus size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <UserPlus
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Y'Recrute",
-          href: "/recrute"
+          href: "/recrute",
         },
         {
-          icon: <Clock size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Clock
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Y'Time",
-          href: "/time"
+          href: "/time",
         },
-      ]
+      ],
     },
     {
       title: "À propos de nous",
       links: [
         {
-          icon: <Compass size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Compass
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Notre Histoire",
           href: "/notre-histoire",
         },
         {
-          icon: <Building size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Building
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Nos valeurs",
           href: "/valeurs",
         },
         {
-          icon: <Users size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Users
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Teams YIELERS",
           href: "/equipe",
         },
         {
-          icon: <MessageCircle size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <MessageCircle
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Nous contacter",
           href: "/contact",
         },
-      ]
+      ],
     },
     {
       title: "Ressources",
       links: [
         {
-          icon: <Briefcase size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Briefcase
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Nos métiers",
           href: "/metiers",
         },
         {
-          icon: <HelpCircle size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <HelpCircle
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Centre d'aide & FAQ",
           href: "/aide",
         },
         {
-          icon: <Calculator size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Calculator
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Calculateur ROI",
           href: "/calculateur",
         },
         {
-          icon: <Newspaper size={16} className="text-[#ea532b] group-hover:text-white" />,
+          icon: (
+            <Newspaper
+              size={16}
+              className="text-[#ea532b] group-hover:text-white"
+            />
+          ),
           text: "Blog RH",
           href: "/blog-rh",
         },
-      ]
-    }
+      ],
+    },
   ];
 
   const socialIcons = [
@@ -161,7 +276,7 @@ const Footer = () => {
     { icon: <MapPin size={18} />, text: "Rue Charle Bindzi, Cameroun Yaoundé" },
     { icon: <Mail size={18} />, text: "contact@yiel-goup.com" },
     { icon: <Clock size={18} />, text: "Lun - Ven: 9h - 18h" },
-    { icon: <Clock size={18} />, text: "Sam - Dim: Fermé" }
+    { icon: <Clock size={18} />, text: "Sam - Dim: Fermé" },
   ];
 
   const copyrightLinks = [
@@ -209,10 +324,13 @@ const Footer = () => {
                   alt="Logo YIEL"
                   className="w-full h-full object-contain rounded-xl transition-all duration-300 group-hover:scale-110"
                 />
-                {/* <div className="absolute inset-0 bg-gradient-to-tr from-[#ea532b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div> */}
+                {/* ligne de l'animation du footer  */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#ea532b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div>
-                <div className="font-bold text-xl whitespace-nowrap block">YIEL Group</div>
+                <div className="font-bold text-xl whitespace-nowrap block">
+                  YIEL Group
+                </div>
                 <div className="text-sm text-[#ea532b] font-semibold">
                   Système d'Information RH
                 </div>
@@ -222,7 +340,10 @@ const Footer = () => {
             <p className="text-gray-300 leading-relaxed">
               Yiel Group propose une offre complète pour transformer la fonction
               RH. Notre solution SIRH{" "}
-              <a href="/plateforme-sirh-myyiel" className="text-[#ea532b] font-medium no-underline hover:underline">
+              <a
+                href="/plateforme-sirh-myyiel"
+                className="text-[#ea532b] font-medium no-underline hover:underline"
+              >
                 MyYiel
               </a>{" "}
               digitalise tous vos processus RH : gestion administrative,
@@ -252,7 +373,9 @@ const Footer = () => {
                     href={social.href}
                     aria-label={`Suivez-nous sur ${social.name}`}
                     className="bg-[#3a4166] hover:bg-[#ea532b] transition-all duration-300 p-2 rounded-full transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
-                    {...(social.href.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(social.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
                     {social.icon}
                   </a>
@@ -270,13 +393,17 @@ const Footer = () => {
                     {section.title}
                   </h3>
 
-                  <ul className="flex flex-wrap gap-3"> {/* Changed to ul */}
+                  <ul className="flex flex-wrap gap-3">
+                    {" "}
+                    {/* Changed to ul */}
                     {section.links.map((link, linkIdx) => (
-                      <li key={linkIdx}> {/* Changed to li */}
+                      <li key={linkIdx}>
+                        {" "}
+                        {/* Changed to li */}
                         <a
                           href={link.href || "#"}
                           onClick={(e) => {
-                            if (link.href && link.href.startsWith('/')) {
+                            if (link.href && link.href.startsWith("/")) {
                               e.preventDefault();
                               navigate(link.href);
                               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -287,7 +414,9 @@ const Footer = () => {
                           <span className="group-hover:text-white mr-2 transition-colors">
                             {link.icon}
                           </span>
-                          <span className="text-sm whitespace-nowrap">{link.text}</span>
+                          <span className="text-sm whitespace-nowrap">
+                            {link.text}
+                          </span>
                         </a>
                       </li>
                     ))}
@@ -308,11 +437,16 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4">
               {contactInfo.map((item, index) => (
-                <li key={index} className="flex items-start group transition-all duration-300 hover:translate-x-1">
+                <li
+                  key={index}
+                  className="flex items-start group transition-all duration-300 hover:translate-x-1"
+                >
                   <span className="text-[#ea532b] mr-3 flex-shrink-0 group-hover:scale-110 transform transition-transform mt-1">
                     {item.icon}
                   </span>
-                  <span className="text-gray-300 group-hover:text-white transition-colors">{item.text}</span>
+                  <span className="text-gray-300 group-hover:text-white transition-colors">
+                    {item.text}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -374,9 +508,13 @@ const Footer = () => {
           <div className="mb-4 sm:mb-0">
             © {new Date().getFullYear()} YIEL. Tous droits réservés.
           </div>
-          <ul className="flex flex-wrap justify-center gap-6"> {/* Changed to ul */}
+          <ul className="flex flex-wrap justify-center gap-6">
+            {" "}
+            {/* Changed to ul */}
             {copyrightLinks.map((link, index) => (
-              <li key={index}> {/* Changed to li */}
+              <li key={index}>
+                {" "}
+                {/* Changed to li */}
                 <a
                   href={link.href}
                   className="flex items-center gap-2 hover:text-[#ea532b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
@@ -394,7 +532,9 @@ const Footer = () => {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className={`fixed bottom-6 right-6 p-3 rounded-full bg-[#ea532b] text-white shadow-lg hover:bg-[#d64a27] focus:outline-none transition-all duration-300 transform hover:-translate-y-1 z-50 ${
-          isScrolled ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+          isScrolled
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10 pointer-events-none"
         }`}
         aria-label="Retour en haut"
       >
