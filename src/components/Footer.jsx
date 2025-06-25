@@ -325,7 +325,7 @@ const Footer = () => {
                   className="w-full h-full object-contain rounded-xl transition-all duration-300 group-hover:scale-110"
                 />
                 {/* ligne de l'animation du footer  */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#ea532b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* <div className="absolute inset-0 bg-gradient-to-tr from-[#ea532b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div> */}
               </div>
               <div>
                 <div className="font-bold text-xl whitespace-nowrap block">
