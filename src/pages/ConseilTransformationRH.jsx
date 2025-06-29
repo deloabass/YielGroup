@@ -4,21 +4,14 @@ import Header from "../components/Header";
 import {
   Lightbulb,
   Users,
-  BarChart3,
-  Clock,
-  Sparkles,
   CheckCircle,
   ArrowRight,
   ChevronRight,
-  ChevronDown,
-  ChevronUp,
-  Presentation,
   GraduationCap,
   User,
   Briefcase,
   Settings,
   FileText,
-  MessagesSquare,
   Calendar,
   PlayCircle,
   BarChart2,
@@ -26,7 +19,6 @@ import {
   Clock4,
   BarChartBig,
   BarChart,
-  MessageCircle,
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
@@ -303,9 +295,15 @@ function ConseilTransformationRH() {
             isVisible["hero"] ? "opacity-100" : "opacity-0"
           } transition-opacity duration-1000`}
         >
+                <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
+        </div>
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute inset-0 bg-[url('./VisionYiel.png')] bg-cover bg-center opacity-10"></div>
           </div>
+          
           <div className="container max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>

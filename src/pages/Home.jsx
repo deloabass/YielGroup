@@ -352,6 +352,11 @@ const Home = () => {
             isVisible.hero ? "opacity-100" : "opacity-0"
           }`}
         >
+                <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
+        </div>
           {/* Éléments de fond */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-24 sm:w-40 h-24 sm:h-40 rounded-full bg-[#ea532b] blur-2xl sm:blur-3xl"></div>
