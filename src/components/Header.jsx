@@ -217,13 +217,13 @@ const Header = () => {
               icon: <FileText size={20} />,
               title: "Notes de frais",
               description: "Déclarez, contrôlez et validez les dépenses professionnelles sans paperasse.",
-              path: "/expense?id",
+              path: "/expense?id=expenses",
             },
             {
               icon: <RefreshCcw size={20} />,
               title: "Demandes d’acompte",
               description: "Anticipez les besoins de trésorerie de vos équipes terrain.",
-              path: "/expense?id=demandes",
+              path: "/expense?id=advance",
             },
           ],
           linkText: "En savoir plus sur la gestion des dépenses",
@@ -895,7 +895,7 @@ const Header = () => {
             : "bg-transparent"
         } ${isOpen ? "bg-white shadow-lg" : ""}`}
       >
-        <div className="container mx-auto px-1 sm:px-6 lg:px-8">
+        <div className=" container mx-auto justify-center  px-1 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div
