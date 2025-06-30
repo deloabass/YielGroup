@@ -1,17 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import {
   Receipt,
-  CreditCard,
   Smartphone,
   CheckCircle,
   ArrowRight,
   Clock,
-  FileText,
-  Upload,
   DollarSign,
   Shield,
   Users,
-  Calendar,
   Bell,
   TrendingUp,
   Eye,
@@ -19,16 +15,9 @@ import {
   Download,
   Zap,
   Camera,
-  AlertCircle,
-  Filter,
-  Search,
   Plus,
-  ChevronLeft,
-  ChevronRight,
-  MapPin,
   Coffee,
   Car,
-  Plane,
   Home,
   Briefcase,
   UserCheck,
@@ -549,7 +538,7 @@ function Expense() {
       <section className="py-20 bg-gradient-to-br from-[#2f365b] to-[#3a4272] text-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
+            <span contentEditable className="inline-block px-4 py-2 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
               AVANTAGES CLÉS
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
