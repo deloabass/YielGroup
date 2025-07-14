@@ -165,7 +165,7 @@ const Header = () => {
             },
             {
               icon: <CalendarCheck size={20} />,
-              title: "Entretiens & Évolution",
+              title: "Entretiens & Évaluations",
               description: "Accompagnez chaque collaborateur dans son parcours professionnel avec des entretiens réguliers et ciblés.",
               path: "/talents?id=entretiens",
             },

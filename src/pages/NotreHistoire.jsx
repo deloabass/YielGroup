@@ -172,16 +172,7 @@ const NotreHistoire = () => {
     {
       name: "Stéphanie NKOMANE",
       role: "CEO & Fondatrice",
-      description: `Diplomé d'un Master en Systémes d'informations et Ressources Humaines
-                    (SIRH), elle est animé par une ambition claire: révolutionner la gestion
-                    des talents en allant technologie,simplicité et performance. Forte de son
-                    expertise en RH et de sa vision stratégique,elle a fondé YIEL pour
-                    accompagner les entreprises, en particulier en Afrique, dans l'optimisation
-                    processus tout en mettant l'humain au coeur des décisions
-                    Convaincue que les talents sont le moteur de la performance, elle s'entoure
-                    d'experts et de partenaires partageant cette meme vision. À travers YIEL,
-                    elle ouvre à rendre la gestion RH plus intuitive, éfficace et accessible,
-                    afin d'aider les entreprises à grandir tout en valorisant leurs capitales Humaines`,
+      description: `Diplômée d'un Master en Systèmes d'informations et ressources humaines (SIRH), elle est animée par une ambition claire : révolutionner la gestion des talents en alliant tchnologie, simplicité et performance. Forte de son expertise en RH et de sa vision stratégique, elle a fondé MyYiel pour accompagner les entreprises, en particulier en Afrique dans l'optimisation processus tout en mettant l'humain au coeur des décisions. Convaincue que les talents sont le moteur de la performance, elle s'entoure d'experts et de partenaires partageant cette même vision. À travers MyYiel, elle oeuvre à rendre la gestion des RH plus intuitive, efficace et accessible, afin d'aider les entreprises à grandir tout en valorisant leur capital Humain. `,
       image: "./Stephanie.jpeg",
       social: {
         linkedin: "#",
@@ -269,10 +260,10 @@ const NotreHistoire = () => {
             <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
           </div>
           <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
-          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
-        </div>
+            <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
+            <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
+          </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-7xl mx-auto">
               <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
