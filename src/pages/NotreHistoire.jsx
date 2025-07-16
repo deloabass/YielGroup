@@ -172,7 +172,7 @@ const NotreHistoire = () => {
     {
       name: "Stéphanie NKOMANE",
       role: "CEO & Fondatrice",
-      description: `Diplômée d'un Master en Systèmes d'informations et ressources humaines (SIRH), elle est animée par une ambition claire : révolutionner la gestion des talents en alliant tchnologie, simplicité et performance. Forte de son expertise en RH et de sa vision stratégique, elle a fondé MyYiel pour accompagner les entreprises, en particulier en Afrique dans l'optimisation processus tout en mettant l'humain au coeur des décisions. Convaincue que les talents sont le moteur de la performance, elle s'entoure d'experts et de partenaires partageant cette même vision. À travers MyYiel, elle oeuvre à rendre la gestion des RH plus intuitive, efficace et accessible, afin d'aider les entreprises à grandir tout en valorisant leur capital Humain. `,
+      description: `Diplômée d'un Master en Systèmes d'informations et Ressources Humaines (SIRH), elle est animée par une ambition claire : révolutionner la gestion des talents en alliant technologie, simplicité et performance. Forte de son expertise en RH et de sa vision stratégique, elle a fondé MyYiel pour accompagner les entreprises, en particulier en Afrique, dans l'optimisation processus tout en mettant l'humain au cœur des décisions. Convaincue que les talents sont le moteur de la performance, elle s'entoure d'experts et de partenaires partageant cette même vision. À travers MyYiel, elle œuvre à rendre la gestion des RH plus intuitive, efficace et accessible, afin d'aider les entreprises à grandir tout en valorisant leur capital Humain.`,
       image: "./Stephanie.jpeg",
       social: {
         linkedin: "#",

@@ -19,7 +19,6 @@ import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import Header from "../components/Header";
 import { useNavigate, useSearchParams } from "react-router-dom";
-
 function Temes() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -34,7 +33,6 @@ function Temes() {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-
   // Define and memoize features directly within useMemo
   const features = useMemo(() => [
     {
@@ -69,26 +67,23 @@ function Temes() {
       footerText: "👉 Un outil léger, pratique, et adapté à tous les secteurs.",
     },
   ], []); // Empty dependency array as this data is static
-
   // Update active feature based on URL param
   useEffect(() => {
     if (id && features.some((mod) => mod.id === id)) {
       setActiveFeature(id);
     }
   }, [id, features]); // 'features' is a stable reference now due to useMemo
-
   // Memoize selected module for efficient rendering
   const selectedModule = useMemo(() => {
     return features.find((mod) => mod.id === activeFeature) || features[0];
   }, [activeFeature, features]);
-
   // Sample data for dashboard stats in Hero Section
   const dashboardStats = [
     {
       label: "Présents aujourd'hui",
       value: "187",
       icon: <UserCheck size={20} />,
-      color: "text-green-400", // Adjusted for better contrast on dark background
+      color: "text-green-400",
       bgColor: "bg-green-50",
     },
     {
@@ -141,7 +136,6 @@ function Temes() {
       answer: "Oui. Toutes les données sont protégées et stockées en toute sécurité. Vous gardez un historique complet des absences et présences, en cas de contrôle ou de litige.",
     },
   ];
-
   // --- Calendar Mockup Component ---
   const CalendarMockup = () => {
     // Current date for simulation in the mockup
@@ -231,7 +225,6 @@ function Temes() {
       </div>
     );
   };
-
   // --- Schedule Mockup Component ---
   const ScheduleMockup = () => (
     <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
@@ -305,14 +298,9 @@ function Temes() {
       </div>
     </div>
   );
-  const abassa = 300
-  console.log(`${abassa}`);
-  
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-
       {/* --- Hero Section --- */}
       <section
         id="hero"

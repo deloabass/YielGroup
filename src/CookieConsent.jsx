@@ -102,7 +102,7 @@ const CookieConsent = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg border-t border-gray-200">
-      <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row items-center justify-between gap-4">
+      <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row items-center justify-between gap-4">
         {/* Main message and details toggle */}
         <div className="flex-1 text-gray-700 text-sm w-full lg:w-auto">
           {!showDetails ? (
