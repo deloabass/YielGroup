@@ -606,21 +606,6 @@ function Expense() {
                 Contactez-nous
               </button>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-[#ea532b] mb-2">500+</div>
-                <div className="text-gray-600">Entreprises clientes</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#ea532b] mb-2">98%</div>
-                <div className="text-gray-600">Taux de satisfaction</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-[#ea532b] mb-2">24/7</div>
-                <div className="text-gray-600">Support technique</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
