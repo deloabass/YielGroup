@@ -17,6 +17,7 @@ import {
   FileCheck,
   ChevronUp,
   ChevronDown,
+  FileText,
 } from "lucide-react";
 import {
   FaXTwitter,
@@ -26,7 +27,6 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa6";
-import { FiFileText } from "react-icons/fi"; // This import seems unused, you might want to remove it
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -290,7 +290,13 @@ const Footer = () => {
       text: "Politique de confidentialité",
       href: "/politique-de-confidentialite",
     },
+    // {
+    //   icon: <FileText size={16} className="text-[#ea532b]" />,
+    //   text: "Développé par Abassa Soumana",
+    //   href: "mailto:delomodibo@gmail.com",
+    // },
   ];
+  
 
   const appStores = [
     {

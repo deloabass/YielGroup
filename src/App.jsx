@@ -33,6 +33,7 @@ import CalculateurROI from "./pages/CalculateurROI";
 import NosClients from "./pages/NosClients";
 import VoixNotreBlogRH from "./pages/VoixNotreBlogRH";
 import CookieConsent from "./CookieConsent";
+import PlusMyYiel from "./pages/PlusMyYiel";
 
 function App() {
   return (
@@ -40,36 +41,42 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/demo" element={<Demo />} />
-        <Route path="/blog-rh" element={<BlogRH />} />
-        <Route path="/devenez-yieler" element={<DevenezYieler />} />
-        <Route path="/log-in" element={<LogIn />} />
-        <Route path="/partenaires" element={<NosPartenaires />} />
-        <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
-        <Route path="/mentions-legale" element={<Mentionslegale />} />
+        <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
+        <Route path="/pilotage-du-parcours-collaborateur" element={<ParcoursCollaborateur />} />
+        <Route path="/analytics-HR" element={<HrAnalytics />} />
+        <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
+        <Route path="/solutions-digitales-RH" element={<SolutionsDigitales />} />
+        <Route path="/talents" element={<Talents />} />
+        <Route path="/time" element={<Temes />} />
+        <Route path="/expense" element={<Expense />} />
+        <Route path="/PlusMyYiel" element={<PlusMyYiel />} />
         <Route path="/notre-histoire" element={<NotreHistoire />} />
         <Route path="/valeurs" element={<NosValeurs />} />
         <Route path="/equipe" element={<TeamsYIELERS />} />
         <Route path="/contact" element={<NousContacter />} />
-        <Route path="/metiers" element={<NosMetiers />} />
+        <Route path="/partenaires" element={<NosPartenaires />} />
         <Route path="/aide" element={<CentreDaideFAQ />} />
         <Route path="/calculateur" element={<CalculateurROI />} />
-        <Route path="/clients" element={<NosClients />} />
+        <Route path="/blog-rh" element={<BlogRH />} />
         <Route path="/voix" element={<VoixNotreBlogRH />} />
+        <Route path="/mentions-legale" element={<Mentionslegale />} />
+        <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
+
+
+
+
+
+        <Route path="/devenez-yieler" element={<DevenezYieler />} />
+        <Route path="/log-in" element={<LogIn />} />
+        <Route path="/metiers" element={<NosMetiers />} />
+        <Route path="/clients" element={<NosClients />} />
         {/* revoir cette composent là  nos-solution */}
         <Route path="/nos-solution" element={<NosSolution />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/core" element={<Core />} />
-        <Route path="/expense" element={<Expense />} />
-        <Route path="/talents" element={<Talents />} />
         <Route path="/learn" element={<Learn />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="/recrute" element={<Recrute />} />
-        <Route path="/time" element={<Temes />} />
-        <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
-        <Route path="/analytics-HR" element={<HrAnalytics />} />
-        <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
-        <Route path="/pilotage-du-parcours-collaborateur" element={<ParcoursCollaborateur />} />
-        <Route path="/solutions-digitales-RH" element={<SolutionsDigitales />} />
         <Route path="/cookies" element={<SolutionsDigitales />} />
       </Routes>
       <CookieConsent />
