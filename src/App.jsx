@@ -1,19 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
 import Inscription from "./pages/Inscription";
-import Collaborateurs from "./pages/Collaborateurs";
-import Conges from "./pages/Conges";
-import Formations from "./pages/Formations";
-import Rapports from "./pages/Rapports";
-import Parametres from "./pages/Parametres";
 import Demo from "./pages/Demo";
 import BlogRH from "./pages/BlogRH";
-import ConditionsUtilisation from "./pages/ConditionsUtilisation";
 import DevenezYieler from "./pages/DevenezYieler";
 import LogIn from "./pages/LogIn";
-
 import NosPartenaires from "./pages/NosPartenaires";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import Mentionslegale from "./pages/Mentionslegale";
@@ -48,16 +40,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/inscription" element={<Inscription />} />
-        <Route path="/collaborateurs" element={<Collaborateurs />} />
-        <Route path="/conges" element={<Conges />} />
-        <Route path="/formations" element={<Formations />} />
-        <Route path="/rapports" element={<Rapports />} />
-        <Route path="/parametres" element={<Parametres />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
-        <Route path="/conditions-utilisation" element={<ConditionsUtilisation />} />
         <Route path="/pilotage-du-parcours-collaborateur" element={<ParcoursCollaborateur />} />
         <Route path="/analytics-HR" element={<HrAnalytics />} />
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
