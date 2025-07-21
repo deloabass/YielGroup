@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import {
   Users,
   UserPlus,
@@ -28,8 +28,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function Talents() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const navigate = useNavigate();
   const [seachParams] = useSearchParams();
   const id = seachParams.get("id");
@@ -334,7 +337,7 @@ function Talents() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       <Header />
       {/* Hero Section */}
       <section
@@ -473,6 +476,7 @@ function Talents() {
           <div className="flex overflow-x-auto pb-2 space-x-2 md:space-x-4 hide-scrollbar">
             {modules.map((module) => (
               <button
+              ref={topRef}
                 key={module.id}
                 className={`px-4 py-3 md:px-6 md:py-3 rounded-full whitespace-nowrap font-medium transition-all duration-300 flex items-center ${
                   activeTab === module.id

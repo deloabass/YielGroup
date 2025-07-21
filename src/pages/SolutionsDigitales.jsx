@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import {
@@ -36,8 +36,11 @@ import {
 } from "lucide-react";
 import FAQ from "../components/FAQ";
 import { useNavigate } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function SolutionsDigitales() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const navigate = useNavigate();
   // État pour les animations au défilement
   const [isVisible, setIsVisible] = useState({});
@@ -338,7 +341,7 @@ function SolutionsDigitales() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 

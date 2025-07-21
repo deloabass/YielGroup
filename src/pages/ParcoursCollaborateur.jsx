@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
   Calendar,
@@ -32,8 +32,11 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 const ParcoursCollaborateur = () => {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState({});
   const [openFaq, setOpenFaq] = useState(null);
@@ -230,7 +233,7 @@ const ParcoursCollaborateur = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       <Header />
 
       <main className="flex-grow w-full">

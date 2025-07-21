@@ -41,7 +41,7 @@ function LogIn() {
     setLoginSuccess(true);
     setTimeout(() => {
       setLoginSuccess(false);
-      window.location.href = "/dashboard";
+      window.location.href = "/";
     }, 2000);
   };
 

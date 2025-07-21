@@ -23,8 +23,11 @@ import Footer from "../components/Footer"
 import Header from "../components/Header";
 import FAQ from "../components/FAQ";
 import { useNavigate } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 const Home = () => {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const navigate = useNavigate();
   // États pour les animations au défilement
   const [isVisible, setIsVisible] = useState({
@@ -339,7 +342,7 @@ const Home = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 

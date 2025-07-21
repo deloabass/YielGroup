@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function PolitiqueConfidentialite() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const [activeSection, setActiveSection] = useState("introduction");
 
   const handleSectionClick = (section) => {
@@ -16,7 +19,7 @@ function PolitiqueConfidentialite() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 

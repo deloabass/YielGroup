@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from "react";
+import React, { useState, useEffect, useRef, } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -25,8 +25,11 @@ import {
   Briefcase,
   Code,
 } from "lucide-react";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 const NotreHistoire = () => {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const [isVisible, setIsVisible] = useState({});
 
   // Fonction pour vérifier si un élément est visible dans la fenêtre
@@ -245,7 +248,7 @@ const NotreHistoire = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 

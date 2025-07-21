@@ -23,8 +23,12 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import FAQ from "../components/FAQ";
+import { useScrollToTop } from "../hooks/useScrollToTop";
+import { useRef } from "react";
 
 function ConseilTransformationRH() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef); 
   const navigate = useNavigate();
   // État pour les animations au défilement
   const [isVisible, setIsVisible] = useState({});
@@ -282,7 +286,7 @@ function ConseilTransformationRH() {
   //   setActiveTestimonial(index);
   // };
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 
@@ -921,13 +925,6 @@ function ConseilTransformationRH() {
                 >
                   Demander une démo
                   <Calendar className="h-5 w-5 ml-2" />
-                </button>
-                <button
-                  onClick={() => navigate("/webinar")}
-                  className="px-6 py-3 bg-transparent text-white border border-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
-                >
-                  S'inscrire au prochain webinar
-                  <PlayCircle className="h-5 w-5 ml-2" />
                 </button>
               </div>
             </div>

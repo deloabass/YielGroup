@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {
@@ -12,8 +12,11 @@ import {
   Bookmark,
 } from "lucide-react";
 import FAQ from "../components/FAQ";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function VoixNotreBlogRH() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const [activeCategory, setActiveCategory] = useState("Tous");
 
   // Catégories de blog
@@ -167,7 +170,7 @@ function VoixNotreBlogRH() {
   // Articles à la une
   const featuredPosts = blogPosts.filter((post) => post.featured);
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 

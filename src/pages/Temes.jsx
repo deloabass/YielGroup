@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import {
   Clock,
   Calendar,
@@ -19,7 +19,10 @@ import Footer from "../components/Footer";
 import FAQ from "../components/FAQ";
 import Header from "../components/Header";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 function Temes() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id"); // To pre-select a feature based on URL param
@@ -299,7 +302,7 @@ function Temes() {
     </div>
   );
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       <Header />
       {/* --- Hero Section --- */}
       <section

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import {
   Receipt,
   Smartphone,
@@ -28,8 +28,11 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useSearchParams } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function Expense() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const [activeFeature, setActiveFeature] = useState("expenses");
@@ -198,7 +201,7 @@ function Expense() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       <Header />
       {/* Hero Section */}
       <section className="relative py-28 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white overflow-hidden">
