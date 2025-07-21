@@ -10,6 +10,7 @@ import Rapports from "./pages/Rapports";
 import Parametres from "./pages/Parametres";
 import Demo from "./pages/Demo";
 import BlogRH from "./pages/BlogRH";
+import ConditionsUtilisation from "./pages/ConditionsUtilisation";
 import DevenezYieler from "./pages/DevenezYieler";
 import LogIn from "./pages/LogIn";
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/parametres" element={<Parametres />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/conseil-en-transformation-RH" element={<ConseilTransformationRH />} />
+        <Route path="/conditions-utilisation" element={<ConditionsUtilisation />} />
         <Route path="/pilotage-du-parcours-collaborateur" element={<ParcoursCollaborateur />} />
         <Route path="/analytics-HR" element={<HrAnalytics />} />
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />

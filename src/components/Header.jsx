@@ -147,7 +147,7 @@ const Header = () => {
       items: [
         {
           id: "ytalent",
-          title: "Y’Talent",
+          title: "Y'Talent",
           icon: <GraduationCap size={20} />,
           color: "blue",
           options: [
@@ -172,7 +172,7 @@ const Header = () => {
             {
               icon: <Book size={20} />,
               title: "Formation",
-              description: "Déployez des plans de formation adaptés et suivez les acquis tout au long de l’année.",
+              description: "Déployez des plans de formation adaptés et suivez les acquis tout au long de l'année.",
               path: "/talents?id=formation",
             },
             {
@@ -209,7 +209,7 @@ const Header = () => {
         },
         {
           id: "yexpense",
-          title: "Y’Expense",
+          title: "Y'Expense",
           icon: <Calculator size={20} />,
           color: "purple",
           options: [
@@ -221,7 +221,7 @@ const Header = () => {
             },
             {
               icon: <RefreshCcw size={20} />,
-              title: "Demandes d’acompte",
+              title: "Demandes d'acompte",
               description: "Anticipez les besoins de trésorerie de vos équipes terrain.",
               path: "/expense?id=advance",
             },
@@ -256,18 +256,18 @@ const Header = () => {
             {
               icon: <Users size={20} />,
               title: "Organigramme",
-              description: "Visualisez la structure de l’entreprise, les rattachements hiérarchiques et les fiches de poste en un clic.",
+              description: "Visualisez la structure de l'entreprise, les rattachements hiérarchiques et les fiches de poste en un clic.",
               path: "/sirh/organigramme",
             },
             {
               icon: <Newspaper size={20} />,
-              title: "Intranet & vie d’entreprise",
-              description: "Diffusez vos actualités internes, événements, sondages ou annonces officielles depuis l’espace collaborateur.",
+              title: "Intranet & vie d'entreprise",
+              description: "Diffusez vos actualités internes, événements, sondages ou annonces officielles depuis l'espace collaborateur.",
               path: "/sirh/intranet-vie-entreprise",
             },
             {
               icon: <PenLine size={20} />,
-              title: "Y’SiGn",
+              title: "Y'SiGn",
               description: "la signature électronique dans le module.",
               path: "/sirh/siGn",
             }
@@ -1013,6 +1013,12 @@ const Header = () => {
               >
                 Demander une démo
               </button>
+              <a
+                href="/inscription"
+                className="border border-[#2f365b] text-[#2f365b] px-6 py-2 rounded-xl font-medium hover:bg-[#2f365b] hover:text-white transition-all duration-300 text-nowrap"
+              >
+                S'inscrire
+              </a>
             </div>
 
             {/* Mobile menu and search toggles */}
@@ -1128,6 +1134,15 @@ const Header = () => {
                 >
                   Demander une démo
                 </button>
+              </div>
+              
+              <div className="pt-4 border-t border-gray-200">
+                <a
+                  href="/inscription"
+                  className="w-full border border-[#2f365b] text-[#2f365b] px-6 py-3 rounded-xl font-medium hover:bg-[#2f365b] hover:text-white transition-all duration-300 text-nowrap text-center block"
+                >
+                  Créer un compte
+                </a>
               </div>
             </nav>
           </div>
