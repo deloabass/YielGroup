@@ -605,9 +605,6 @@ function Expense() {
                 Demander une démo
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 border-2 border-[#2f365b] text-[#2f365b] font-semibold rounded-lg hover:bg-[#2f365b] hover:text-white transition-all duration-300">
-                Contactez-nous
-              </button>
             </div>
           </div>
         </div>

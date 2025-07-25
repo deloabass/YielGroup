@@ -538,7 +538,7 @@ function Talents() {
                       </div>
                     ))}
                   </div>
-
+{/* 
                   <div className="mt-8 pt-8 border-t border-gray-100">
                     <button
                       className={`px-6 py-3 ${selectedModule.color} text-white font-semibold rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 flex items-center`}
@@ -546,7 +546,7 @@ function Talents() {
                       Découvrir {selectedModule.title}
                       <ArrowRight size={18} className="ml-2" />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Interface mockup */}

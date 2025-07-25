@@ -1136,10 +1136,10 @@ const Header = () => {
 
               {/* CTA Button */}
               <button
-                onClick={() => handleLinkClick("Inscription", "/inscription")}
+                onClick={() => handleLinkClick("Démo", "/demo")}
                 className="bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-2 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-nowrap"
               >
-                S'inscrire
+                Demander une démo
               </button>
             </div>
 
@@ -1269,15 +1269,6 @@ const Header = () => {
                 >
                   Demander une démo
                 </button>
-              </div>
-
-              <div className="pt-4 border-t border-gray-200">
-                <a
-                  href="/inscription"
-                  className="w-full border border-[#2f365b] text-[#2f365b] px-6 py-3 rounded-xl font-medium hover:bg-[#2f365b] hover:text-white transition-all duration-300 text-nowrap text-center block"
-                >
-                  Créer un compte
-                </a>
               </div>
             </nav>
           </div>

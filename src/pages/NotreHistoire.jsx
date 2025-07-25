@@ -26,8 +26,10 @@ import {
   Code,
 } from "lucide-react";
 import { useScrollToTop } from "../hooks/useScrollToTop";
+import { useNavigate } from "react-router-dom";
 
 const NotreHistoire = () => {
+  const navigate = useNavigate();
   const topRef = useRef(null);
   useScrollToTop(topRef);
   const [isVisible, setIsVisible] = useState({});
@@ -376,7 +378,7 @@ const NotreHistoire = () => {
                 </div>
 
                 <div className="mt-10 relative">
-                  <button className="relative z-10 inline-flex items-center px-6 py-3 bg-[#ea532b] text-white font-medium rounded-lg transition hover:bg-[#d64a27] shadow-md hover:shadow-xl transform hover:-translate-y-1">
+                  <button onClick={() => navigate("/solutions-digitales-RH")} className="relative z-10 inline-flex items-center px-6 py-3 bg-[#ea532b] text-white font-medium rounded-lg transition hover:bg-[#d64a27] shadow-md hover:shadow-xl transform hover:-translate-y-1">
                     Découvrir nos solutions{" "}
                     <ArrowRight size={18} className="ml-2" />
                   </button>
@@ -879,11 +881,8 @@ const NotreHistoire = () => {
                     personnalisée dès aujourd'hui.
                   </p>
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow hover:bg-opacity-90 transition">
+                    <button onClick={() => navigate("/demo")} className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow hover:bg-opacity-90 transition">
                       Demander une démo
-                    </button>
-                    <button className="px-6 py-3 bg-white text-[#2f365b] font-semibold rounded-lg shadow hover:bg-gray-100 transition">
-                      Nous contacter
                     </button>
                   </div>
                 </div>
