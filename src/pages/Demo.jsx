@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Calendar,
   Clock,
@@ -15,10 +15,13 @@ import {
 import Header from "../components/Header";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 Header;
 
 const Demo = () => {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     nom: "",
@@ -111,7 +114,7 @@ const Demo = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50" id="demo">
+    <div className="min-h-screen bg-gray-50" id="demo" ref={topRef}>
       <Header />
 
       {/* Hero section */}

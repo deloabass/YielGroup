@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { ArrowRight, CheckCircle, Users, CreditCard, Award, Calendar, UserPlus, BookOpen, FileSignature } from "lucide-react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 const NosSolution = () => {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   const [activeTab, setActiveTab] = useState("all");
   
   // Solutions data
@@ -122,7 +125,7 @@ const NosSolution = () => {
     : solutions.filter(solution => solution.category === activeTab);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       <Header />
       
       <main className="flex-grow">

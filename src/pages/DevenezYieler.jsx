@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 function DevenezYieler() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 

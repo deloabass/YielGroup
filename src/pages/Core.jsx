@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import {
@@ -21,8 +21,11 @@ import {
   BarChart
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useScrollToTop } from "../hooks/useScrollToTop";
 
 function Core() {
+  const topRef = useRef(null);
+  useScrollToTop(topRef);
   // État pour les animations au défilement
   const [isVisible, setIsVisible] = useState({});
   const navigate = useNavigate();
@@ -208,7 +211,7 @@ function Core() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50" ref={topRef}>
       {/* --- HEADER --- */}
       <Header />
 
