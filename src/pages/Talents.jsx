@@ -703,7 +703,7 @@ function Talents() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-[#ea532b]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <TrendingUp size={32} className="text-[#ea532b]" />
+                <TrendingUp size={32} className="text-[#ea532b] flex-shrink-0 " />
               </div>
               <h3 className="text-xl font-semibold mb-4">
                 Performance mesurée
