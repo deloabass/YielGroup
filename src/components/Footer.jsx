@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { useLoadingContext } from "../context/LoadingContext";
+import LoadingButton from "./LoadingButton";
+import LoadingLink from "./LoadingLink";
 import {
   MapPin,
   Mail,
@@ -31,6 +34,7 @@ import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const { startLoading, stopLoading } = useLoadingContext();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -379,8 +383,9 @@ const Footer = () => {
                     href={social.href}
                     aria-label={`Suivez-nous sur ${social.name}`}
                     className="bg-[#3a4166] hover:bg-[#ea532b] transition-all duration-300 p-2 rounded-full transform hover:-translate-y-1 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
-                    {...(social.href.startsWith("http")
-                      ? { target: "_blank", rel: "noopener noreferrer" }
+                  <LoadingButton
+                    to="/demo"
+                    loadingText="Chargement de la démo..."
                       : {})}
                   >
                     {social.icon}
@@ -406,15 +411,9 @@ const Footer = () => {
                       <li key={linkIdx}>
                         {" "}
                         {/* Changed to li */}
-                        <a
-                          href={link.href || "#"}
-                          onClick={(e) => {
-                            if (link.href && link.href.startsWith("/")) {
-                              e.preventDefault();
-                              navigate(link.href);
-                              window.scrollTo({ top: 0, behavior: "smooth" });
-                            }
-                          }}
+                        <LoadingLink
+                          to={link.href || "#"}
+                          loadingText={`Chargement de ${link.text}...`}
                           className="flex items-center hover:text-white bg-[#3a4166]/60 hover:bg-[#ea532b]/80 px-3 py-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md group focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
                         >
                           <span className="group-hover:text-white mr-2 transition-colors">
@@ -423,10 +422,10 @@ const Footer = () => {
                           <span className="text-sm whitespace-nowrap">
                             {link.text}
                           </span>
-                        </a>
+                        </LoadingLink>
                       </li>
                     ))}
-                  </ul>
+                  </LoadingButton>
                 </div>
               ))}
             </div>
@@ -521,13 +520,14 @@ const Footer = () => {
               <li key={index}>
                 {" "}
                 {/* Changed to li */}
-                <a
-                  href={link.href}
+                <LoadingLink
+                  to={link.href}
+                  loadingText={`Chargement de ${link.text}...`}
                   className="flex items-center gap-2 hover:text-[#ea532b] transition-colors focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
                 >
                   {link.icon}
                   {link.text}
-                </a>
+                </LoadingLink>
               </li>
             ))}
           </ul>

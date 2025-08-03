@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useLoadingContext } from "../context/LoadingContext";
+import LoadingButton from "./LoadingButton";
+import LoadingLink from "./LoadingLink";
 import {
   Menu,
   X,
@@ -40,6 +43,7 @@ import {
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { startLoading, stopLoading } = useLoadingContext();
 
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -524,7 +528,9 @@ const Header = () => {
 
   // Handles navigation and loading state
   const handleLinkClick = (linkTitle, path) => {
-    setIsLoading(true);
+    if (path) {
+      startLoading(`Chargement de ${linkTitle}...`);
+    }
     setActiveLink(linkTitle); // Set activeLink when a link is clicked
     setActiveMenu(null); // Close desktop dropdown
     setActiveSirhSection(null); // Reset SIRH section
@@ -534,8 +540,10 @@ const Header = () => {
 
     // Simulate network delay for loading effect
     setTimeout(() => {
-      setIsLoading(false);
-      if (path) navigate(path);
+      if (path) {
+        stopLoading();
+        navigate(path);
+      }
     }, 500);
   };
 
@@ -994,15 +1002,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Loading overlay */}
-      {isLoading && (
-        <div className="fixed inset-0 bg-white/80 backdrop-blur-sm z-[9999] flex items-center justify-center">
-          <div className="flex items-center gap-3 px-6 py-3 bg-white rounded-full shadow-lg">
-            <div className="w-5 h-5 border-2 border-[#ea532b] border-t-transparent rounded-full animate-spin"></div>
-            <span className="text-[#2f365b] font-medium">Chargement...</span>
-          </div>
-        </div>
-      )}
 
       <header
         ref={headerRef}
@@ -1135,12 +1134,13 @@ const Header = () => {
               </div>
 
               {/* CTA Button */}
-              <button
-                onClick={() => handleLinkClick("Inscription", "/inscription")}
+              <LoadingButton
+                to="/inscription"
+                loadingText="Redirection vers l'inscription..."
                 className="bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-2 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-nowrap"
               >
                 S'inscrire
-              </button>
+              </LoadingButton>
             </div>
 
             {/* Mobile menu and search toggles */}
@@ -1263,21 +1263,23 @@ const Header = () => {
 
               {/* Mobile CTA */}
               <div className="pt-4 border-t border-gray-200">
-                <button
-                  onClick={() => handleLinkClick("Démo", "/demo")}
+                <LoadingButton
+                  to="/demo"
+                  loadingText="Chargement de la démo..."
                   className="w-full bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 text-nowrap"
                 >
                   Demander une démo
-                </button>
+                </LoadingButton>
               </div>
 
               <div className="pt-4 border-t border-gray-200">
-                <a
-                  href="/inscription"
+                <LoadingLink
+                  to="/inscription"
+                  loadingText="Redirection vers l'inscription..."
                   className="w-full border border-[#2f365b] text-[#2f365b] px-6 py-3 rounded-xl font-medium hover:bg-[#2f365b] hover:text-white transition-all duration-300 text-nowrap text-center block"
                 >
                   Créer un compte
-                </a>
+                </LoadingLink>
               </div>
             </nav>
           </div>
