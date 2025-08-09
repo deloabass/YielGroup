@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useLoadingContext } from "../context/LoadingContext";
-import LoadingButton from "./LoadingButton";
-import LoadingLink from "./LoadingLink";
 import {
   Menu,
   X,
@@ -43,7 +40,6 @@ import {
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { startLoading, stopLoading } = useLoadingContext();
 
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -53,7 +49,6 @@ const Header = () => {
   const [activeMobileMenu, setActiveMobileMenu] = useState(null);
   const [activeMobileSubMenu, setActiveMobileSubMenu] = useState(null);
   const [activeLink, setActiveLink] = useState("Accueil");
-  const [isLoading, setIsLoading] = useState(false);
 
   // New state to manage the active section within the SIRH dropdown
   const [activeSirhSection, setActiveSirhSection] = useState(null);
@@ -528,9 +523,6 @@ const Header = () => {
 
   // Handles navigation and loading state
   const handleLinkClick = (linkTitle, path) => {
-    if (path) {
-      startLoading(`Chargement de ${linkTitle}...`);
-    }
     setActiveLink(linkTitle); // Set activeLink when a link is clicked
     setActiveMenu(null); // Close desktop dropdown
     setActiveSirhSection(null); // Reset SIRH section
@@ -540,10 +532,7 @@ const Header = () => {
 
     // Simulate network delay for loading effect
     setTimeout(() => {
-      if (path) {
-        stopLoading();
-        navigate(path);
-      }
+      if (path) navigate(path);
     }, 500);
   };
 
@@ -1001,291 +990,280 @@ const Header = () => {
   };
 
   return (
-    <>
-
-      <header
-        ref={headerRef}
-        className={`fixed w-full z-50 transition-all duration-500 ease-out ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg border-b-0"
-            : "bg-transparent"
-        } ${isOpen ? "bg-white shadow-lg" : ""}`}
-      >
-        <div className=" container mx-auto justify-center  px-1 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div
-              className="flex-shrink-0 flex items-center cursor-pointer"
-              onClick={() => handleLinkClick("Accueil", "/")}
-            >
-              {/* Logo dans un fond dégradé */}
-              <div className="w-10 h-10 bg-gradient-to-br from-[#ea532b] to-[#d44620] rounded-xl flex items-center justify-center shadow-lg">
-                <img
-                  src="../logo.webp"
-                  alt="YIEL Logo"
-                  className="w-full h-full object-contain rounded-xl "
-                />
-              </div>
-
-              {/* Texte à droite du logo */}
-              <div className="ml-3">
-                <span
-                  className={`font-bold text-xl whitespace-nowrap block ${
-                    scrolled ? "text-[#2f365b]" : "text-white"
-                  }`}
-                >
-                  YIEL
-                </span>
-                <div className="text-sm text-[#ea532b] font-semibold">
-                  Système d'Information RH
-                </div>
-              </div>
+    <header
+      ref={headerRef}
+      className={`fixed w-full z-50 transition-all duration-500 ease-out ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-b-0"
+          : "bg-transparent"
+      } ${isOpen ? "bg-white shadow-lg" : ""}`}
+    >
+      <div className=" container mx-auto justify-center  px-1 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div
+            className="flex-shrink-0 flex items-center cursor-pointer"
+            onClick={() => handleLinkClick("Accueil", "/")}
+          >
+            {/* Logo dans un fond dégradé */}
+            <div className="w-10 h-10 bg-gradient-to-br from-[#ea532b] to-[#d44620] rounded-xl flex items-center justify-center shadow-lg">
+              <img
+                src="../logo.webp"
+                alt="YIEL Logo"
+                className="w-full h-full object-contain rounded-xl "
+              />
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
-              {navLinks.map((link) => (
-                <div
-                  key={link.title}
-                  className="relative group"
-                  onMouseEnter={() =>
-                    link.dropdown && handleMouseEnterMenu(link.menuKey)
+            {/* Texte à droite du logo */}
+            <div className="ml-3">
+              <span
+                className={`font-bold text-xl whitespace-nowrap block ${
+                  scrolled ? "text-[#2f365b]" : "text-white"
+                }`}
+              >
+                YIEL
+              </span>
+              <div className="text-sm text-[#ea532b] font-semibold">
+                Système d'Information RH
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navLinks.map((link) => (
+              <div
+                key={link.title}
+                className="relative group"
+                onMouseEnter={() =>
+                  link.dropdown && handleMouseEnterMenu(link.menuKey)
+                }
+                onMouseLeave={link.dropdown ? handleMouseLeaveMenu : null}
+              >
+                <button
+                  onClick={() =>
+                    !link.dropdown && handleLinkClick(link.title, link.path)
                   }
-                  onMouseLeave={link.dropdown ? handleMouseLeaveMenu : null}
+                  className={`flex items-center px-4 py-2 text-sm font-medium rounded-xl transition-all duration-300 text-nowrap ${
+                    isNavLinkActive(link)
+                      ? "text-[#ea532b] bg-gradient-to-r from-[#ea532b]/10 to-[#ea532b]/5"
+                      : scrolled || isOpen
+                      ? "text-[#2f365b] hover:text-[#ea532b] hover:bg-gray-50"
+                      : "text-white hover:text-[#ea532b] hover:bg-white/10"
+                  }`}
                 >
+                  {/* Render icon for main nav links */}
+                  {link.icon && (
+                    <span className="mr-2">
+                      {React.cloneElement(link.icon, {
+                        size: 18,
+                        className: isNavLinkActive(link)
+                          ? "text-[#ea532b]"
+                          : scrolled || isOpen
+                          ? "text-[#2f365b] group-hover:text-[#ea532b]"
+                          : "text-white group-hover:text-[#ea532b]",
+                      })}
+                    </span>
+                  )}
+                  {link.title}
+                  {link.dropdown && (
+                    <ChevronDown
+                      size={16}
+                      className={`ml-1 transition-transform duration-300 ${
+                        activeMenu === link.menuKey ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                </button>
+                {link.dropdown && renderDesktopDropdown(link.menuKey)}
+              </div>
+            ))}
+          </nav>
+
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* Search */}
+            <div className="relative">
+              {searchOpen ? (
+                <form onSubmit={handleSearch} className="flex items-center">
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Rechercher..."
+                    className="w-64 px-4 py-2 pl-10 pr-4 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent transition-all duration-300"
+                  />
+                  <Search size={18} className="absolute left-3 text-gray-400" />
                   <button
-                    onClick={() =>
-                      !link.dropdown && handleLinkClick(link.title, link.path)
-                    }
-                    className={`flex items-center px-4 py-2 text-sm font-medium rounded-xl transition-all duration-300 text-nowrap ${
-                      isNavLinkActive(link)
-                        ? "text-[#ea532b] bg-gradient-to-r from-[#ea532b]/10 to-[#ea532b]/5"
-                        : scrolled || isOpen
-                        ? "text-[#2f365b] hover:text-[#ea532b] hover:bg-gray-50"
-                        : "text-white hover:text-[#ea532b] hover:bg-white/10"
-                    }`}
+                    type="button"
+                    onClick={toggleSearch}
+                    className="ml-2 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-300"
                   >
-                    {/* Render icon for main nav links */}
+                    <X size={18} />
+                  </button>
+                </form>
+              ) : (
+                <button
+                  onClick={toggleSearch}
+                  className={`p-2 rounded-xl transition-all duration-300 ${
+                    scrolled || isOpen
+                      ? "text-[#2f365b] hover:bg-gray-100"
+                      : "text-white hover:bg-white/10"
+                  }`}
+                >
+                  <Search size={20} />
+                </button>
+              )}
+            </div>
+
+            {/* CTA Button */}
+            <button
+              onClick={() => handleLinkClick("Inscription", "/inscription")}
+              className="bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-2 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-nowrap"
+            >
+              S'inscrire
+            </button>
+          </div>
+
+          {/* Mobile menu and search toggles */}
+          <div className="lg:hidden flex items-center space-x-2">
+            <button
+              onClick={toggleSearch}
+              className={`p-2 rounded-xl transition-all duration-300 ${
+                scrolled || isOpen
+                  ? "text-[#2f365b] hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
+              }`}
+            >
+              <Search size={20} />
+            </button>
+            <button
+              onClick={toggleMenu}
+              className={`p-2 rounded-xl transition-all duration-300 ${
+                scrolled || isOpen
+                  ? "text-[#2f365b] hover:bg-gray-100"
+                  : "text-white hover:bg-white/10"
+              }`}
+            >
+              {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Search */}
+        {searchOpen && (
+          <div className="lg:hidden pb-4">
+            <form onSubmit={handleSearch} className="relative">
+              <input
+                ref={searchInputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Rechercher..."
+                className="w-full px-4 py-3 pl-10 pr-4 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
+              />
+              <Search
+                size={18}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              />
+            </form>
+          </div>
+        )}
+
+        {/* Mobile Navigation */}
+        {/* IMPORTANT CHANGE: Added overflow-y-auto to allow scrolling */}
+        <div
+          className={`lg:hidden transition-all duration-500 ease-out ${
+            isOpen
+              ? "max-h-screen opacity-100 pb-6 overflow-y-auto" // Added overflow-y-auto here
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <nav className="space-y-2">
+            {navLinks.map((link) => (
+              <div key={link.title}>
+                <button
+                  onClick={() => {
+                    if (link.dropdown) {
+                      setActiveMobileMenu(
+                        activeMobileMenu === link.menuKey ? null : link.menuKey
+                      );
+                    } else {
+                      handleLinkClick(link.title, link.path);
+                    }
+                  }}
+                  className={`w-full flex items-center justify-between px-4 py-3 text-left font-medium rounded-xl transition-all duration-300 ${
+                    isNavLinkActive(link) // Use the centralized active check
+                      ? "text-[#ea532b] bg-gradient-to-r from-[#ea532b]/10 to-[#ea532b]/5"
+                      : "text-[#2f365b] hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center space-x-3">
+                    {/* Render icon for mobile main nav links */}
                     {link.icon && (
-                      <span className="mr-2">
+                      <span
+                        className={`p-2 rounded-lg ${
+                          isNavLinkActive(link)
+                            ? "bg-[#ea532b]/10"
+                            : "bg-gray-50"
+                        }`}
+                      >
                         {React.cloneElement(link.icon, {
-                          size: 18,
+                          size: 20,
                           className: isNavLinkActive(link)
                             ? "text-[#ea532b]"
-                            : scrolled || isOpen
-                            ? "text-[#2f365b] group-hover:text-[#ea532b]"
-                            : "text-white group-hover:text-[#ea532b]",
+                            : "text-gray-600",
                         })}
                       </span>
                     )}
-                    {link.title}
-                    {link.dropdown && (
-                      <ChevronDown
-                        size={16}
-                        className={`ml-1 transition-transform duration-300 ${
-                          activeMenu === link.menuKey ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </button>
-                  {link.dropdown && renderDesktopDropdown(link.menuKey)}
-                </div>
-              ))}
-            </nav>
-
-            {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center space-x-4">
-              {/* Search */}
-              <div className="relative">
-                {searchOpen ? (
-                  <form onSubmit={handleSearch} className="flex items-center">
-                    <input
-                      ref={searchInputRef}
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Rechercher..."
-                      className="w-64 px-4 py-2 pl-10 pr-4 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent transition-all duration-300"
-                    />
-                    <Search
-                      size={18}
-                      className="absolute left-3 text-gray-400"
-                    />
-                    <button
-                      type="button"
-                      onClick={toggleSearch}
-                      className="ml-2 p-2 text-gray-400 hover:text-gray-600 transition-colors duration-300"
-                    >
-                      <X size={18} />
-                    </button>
-                  </form>
-                ) : (
-                  <button
-                    onClick={toggleSearch}
-                    className={`p-2 rounded-xl transition-all duration-300 ${
-                      scrolled || isOpen
-                        ? "text-[#2f365b] hover:bg-gray-100"
-                        : "text-white hover:bg-white/10"
-                    }`}
-                  >
-                    <Search size={20} />
-                  </button>
-                )}
-              </div>
-
-              {/* CTA Button */}
-              <LoadingButton
-                to="/inscription"
-                loadingText="Redirection vers l'inscription..."
-                className="bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-2 rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-nowrap"
-              >
-                S'inscrire
-              </LoadingButton>
-            </div>
-
-            {/* Mobile menu and search toggles */}
-            <div className="lg:hidden flex items-center space-x-2">
-              <button
-                onClick={toggleSearch}
-                className={`p-2 rounded-xl transition-all duration-300 ${
-                  scrolled || isOpen
-                    ? "text-[#2f365b] hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
-                }`}
-              >
-                <Search size={20} />
-              </button>
-              <button
-                onClick={toggleMenu}
-                className={`p-2 rounded-xl transition-all duration-300 ${
-                  scrolled || isOpen
-                    ? "text-[#2f365b] hover:bg-gray-100"
-                    : "text-white hover:bg-white/10"
-                }`}
-              >
-                {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Search */}
-          {searchOpen && (
-            <div className="lg:hidden pb-4">
-              <form onSubmit={handleSearch} className="relative">
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Rechercher..."
-                  className="w-full px-4 py-3 pl-10 pr-4 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ea532b] focus:border-transparent"
-                />
-                <Search
-                  size={18}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-                />
-              </form>
-            </div>
-          )}
-
-          {/* Mobile Navigation */}
-          {/* IMPORTANT CHANGE: Added overflow-y-auto to allow scrolling */}
-          <div
-            className={`lg:hidden transition-all duration-500 ease-out ${
-              isOpen
-                ? "max-h-screen opacity-100 pb-6 overflow-y-auto" // Added overflow-y-auto here
-                : "max-h-0 opacity-0 overflow-hidden"
-            }`}
-          >
-            <nav className="space-y-2">
-              {navLinks.map((link) => (
-                <div key={link.title}>
-                  <button
-                    onClick={() => {
-                      if (link.dropdown) {
-                        setActiveMobileMenu(
-                          activeMobileMenu === link.menuKey
-                            ? null
-                            : link.menuKey
-                        );
-                      } else {
-                        handleLinkClick(link.title, link.path);
-                      }
-                    }}
-                    className={`w-full flex items-center justify-between px-4 py-3 text-left font-medium rounded-xl transition-all duration-300 ${
-                      isNavLinkActive(link) // Use the centralized active check
-                        ? "text-[#ea532b] bg-gradient-to-r from-[#ea532b]/10 to-[#ea532b]/5"
-                        : "text-[#2f365b] hover:bg-gray-50"
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      {/* Render icon for mobile main nav links */}
-                      {link.icon && (
-                        <span
-                          className={`p-2 rounded-lg ${
-                            isNavLinkActive(link)
-                              ? "bg-[#ea532b]/10"
-                              : "bg-gray-50"
-                          }`}
-                        >
-                          {React.cloneElement(link.icon, {
-                            size: 20,
-                            className: isNavLinkActive(link)
-                              ? "text-[#ea532b]"
-                              : "text-gray-600",
-                          })}
-                        </span>
-                      )}
-                      <span className="text-nowrap">{link.title}</span>
-                    </div>
-                    {link.dropdown && (
-                      <ChevronDown
-                        size={16}
-                        className={`transition-transform duration-300 ${
-                          activeMobileMenu === link.menuKey ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </button>
-
-                  {/* Mobile Dropdown Content */}
-                  <div
-                    className={`overflow-hidden transition-all duration-500 ease-out ${
-                      activeMobileMenu === link.menuKey
-                        ? "max-h-screen opacity-100 mt-2"
-                        : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    {renderMobileMenuItems(link.menuKey)}
+                    <span className="text-nowrap">{link.title}</span>
                   </div>
+                  {link.dropdown && (
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-300 ${
+                        activeMobileMenu === link.menuKey ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                </button>
+
+                {/* Mobile Dropdown Content */}
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-out ${
+                    activeMobileMenu === link.menuKey
+                      ? "max-h-screen opacity-100 mt-2"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {renderMobileMenuItems(link.menuKey)}
                 </div>
-              ))}
-
-              {/* Mobile CTA */}
-              <div className="pt-4 border-t border-gray-200">
-                <LoadingButton
-                  to="/demo"
-                  loadingText="Chargement de la démo..."
-                  className="w-full bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 text-nowrap"
-                >
-                  Demander une démo
-                </LoadingButton>
               </div>
+            ))}
 
-              <div className="pt-4 border-t border-gray-200">
-                <LoadingLink
-                  to="/inscription"
-                  loadingText="Redirection vers l'inscription..."
-                  className="w-full border border-[#2f365b] text-[#2f365b] px-6 py-3 rounded-xl font-medium hover:bg-[#2f365b] hover:text-white transition-all duration-300 text-nowrap text-center block"
-                >
-                  Créer un compte
-                </LoadingLink>
-              </div>
-            </nav>
-          </div>
+            {/* Mobile CTA */}
+            <div className="pt-4 border-t border-gray-200">
+              <button
+                onClick={() => handleLinkClick("Démo", "/demo")}
+                className="w-full bg-gradient-to-r from-[#ea532b] to-[#d44620] text-white px-6 py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300 text-nowrap"
+              >
+                Demander une démo
+              </button>
+            </div>
+
+            <div className="pt-4 border-t border-gray-200">
+              <a
+                href="/inscription"
+                className="w-full border border-[#2f365b] text-[#2f365b] px-6 py-3 rounded-xl font-medium hover:bg-[#2f365b] hover:text-white transition-all duration-300 text-nowrap text-center block"
+              >
+                Créer un compte
+              </a>
+            </div>
+          </nav>
         </div>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 

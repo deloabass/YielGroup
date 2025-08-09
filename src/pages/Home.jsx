@@ -19,7 +19,7 @@ import {
   Download,
   Zap,
 } from "lucide-react";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import FAQ from "../components/FAQ";
 import { useNavigate } from "react-router-dom";
@@ -103,27 +103,27 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-    // Animation au scroll
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            setIsVisible((prev) => ({
-              ...prev,
-              [entry.target.id]: entry.isIntersecting,
-            }));
-          });
-        },
-        { threshold: 0.15 }
-      );
-  
-      // Observer toutes les sections
-      document.querySelectorAll("section[id]").forEach((element) => {
-        observer.observe(element);
-      });
-  
-      return () => observer.disconnect();
-    }, []);
+  // Animation au scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible((prev) => ({
+            ...prev,
+            [entry.target.id]: entry.isIntersecting,
+          }));
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    // Observer toutes les sections
+    document.querySelectorAll("section[id]").forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // Données des fonctionnalités principales
   const features = [
@@ -355,23 +355,23 @@ const Home = () => {
             isVisible.hero ? "opacity-100" : "opacity-0"
           }`}
         >
-                <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
-          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
-        </div>
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
+            <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
+          </div>
           {/* Éléments de fond */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-24 sm:w-40 h-24 sm:h-40 rounded-full bg-[#ea532b] blur-2xl sm:blur-3xl"></div>
             <div className="absolute bottom-5 right-5 sm:bottom-10 sm:right-20 w-32 sm:w-60 h-32 sm:h-60 rounded-full bg-blue-400 blur-2xl sm:blur-3xl"></div>
           </div>
-        
+
           <div className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-28 flex flex-col md:flex-row items-center">
             {/* image en arriere plant */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
             </div>
-            
+
             {/* Contenu principal */}
             <div className="w-full md:w-1/2 z-10 px-2 py-5 sm:px-4">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 sm:mb-6">
@@ -396,13 +396,13 @@ const Home = () => {
                   </span>
                 </span>
               </h1>
-                  
+
               <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 max-w-lg">
                 YIEL, une solution SIRH complète et innovante conçue pour les
                 entreprises en Afrique qui vous accompagne dans la gestion de
                 vos talents et vos équipes et fait grandir votre entreprise.
               </p>
-                  
+
               <div className="flex flex-col sm:flex-row text-nowrap gap-3 sm:gap-4">
                 <a
                   href="/demo"
@@ -418,7 +418,7 @@ const Home = () => {
                   Découvrir les fonctionnalités
                 </a>
               </div>
-                  
+
               {/* Indicateurs de confiance */}
               <div className="mt-8 sm:mt-10 flex flex-wrap items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
                 <div className="flex items-center gap-1">
@@ -437,11 +437,11 @@ const Home = () => {
                 </div>
               </div>
             </div>
-                  
+
             {/* Espace réservé pour l'image (actuellement commentée dans le code original) */}
             <div className="hidden md:block md:w-1/2"></div>
           </div>
-                  
+
           {/* Séparateur en vague */}
           {/* <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
             <svg
@@ -457,32 +457,33 @@ const Home = () => {
               ></path>
             </svg>
           </div> */}
-             <div
-          ref={observerRefs.clients}
-          className={`py-12 transition-all duration-1000 ease-out ${
-          isVisible.hero ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <div className="container mx-auto px-4">
-            <h2 className="text-center text-lg font-medium text-[#ea532b] mb-3">
-              Rejoignez une communauté grandissante d'entreprises
-            </h2>
-            <p className="text-center text-white mb-8 p-1 rounded-full bg-[#A4A8B8]">
-              Ils nous ont fait confiance, nous vous invitons à faire de même...
-            </p>
+          <div
+            ref={observerRefs.clients}
+            className={`py-12 transition-all duration-1000 ease-out ${
+              isVisible.hero ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="container mx-auto px-4">
+              <h2 className="text-center text-lg font-medium text-[#ea532b] mb-3">
+                Rejoignez une communauté grandissante d'entreprises
+              </h2>
+              <p className="text-center text-white mb-8 p-1 rounded-full bg-[#A4A8B8]">
+                Ils nous ont fait confiance, nous vous invitons à faire de
+                même...
+              </p>
 
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-              {clients.map((client, index) => (
-                <div
-                  key={index}
-                  className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
-                >
-                  <img src={client.logo} alt={client.name} className="h-12" />
-                </div>
-              ))}
+              <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                {clients.map((client, index) => (
+                  <div
+                    key={index}
+                    className="grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110"
+                  >
+                    <img src={client.logo} alt={client.name} className="h-12" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
         </section>
 
         {/* Logos des clients */}
