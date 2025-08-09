@@ -7,12 +7,12 @@ const Loader = () => {
   const [showIcon, setShowIcon] = useState(false);
 
   const loadingSteps = [
-    { icon: Database, text: "Initialisation des données RH", delay: 1000 },
+    { icon: Database, text: "Initialisation des données RH", delay: 800 },
     { icon: Users, text: "Configuration des profils utilisateurs", delay: 1200 },
-    { icon: Shield, text: "Vérification de sécurité", delay: 1000 },
+    { icon: Shield, text: "Vérification de sécurité", delay: 900 },
     { icon: Settings, text: "Personnalisation de l'interface", delay: 1100 },
-    { icon: TrendingUp, text: "Chargement des analytics", delay: 1000 },
-    { icon: CheckCircle, text: "Finalisation", delay: 1000 }
+    { icon: TrendingUp, text: "Chargement des analytics", delay: 700 },
+    { icon: CheckCircle, text: "Finalisation", delay: 500 }
   ];
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Loader = () => {
         }
         return prev + Math.random() * 3 + 1;
       });
-    }, 1000);
+    }, 100);
 
     const stepInterval = setInterval(() => {
       setCurrentStep(prev => {
@@ -76,14 +76,18 @@ const Loader = () => {
           <div className={`transition-all duration-1000 ${showIcon ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
             <div className="relative inline-block">
               <div className="w-20 h-20 bg-[#ea532b] rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-500">
-                <span className="text-white font-bold text-2xl">Y</span>
+                <img
+                src="../logo.webp"
+                alt="YIEL Logo"
+                className="w-full h-full object-contain rounded-xl "
+              />
               </div>
               {/* Cercles animés autour du logo */}
               <div className="absolute -inset-4 border-2 border-[#ea532b]/30 rounded-full animate-spin-slow"></div>
               <div className="absolute -inset-2 border border-[#ea532b]/50 rounded-full animate-spin-reverse"></div>
             </div>
             <h1 className="text-3xl font-bold text-white mb-2">YIEL</h1>
-            <p className="text-[#ea532b] font-medium">Solution SIRH Innovante</p>
+            <p className="text-[#ea532b] font-medium">Système d'Information RH</p>
           </div>
         </div>
 

@@ -30,3 +30,5 @@ function TeamsYIELERS() {
 }
 
 export default TeamsYIELERS;
+
+// cette page doit contenir une image et cette text là juste : 

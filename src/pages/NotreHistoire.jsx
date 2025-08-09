@@ -175,14 +175,23 @@ const NotreHistoire = () => {
   // Données de l'équipe
   const team = [
     {
-      name: "Stéphanie NKOMANE",
+      name: "Stéphanie NKOMANE BITEGYE",
       role: "CEO & Fondatrice",
       description: `Diplômée d'un Master en Systèmes d'informations et Ressources Humaines (SIRH), elle est animée par une ambition claire : révolutionner la gestion des talents en alliant technologie, simplicité et performance. Forte de son expertise en RH et de sa vision stratégique, elle a fondé MyYiel pour accompagner les entreprises, en particulier en Afrique, dans l'optimisation processus tout en mettant l'humain au cœur des décisions. Convaincue que les talents sont le moteur de la performance, elle s'entoure d'experts et de partenaires partageant cette même vision. À travers MyYiel, elle œuvre à rendre la gestion des RH plus intuitive, efficace et accessible, afin d'aider les entreprises à grandir tout en valorisant leur capital Humain.`,
       image: "./Stephanie.jpeg",
       social: {
         linkedin: "#",
-        email: "stephanie@yiel.com",
+        email: "stephanienkomane@gmail.com",
       },
+    },
+    {
+      name: "Ronel HOUNSOU",
+      role: "Full-Stack digital designer | Monteur vidéo Pro",
+      description: "",
+      image: "./yielers.jpg",
+      social: {
+        linkedin: "",
+      }
     },
     {
       name: "Chamir NM",
@@ -792,7 +801,7 @@ const NotreHistoire = () => {
                 >
                   {/* Badge d’icône */}
                   <div className="relative mb-6">
-                    <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-[#ea532b] shadow-md">
+                    <div className="w-35 h-35 rounded-full overflow-hidden border-4 border-[#ea532b] shadow-md">
                       <img
                         src={member.image}
                         alt={member.name}

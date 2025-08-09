@@ -91,6 +91,7 @@ function AppContent() {
         <Route path="/sign" element={<Sign />} />
         <Route path="/recrute" element={<Recrute />} />
         <Route path="/cookies" element={<SolutionsDigitales />} />
+        {/* <Route path="/loader" element={<Loader />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       <CookieConsent />
