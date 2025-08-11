@@ -186,11 +186,11 @@ const NotreHistoire = () => {
     },
     {
       name: "Ronel HOUNSOU",
-      role: "Full-Stack digital designer | Monteur vidéo Pro",
-      description: "",
+      role: "Brand Graphic Designer",
+      description: "Créateur d'identités visuelles stratégique, je conçois et déploie des univers graphiquescohérents et impactants, renforçant l'imageet la présence des entreprises sur tous supports, y compris les réseaux sociaux.",
       image: "./yielers.jpg",
       social: {
-        linkedin: "",
+        linkedin: "www.linkedin.com/in/ronel-hounsou",
       }
     },
     {
@@ -782,9 +782,7 @@ const NotreHistoire = () => {
                         {platform === "linkedin" && (
                           <Linkedin className="h-5 w-5" />
                         )}
-                        {platform === "twitter" && (
-                          <Twitter className="h-5 w-5" />
-                        )}
+                        {platform === "twitter" && ( <Twitter className="h-5 w-5" />)}
                         {platform === "email" && <Mail className="h-5 w-5" />}
                       </a>
                     ))}

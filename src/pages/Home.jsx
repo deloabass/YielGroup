@@ -621,7 +621,7 @@ const Home = () => {
                       }`}
                     >
                       <div
-                        className={`h-8 w-8 rounded-full ${
+                        className={`h-8 w-8  rounded-full  ${
                           index === activeStep ? "bg-[#ea532b]" : "bg-gray-400"
                         } text-white flex items-center justify-center mx-auto mb-4 text-sm font-bold shadow-md`}
                       >
