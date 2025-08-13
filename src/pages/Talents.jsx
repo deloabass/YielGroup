@@ -411,9 +411,9 @@ function Talents() {
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <button
                   onClick={() => navigate("/demo")}
-                  className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+                  className="cursor-pointer px-7 py-3 bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
                 >
-                  Découvrir la démo
+                  Demander une démo
                   <ArrowRight size={18} className="ml-2" />
                 </button>
               </div>
@@ -736,7 +736,7 @@ function Talents() {
             Rejoignez les entreprises qui ont choisi Y'Talent pour développer
             leurs équipes et optimiser leur gestion des talents.
           </p>
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+          {/* <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
             <button
               onClick={() => navigate("/demo")}
               className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
@@ -744,7 +744,7 @@ function Talents() {
               Demander une démo
               <ArrowRight size={18} className="ml-2" />
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 

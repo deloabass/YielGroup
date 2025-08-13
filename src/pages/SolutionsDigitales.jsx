@@ -381,14 +381,14 @@ function SolutionsDigitales() {
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                   <button
                     onClick={() => navigate("/demo")}
-                    className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+                    className="cursor-pointer py-3 px-7 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
                   >
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
                   <a
                     href="#cta"
-                    className="px-6 cursor-pointer py-3 bg-white/10 backdrop-blur text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
+                    className="px-7 cursor-pointer py-3 bg-white/10 backdrop-blur text-white font-semibold rounded-full shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
                   >
                     Demander un devis
                   </a>
@@ -537,7 +537,7 @@ function SolutionsDigitales() {
 
                       <a
                         href="#cta"
-                        className={`px-6 py-3 ${service.color} text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition-all duration-300 flex items-center justify-center`}
+                        className={`px-7 py-3 ${service.color} text-white font-semibold rounded-full shadow-md hover:opacity-90 transition-all duration-300 flex items-center justify-center`}
                       >
                         Demander un devis
                         <ArrowRight size={18} className="ml-2" />
@@ -820,7 +820,7 @@ function SolutionsDigitales() {
 
                     <button
                       type="submit"
-                      className="w-full px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+                      className="cursor-pointer w-full px-7 py-3 bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
                     >
                       Envoyer ma demande
                       <ArrowRight size={18} className="ml-2" />

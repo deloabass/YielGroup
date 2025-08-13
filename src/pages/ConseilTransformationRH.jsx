@@ -329,7 +329,7 @@ function ConseilTransformationRH() {
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                   <button
                     onClick={() => navigate("/demo")}
-                    className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+                    className="cursor-pointer px-7 py-3 bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
                   >
                     Demander une démo
                     <ArrowRight className="h-5 w-5 ml-2" />
@@ -340,7 +340,7 @@ function ConseilTransformationRH() {
                         document.getElementById("services");
                       servicesSection?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="px-6 cursor-pointer py-3 bg-transparent text-white border border-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
+                    className="px-7 py-3 cursor-pointer bg-transparent text-white border border-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
                   >
                     Découvrir nos services
                     <ChevronRight className="h-5 w-5 ml-2" />
@@ -482,13 +482,6 @@ function ConseilTransformationRH() {
                         </span>
                       </div>
                     </div>
-                    {/* <a
-                      href="#"
-                      className="inline-flex items-center text-[#ea532b] font-medium mt-6"
-                    >
-                      En savoir plus
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </a> */}
                   </div>
                 </div>
               </div>
@@ -918,15 +911,6 @@ function ConseilTransformationRH() {
                 enjeux et vous proposer un accompagnement sur mesure, adapté à
                 votre contexte et à vos objectifs.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <button
-                  onClick={() => navigate("/demo")}
-                  className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
-                >
-                  Demander une démo
-                  <Calendar className="h-5 w-5 ml-2" />
-                </button>
-              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">

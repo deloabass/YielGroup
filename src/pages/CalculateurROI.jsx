@@ -387,7 +387,7 @@ function CalculateurROI() {
 
                 <button
                   onClick={handleCalculate}
-                  className="w-full mt-8 px-6 py-4 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-semibold rounded-lg shadow-lg hover:from-[#d64a27] hover:to-[#c44125] transition-all duration-300 flex items-center justify-center"
+                  className="w-full mt-8 cursor-pointer px-7 py-3 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-semibold rounded-full shadow-lg hover:from-[#d64a27] hover:to-[#c44125] transition-all duration-300 flex items-center justify-center"
                 >
                   <Calculator className="h-5 w-5 mr-2" />
                   Calculer mon ROI
@@ -630,7 +630,7 @@ function CalculateurROI() {
                         </div>
                         <button
                           onClick={handleDownloadReport}
-                          className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg hover:bg-[#d64a27] transition-colors duration-300"
+                          className="px-7 py-3 bg-[#ea532b] text-white font-semibold rounded-full hover:bg-[#d64a27] transition-colors duration-300"
                         >
                           Envoyer
                         </button>
@@ -639,7 +639,7 @@ function CalculateurROI() {
                   ) : (
                     <button
                       onClick={handleDownloadReport}
-                      className="px-8 py-4 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-semibold rounded-lg shadow-lg hover:from-[#d64a27] hover:to-[#c44125] transition-all duration-300 flex items-center mx-auto"
+                      className="cursor-pointer px-7 py-3 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-semibold rounded-full shadow-lg hover:from-[#d64a27] hover:to-[#c44125] transition-all duration-300 flex items-center mx-auto"
                     >
                       <Download className="h-5 w-5 mr-2" />
                       Télécharger le rapport complet
@@ -653,11 +653,11 @@ function CalculateurROI() {
                       setShowResults(false);
                       topRef.current?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="px-6 py-3 border-2 border-[#ea532b] text-[#ea532b] font-semibold rounded-lg hover:bg-[#ea532b] hover:text-white transition-all duration-300"
+                    className="cursor-pointer px-7 py-3 border-2 border-[#ea532b] text-[#ea532b] font-semibold rounded-full hover:bg-[#ea532b] hover:text-white transition-all duration-300"
                   >
                     Modifier les paramètres
                   </button>
-                  <button onClick={() => navigate("/demo")} className="px-6 py-3 bg-[#2f365b] text-white font-semibold rounded-lg hover:bg-[#3a4272] transition-colors duration-300">
+                  <button onClick={() => navigate("/demo")} className="cursor-pointer px-7 py-3 bg-[#2f365b] text-white font-semibold rounded-full hover:bg-transparent border-2 border-[#2f365b] hover:text-[#2f365b] transition-colors duration-300">
                     Demander une démo
                   </button>
                 </div>
@@ -737,12 +737,12 @@ function CalculateurROI() {
               de la solution SIRH parfaitement adaptée à vos besoins.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button onClick={() => navigate("/demo")} className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg hover:bg-[#d64a27] transition-colors duration-300 flex items-center">
+              <button onClick={() => navigate("/demo")} className="cursor-pointer px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full transition-colors duration-300 flex items-center">
                 <Calendar className="h-5 w-5 mr-2" />
                 Demander une démo
                 <ChevronRight className="h-5 w-5 ml-2" />
               </button>
-              <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#2f365b] transition-all duration-300 flex items-center">
+              <button className="cursor-pointer px-7 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#2f365b] transition-all duration-300 flex items-center">
                 <BookOpen className="h-5 w-5 mr-2" />
                 Télécharger le guide
               </button>

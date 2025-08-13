@@ -20,7 +20,7 @@ import FAQ from "../components/FAQ";
 import Header from "../components/Header";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useScrollToTop } from "../hooks/useScrollToTop";
-function Temes() {
+function Times() {
   const topRef = useRef(null);
   useScrollToTop(topRef);
   const navigate = useNavigate();
@@ -375,9 +375,9 @@ function Temes() {
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                 <button
                   onClick={() => navigate("/demo")}
-                  className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center group"
+                  className="px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center group"
                 >
-                  Découvrir Y'Time
+                  Demander une démo
                   <ArrowRight
                     size={18}
                     className="ml-2 group-hover:translate-x-1 transition-transform"
@@ -468,11 +468,11 @@ function Temes() {
 
           {/* Feature Tabs */}
           <div className="flex flex-col md:flex-row justify-center mb-12">
-            <div className="flex bg-gray-100 rounded-lg p-1 max-w-lg mx-auto">
+            <div className="flex bg-gray-100 rounded-full p-1 max-w-lg mx-auto">
               {features.map((feature) => (
                 <button
                   key={feature.id}
-                  className={`px-6 py-3 rounded-lg whitespace-nowrap font-medium transition-all duration-300 flex items-center ${
+                  className={`px-6 py-3 rounded-full whitespace-nowrap font-medium transition-all duration-300 flex items-center ${
                     activeFeature === feature.id
                       ? "bg-[#2f365b] text-white shadow-lg"
                       : "text-[#2f365b] hover:bg-gray-200"
@@ -613,7 +613,7 @@ function Temes() {
       </section>
 
       {/* --- CTA Section --- */}
-      <section className="py-20 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white">
+      <section className="py-20 bg-gradient-to-r from-[#2f365b] to-[#3a4272] text-white">
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
             <Zap size={48} className="mx-auto mb-6 text-white/80" />
@@ -626,7 +626,7 @@ function Temes() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+          {/* <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
             <button
               onClick={() => navigate("/demo")}
               className="px-8 py-4 bg-white/20 backdrop-blur text-white font-semibold rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center justify-center group"
@@ -634,7 +634,7 @@ function Temes() {
               <Calendar size={20} className="mr-2 group-hover:scale-110 transition-transform" />
               Demander une démo
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -643,4 +643,4 @@ function Temes() {
   );
 }
 
-export default Temes;
+export default Times;

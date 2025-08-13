@@ -194,7 +194,7 @@ function Expense() {
         </div>
       </div>
       
-      <button className="w-full mt-6 bg-[#ea532b] text-white py-3 rounded-lg font-medium hover:bg-[#d64a27] transition-colors">
+      <button className="w-full mt-6 bg-[#ea532b] text-white py-3 rounded-full cursor-pointer font-medium hover:bg-[#d64a27] transition-colors">
         Nouvelle demande
       </button>
     </div>
@@ -249,8 +249,8 @@ function Expense() {
               </div>
 
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center group">
-                  Découvrir Y'Expense
+                <button className="px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center group">
+                  Demander une démo
                   <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -319,11 +319,11 @@ function Expense() {
 
           {/* Feature Tabs */}
           <div className="flex flex-col md:flex-row justify-center mb-12">
-            <div className="flex bg-gray-100 rounded-lg p-1 max-w-lg mx-auto">
+            <div className="flex bg-gray-100 rounded-full p-1 max-w-lg mx-auto">
               {features.map((feature) => (
                 <button
                   key={feature.id}
-                  className={`px-6 py-3 rounded-lg whitespace-nowrap font-medium transition-all duration-300 flex items-center ${
+                  className={`px-6 py-3 rounded-full cursor-pointer whitespace-nowrap font-medium transition-all duration-300 flex items-center ${
                     activeFeature === feature.id
                       ? "bg-[#2f365b] text-white shadow-lg"
                       : "text-[#2f365b] hover:bg-gray-200"
@@ -395,9 +395,9 @@ function Expense() {
           </div>
 
           <div className="flex justify-center mb-8">
-            <div className="flex bg-white rounded-lg p-1 shadow-lg">
+            <div className="flex bg-white rounded-full p-1 shadow-lg">
               <button
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center ${
+                className={`px-6 py-3 rounded-full cursor-pointer font-medium transition-all duration-300 flex items-center ${
                   activeTab === "employee"
                     ? "bg-[#ea532b] text-white shadow-lg"
                     : "text-[#2f365b] hover:bg-gray-100"
@@ -408,7 +408,7 @@ function Expense() {
                 Espace Collaborateur
               </button>
               <button
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center ${
+                className={`px-6 py-3 rounded-full cursor-pointer font-medium transition-all duration-300 flex items-center ${
                   activeTab === "hr"
                     ? "bg-[#ea532b] text-white shadow-lg"
                     : "text-[#2f365b] hover:bg-gray-100"
@@ -601,7 +601,7 @@ function Expense() {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-              <button className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center group">
+              <button className="cursor-pointer px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center group">
                 Demander une démo
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>

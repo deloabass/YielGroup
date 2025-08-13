@@ -26,20 +26,18 @@ import {
   Mail,
   Phone,
   MapPin,
-  PlusCircle,
-  MinusCircle,
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { useScrollToTop } from "../hooks/useScrollToTop";
+import FAQ from "../components/FAQ";
 
 const ParcoursCollaborateur = () => {
   const topRef = useRef(null);
   useScrollToTop(topRef);
   const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState({});
-  const [openFaq, setOpenFaq] = useState(null);
 
   // Animation au scroll
   useEffect(() => {
@@ -267,7 +265,7 @@ const ParcoursCollaborateur = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-                  <button onClick={() => navigate("/demo")} className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] cursor-pointer transition-all duration-300 flex items-center justify-center">
+                  <button onClick={() => navigate("/demo")} className="px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg  cursor-pointer transition-all duration-300 flex items-center justify-center">
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
@@ -514,56 +512,13 @@ const ParcoursCollaborateur = () => {
             </div>
           </div>
         </section>
-
         {/* FAQ Section */}
         <section id="faq" className="py-20 bg-gray-50">
           <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6">
-                FAQ
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2f365b] mb-6">
-                Questions <span className="text-[#ea532b]">fréquentes</span>
-              </h2>
-              <p className="text-lg text-gray-600">
-                Vous avez une question ? Nous avons les réponses.
-              </p>
-            </div>
+        
 
-            <div className="space-y-4">
-              {faqs.map((faq) => (
-                <div
-                  key={faq.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
-                >
-                  <button
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                    onClick={() =>
-                      setOpenFaq(openFaq === faq.id ? null : faq.id)
-                    }
-                  >
-                    <span className="text-lg font-semibold text-[#2f365b]">
-                      {faq.question}
-                    </span>
-                    {openFaq === faq.id ? (
-                      <MinusCircle size={20} className="text-[#ea532b]" />
-                    ) : (
-                      <PlusCircle size={20} className="text-[#ea532b]" />
-                    )}
-                  </button>
-
-                  {openFaq === faq.id && (
-                    <div className="px-6 pb-4">
-                      <div className="border-t pt-4">
-                        <p className="text-gray-600 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+       
+          <FAQ faqs={faqs}/>
           </div>
         </section>
 
@@ -607,11 +562,11 @@ const ParcoursCollaborateur = () => {
 
                 <div className="text-center lg:text-right">
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+                    <button className="py-3 px-7 bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                       <Calendar size={20} className="mr-2" />
                       Réserver un appel
                     </button>
-                    <button className="px-8 py-4 bg-white/10 backdrop-blur text-white font-semibold rounded-lg shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                    <button className="py-3 px-7 bg-white/10 backdrop-blur text-white font-semibold rounded-full shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
                       <Mail size={20} className="mr-2" />
                       Nous contacter
                     </button>
@@ -776,7 +731,7 @@ const ParcoursCollaborateur = () => {
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
+                    className="w-full py-3 px-7 bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center"
                   >
                     <Mail size={20} className="mr-2" />
                     Envoyer le message

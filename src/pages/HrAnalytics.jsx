@@ -265,7 +265,7 @@ function HrAnalytics() {
                   unifiée de l'ensemble des dynamiques RH de votre organisation.
                 </p>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                  <button onClick={() => navigate("/demo")} className="px-6 cursor-pointer py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+                  <button onClick={() => navigate("/demo")} className="py-3 px-7 cursor-pointer bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                     Demander une démo
                     <ArrowRight size={18} className="ml-2" />
                   </button>
@@ -333,19 +333,19 @@ function HrAnalytics() {
                 </div>
                 <div className="ml-4 flex space-x-4 text-sm">
                   <button 
-                    className={`py-1 px-3 rounded ${activeTab === 'general' ? 'bg-[#ea532b]' : 'hover:bg-gray-700'}`}
+                    className={`py-1 px-3 rounded-full ${activeTab === 'general' ? 'bg-[#ea532b]' : 'hover:bg-gray-700'}`}
                     onClick={() => setActiveTab('general')}
                   >
                     Tableau général
                   </button>
                   <button 
-                    className={`py-1 px-3 rounded ${activeTab === 'performance' ? 'bg-[#ea532b]' : 'hover:bg-gray-700'}`}
+                    className={`py-1 px-3 rounded-full ${activeTab === 'performance' ? 'bg-[#ea532b]' : 'hover:bg-gray-700'}`}
                     onClick={() => setActiveTab('performance')}
                   >
                     Performance
                   </button>
                   <button 
-                    className={`py-1 px-3 rounded ${activeTab === 'training' ? 'bg-[#ea532b]' : 'hover:bg-gray-700'}`}
+                    className={`py-1 px-3 rounded-full ${activeTab === 'training' ? 'bg-[#ea532b]' : 'hover:bg-gray-700'}`}
                     onClick={() => setActiveTab('training')}
                   >
                     Formation
@@ -768,13 +768,10 @@ function HrAnalytics() {
               Demandez une démo personnalisée et découvrez comment notre module HR Analytics peut répondre à vos besoins spécifiques.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <button onClick={() => navigate("/demo")} className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
+              <button onClick={() => navigate("/demo")} className="cursor-pointer px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center justify-center">
                 Demander une démo
                 <ArrowRight size={18} className="ml-2" />
               </button>
-              {/* <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg shadow-lg hover:bg-white/10 transition-all duration-300">
-                Contacter un conseiller
-              </button> */}
             </div>
           </div>
         </section>

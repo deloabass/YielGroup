@@ -27,7 +27,7 @@ import Talents from "./pages/Talents";
 import Learn from "./pages/Learn";
 import Sign from "./pages/Sign";
 import Recrute from "./pages/Recrute";
-import Temes from "./pages/Temes";
+import Times from "./pages/Times";
 import NosValeurs from "./pages/NosValeurs";
 import TeamsYIELERS from "./pages/TeamsYIELERS";
 import NousContacter from "./pages/NousContacter";
@@ -66,7 +66,7 @@ function AppContent() {
         <Route path="/recrutement-sur-mesure" element={<RecrutementSurMesure />} />
         <Route path="/solutions-digitales-RH" element={<SolutionsDigitales />} />
         <Route path="/talents" element={<Talents />} />
-        <Route path="/time" element={<Temes />} />
+        <Route path="/time" element={<Times />} />
         <Route path="/expense" element={<Expense />} />
         <Route path="/PlusMyYiel" element={<PlusMyYiel />} />
         <Route path="/notre-histoire" element={<NotreHistoire />} />
@@ -91,7 +91,7 @@ function AppContent() {
         <Route path="/sign" element={<Sign />} />
         <Route path="/recrute" element={<Recrute />} />
         <Route path="/cookies" element={<SolutionsDigitales />} />
-        {/* <Route path="/loader" element={<Loader />} /> */}
+        <Route path="/loader" element={<Loader />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <CookieConsent />

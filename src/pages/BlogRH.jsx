@@ -485,12 +485,11 @@ const BlogRH = () => {
                   Accédez à notre bibliothèque de modèles RH : contrats, fiches
                   de poste, évaluations...
                 </p>
-                <a
-                  href="#"
-                  className="flex items-center text-[#ea532b] font-medium hover:underline"
+                <button
+                  className="flex items-center text-[#ea532b] cursor-pointer font-medium hover:underline"
                 >
                   Télécharger <ChevronRight size={16} className="ml-1" />
-                </a>
+                </button>
               </div>
 
               {/* Ressource 2 */}
@@ -518,12 +517,11 @@ const BlogRH = () => {
                   Nos guides étape par étape pour optimiser vos processus RH et
                   gagner en efficacité.
                 </p>
-                <a
-                  href="#"
-                  className="flex items-center text-[#ea532b] font-medium hover:underline"
+                <button
+                  className="flex items-center text-[#ea532b] cursor-pointer font-medium hover:underline"
                 >
                   Consulter <ChevronRight size={16} className="ml-1" />
-                </a>
+                </button>
               </div>
 
               {/* Ressource 3 */}
@@ -551,12 +549,11 @@ const BlogRH = () => {
                   Replay de nos webinaires avec des experts sur les dernières
                   tendances en ressources humaines.
                 </p>
-                <a
-                  href="#"
-                  className="flex items-center text-[#ea532b] font-medium hover:underline"
+                <button
+                  className="flex items-center text-[#ea532b] cursor-pointer font-medium hover:underline"
                 >
                   Regarder <ChevronRight size={16} className="ml-1" />
-                </a>
+                </button>
               </div>
             </div>
           </div>

@@ -363,7 +363,7 @@ const Footer = () => {
             <div>
               <button
                 onClick={() => navigate("/demo")}
-                className="bg-[#ea532b] hover:bg-[#d44620] text-white px-6 py-3 rounded-full transition-all duration-300 font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
+                className="bg-[#ea532b] hover:bg-[#d64a27] text-white px-7 py-3 rounded-full transition-all duration-300 font-medium shadow-md hover:shadow-lg transform hover:-translate-y-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#ea532b]"
               >
                 Demander une démo
               </button>

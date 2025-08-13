@@ -404,13 +404,13 @@ const Home = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row text-nowrap gap-3 sm:gap-4">
-                <a
-                  href="/demo"
-                  className="px-4 text-nowrap sm:px-6 py-2.5 sm:py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center sm:justify-start"
+                <button
+                  onClick={() => navigate("/demo")}
+                  className="px-4 cursor-pointer text-nowrap sm:px-6 py-2.5 sm:py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex items-center justify-center sm:justify-start"
                 >
                   Demander une démo
                   <ChevronRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
+                </button>
                 <a
                   href="#features"
                   className="px-4  sm:px-6 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-[#2f365b] font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-center sm:text-left"
@@ -573,7 +573,7 @@ const Home = () => {
               ))}
             </div>
 
-            <div className="mt-16 text-center">
+            {/* <div className="mt-16 text-center">
               <a
                 href="#demo"
                 className="inline-flex items-center px-6 py-3 bg-[#2f365b] hover:bg-[#252a49] text-white font-medium rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
@@ -581,7 +581,7 @@ const Home = () => {
                 N'hésitez plus
                 <ChevronRight className="ml-2 w-5 h-5" />
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
 
@@ -609,7 +609,7 @@ const Home = () => {
             <div className="relative">
               {/* Timeline desktop */}
               <div className="hidden md:block relative mb-16">
-                <div className="absolute h-1 bg-gray-300 top-16 left-0 right-0 z-0"></div>
+                <div className="absolute h-1 bg-gray-300 top-20 left-0 right-0 z-0"></div>
                 <div className="flex justify-between relative z-10">
                   {deploymentSteps.map((step, index) => (
                     <div
@@ -781,13 +781,13 @@ const Home = () => {
                   tâches administratives.
                 </p>
 
-                <a
-                  href="/notre-Histoire"
-                  className="inline-flex items-center text-[#ea532b] font-medium hover:text-[#d64a27] transition-colors"
+                <button
+                onClick={() => navigate('/notre-Histoire')}
+                  className="inline-flex cursor-pointer border py-3 px-7 rounded-full items-center text-[#ea532b] font-medium hover:text-[#d64a27] transition-colors"
                 >
                   En savoir plus
                   <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -819,12 +819,12 @@ const Home = () => {
                 modernes en offrant une solution complète, flexible et
                 évolutive.
               </p>
-              <a
+              <button
                 onClick={() => navigate("/solutions-digitales-RH")}
-                className="inline-block px-8 py-4 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-lg transition-colors duration-300"
+                className="inline-block cursor-pointer px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] rounded-full text-white font-medium transition-colors duration-300"
               >
                 Découvrir nos solution
-              </a>
+              </button>
             </div>
           </div>
         </section>

@@ -190,7 +190,7 @@ const NotreHistoire = () => {
       description: "Créateur d'identités visuelles stratégique, je conçois et déploie des univers graphiquescohérents et impactants, renforçant l'imageet la présence des entreprises sur tous supports, y compris les réseaux sociaux.",
       image: "./yielers.jpg",
       social: {
-        linkedin: "www.linkedin.com/in/ronel-hounsou",
+        linkedin: "/www.linkedin.com/in/ronel-hounsou",
       }
     },
     {
@@ -387,7 +387,7 @@ const NotreHistoire = () => {
                 </div>
 
                 <div className="mt-10 relative">
-                  <button onClick={() => navigate("/solutions-digitales-RH")} className="relative z-10 inline-flex items-center px-6 py-3 bg-[#ea532b] text-white font-medium rounded-lg transition hover:bg-[#d64a27] shadow-md hover:shadow-xl transform hover:-translate-y-1">
+                  <button onClick={() => navigate("/solutions-digitales-RH")} className="relative z-10 inline-flex items-center cursor-pointer px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-medium rounded-lg transition shadow-md hover:shadow-xl transform hover:-translate-y-1">
                     Découvrir nos solutions{" "}
                     <ArrowRight size={18} className="ml-2" />
                   </button>
@@ -825,9 +825,10 @@ const NotreHistoire = () => {
                   {/* Réseaux sociaux */}
                   <div className="flex justify-center gap-3 mt-auto">
                     {Object.keys(member.social).map((platform, idx) => (
-                      <a
+                      <button
                         key={idx}
-                        href={member.social[platform]}
+                        onClick={() => navigate(`${member.social[platform]}`)}
+                        // href={member.social[platform]}
                         className="w-10 h-10 rounded-full bg-[#ffffff1a] flex items-center justify-center hover:bg-[#ea532b] transition-all duration-300"
                         aria-label={platform}
                       >
@@ -844,7 +845,7 @@ const NotreHistoire = () => {
                           <Twitter className="h-4 w-4" />
                         )}
                         {platform === "email" && <Mail className="h-4 w-4" />}
-                      </a>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -863,7 +864,7 @@ const NotreHistoire = () => {
                     Nous sommes constamment à la recherche de talents passionnés
                     pour continuer à développer nos solutions RH innovantes.
                   </p>
-                  <button className="px-8 py-4 bg-[#ea532b] text-white font-semibold rounded-lg shadow-lg hover:bg-opacity-90 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                  <button className="cursor-pointer px-8 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg  transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
                     Voir nos offres d'emploi
                   </button>
                 </div>
@@ -888,7 +889,7 @@ const NotreHistoire = () => {
                     personnalisée dès aujourd'hui.
                   </p>
                   <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button onClick={() => navigate("/demo")} className="px-6 py-3 bg-[#ea532b] text-white font-semibold rounded-lg shadow hover:bg-opacity-90 transition">
+                    <button onClick={() => navigate("/demo")} className="cursor-pointer px-7 py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow transition">
                       Demander une démo
                     </button>
                   </div>
