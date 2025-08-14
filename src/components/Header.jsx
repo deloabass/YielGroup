@@ -1021,7 +1021,7 @@ const Header = () => {
                   scrolled ? "text-[#2f365b]" : "text-white"
                 }`}
               >
-                YIEL
+                YIEL GROUP
               </span>
               <div className="text-sm text-[#ea532b] font-semibold">
                 Système d'Information RH
