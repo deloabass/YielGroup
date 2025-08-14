@@ -870,11 +870,11 @@ function RecrutementSurMesure() {
 
                   {/* Boutons déplacés ici */}
                   <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row space-y-4 sm:space-y-0 md:space-y-4 lg:space-y-0 lg:space-x-4">
-                    <button className="px-6 text-nowrap py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
+                    <button className="cursor-pointer px-7 text-nowrap py-3 bg-[#ea532b] hover:bg-[#d64a27] text-white font-semibold rounded-full shadow-lg transition-all duration-300 flex items-center justify-center">
                       Prendre rendez-vous
                       <Calendar size={18} className="ml-2" />
                     </button>
-                    <button className="py-3 px-7 bg-white/10 backdrop-blur text-white font-semibold rounded-full shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                    <button className="cursor-pointer py-3 px-7 bg-white/10 backdrop-blur text-white font-semibold rounded-full shadow-lg hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
                       Nous contacter
                       <ArrowRight size={18} className="ml-2" />
                     </button>
