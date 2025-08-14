@@ -1,0 +1,462 @@
+import React, { useState } from "react";
+import {
+  Calendar,
+  Clock,
+  MessageSquare,
+  CheckCircle,
+  Building,
+  User,
+  Mail,
+  Phone,
+  Briefcase,
+  Users,
+  ChevronRight,
+  ChevronLeft,
+  BookOpen,
+  UserCheck,
+  Star,
+  TrendingUp,
+  FileText,
+  PenTool,
+  Search
+} from "lucide-react";
+
+const Demo = () => {
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({
+    modules: [],
+    companySize: "",
+    subject: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    position: "",
+    location: "",
+    message: ""
+  });
+
+  const modules = [
+    { id: "gestion-carrieres", name: "Gestion de carrière", icon: TrendingUp },
+    { id: "conges-absences", name: "Congés et absences", icon: Calendar },
+    { id: "notes-frais", name: "Notes de frais", icon: FileText },
+    { id: "planning", name: "Planning", icon: Clock },
+    { id: "pointage", name: "Pointage", icon: UserCheck },
+    { id: "recrutement", name: "Recrutement", icon: Search },
+    { id: "formations", name: "Formations", icon: BookOpen }
+  ];
+
+  const companySizes = [
+    "1 - 9",
+    "10 - 29",
+    "30 - 99",
+    "100 - 499",
+    "500 +"
+  ];
+
+  const subjects = [
+    "Demande de démonstration",
+    "Demande de devis",
+    "Question technique",
+    "Partenariat",
+    "Autre"
+  ];
+
+  const locations = [
+    "France",
+    "Belgique",
+    "Luxembourg",
+    "Suisse",
+    "Canada",
+    "Autre"
+  ];
+
+  const handleModuleToggle = (moduleId) => {
+    setFormData(prev => ({
+      ...prev,
+      modules: prev.modules.includes(moduleId)
+        ? prev.modules.filter(id => id !== moduleId)
+        : [...prev.modules, moduleId]
+    }));
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const nextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log("Formulaire soumis:", formData);
+    alert("Demande envoyée avec succès!");
+  };
+
+  const canProceedStep1 = formData.modules.length > 0;
+  const canProceedStep2 = formData.companySize !== "";
+  const canSubmit = formData.firstName && formData.lastName && formData.email && formData.company;
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header avec progress bar */}
+      <div className="bg-white ">
+        <div className="max-w-4xl mx-auto px-4 py-6">
+          
+          {/* Progress bar */}
+          <div className="flex items-center justify-center mb-4">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                  currentStep >= 1 ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-500'
+                }`}>
+                  1
+                </div>
+                <span className="ml-2 text-sm text-gray-600">MODULES</span>
+              </div>
+              
+              <div className={`h-0.5 w-16 ${currentStep > 1 ? 'bg-pink-500' : 'bg-gray-200'}`}></div>
+              
+              <div className="flex items-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                  currentStep >= 2 ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-500'
+                }`}>
+                  2
+                </div>
+                <span className="ml-2 text-sm text-gray-600">SOCIÉTÉ</span>
+              </div>
+              
+              <div className={`h-0.5 w-16 ${currentStep > 2 ? 'bg-pink-500' : 'bg-gray-200'}`}></div>
+              
+              <div className="flex items-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                  currentStep >= 3 ? 'bg-pink-500 text-white' : 'bg-gray-200 text-gray-500'
+                }`}>
+                  3
+                </div>
+                <span className="ml-2 text-sm text-gray-600">CONTACT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          
+          {/* Step 1: Modules */}
+          {currentStep === 1 && (
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Sélectionnez les modules qui vous intéressent
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Sélectionnez les modules en cliquant dessus afin que nous puissions en savoir plus sur vos besoins et réaliser une démonstration personnalisée.
+              </p>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+                {modules.map((module) => {
+                  const Icon = module.icon;
+                  const isSelected = formData.modules.includes(module.id);
+                  
+                  return (
+                    <div
+                      key={module.id}
+                      onClick={() => handleModuleToggle(module.id)}
+                      className={`relative p-6 rounded-2xl cursor-pointer transition-all duration-200 ${
+                        isSelected
+                          ? 'bg-purple-200 border-2 border-purple-300 transform scale-105'
+                          : 'bg-purple-100 hover:bg-purple-150 border-2 border-transparent'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center space-y-3">
+                        <Icon 
+                          size={32} 
+                          className={`${isSelected ? 'text-purple-700' : 'text-purple-600'}`} 
+                        />
+                        <span className={`text-sm font-medium text-center ${
+                          isSelected ? 'text-purple-800' : 'text-purple-700'
+                        }`}>
+                          {module.name}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              <div className="flex justify-end">
+                <button
+                  onClick={nextStep}
+                  disabled={!canProceedStep1}
+                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                    canProceedStep1
+                      ? 'bg-pink-500 hover:bg-pink-600 text-white'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  Suivant
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 2: Company Size */}
+          {currentStep === 2 && (
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Combien d'employés compte votre entreprise ?
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Pour se faire une idée du volume de données à traiter
+              </p>
+              
+              <div className="space-y-4 mb-8 max-w-md mx-auto">
+                {companySizes.map((size) => (
+                  <label
+                    key={size}
+                    className="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-colors hover:bg-gray-50"
+                    style={{
+                      borderColor: formData.companySize === size ? '#e91e63' : '#e5e7eb'
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="companySize"
+                      value={size}
+                      checked={formData.companySize === size}
+                      onChange={(e) => handleInputChange('companySize', e.target.value)}
+                      className="w-4 h-4 text-pink-500 border-gray-300 focus:ring-pink-500 accent-pink-500"
+                    />
+                    <span className="ml-3 text-gray-700 font-medium">{size}</span>
+                  </label>
+                ))}
+              </div>
+              
+              <div className="flex justify-between">
+                <button
+                  onClick={prevStep}
+                  className="flex items-center px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                >
+                  <ChevronLeft size={20} className="mr-1" />
+                  Étape précédente
+                </button>
+                <button
+                  onClick={nextStep}
+                  disabled={!canProceedStep2}
+                  className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                    canProceedStep2
+                      ? 'bg-pink-500 hover:bg-pink-600 text-white'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  Suivant
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: Contact Info */}
+          {currentStep === 3 && (
+            <div>
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                  Veuillez saisir vos informations
+                </h2>
+                <p className="text-gray-600">
+                  Ces données seront uniquement utilisées dans le but de vous fournir la démonstration la plus adaptée à vos besoins.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                {/* Subject */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Sujet du message
+                  </label>
+                  <select
+                    value={formData.subject}
+                    onChange={(e) => handleInputChange('subject', e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  >
+                    <option value="">Sélectionnez un sujet</option>
+                    {subjects.map((subject) => (
+                      <option key={subject} value={subject}>{subject}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Name fields */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Prénom
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
+                      placeholder="Entrez votre prénom"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nom
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
+                      placeholder="Entrez votre nom"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                </div>
+
+                {/* Contact fields */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      placeholder="Entrez votre adresse email"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Numéro de téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      placeholder="Entrez votre N° de téléphone"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                </div>
+
+                {/* Company fields */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nom de l'entreprise
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.company}
+                      onChange={(e) => handleInputChange('company', e.target.value)}
+                      placeholder="Entrez le nom de l'entreprise"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Poste que vous occupez
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.position}
+                      onChange={(e) => handleInputChange('position', e.target.value)}
+                      placeholder="Quel poste occupez-vous ?"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    />
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Localisation de votre entreprise
+                  </label>
+                  <select
+                    value={formData.location}
+                    onChange={(e) => handleInputChange('location', e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  >
+                    <option value="">Sélectionnez le lieu de votre entreprise</option>
+                    {locations.map((location) => (
+                      <option key={location} value={location}>{location}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    placeholder="Décrivez-nous votre besoin"
+                    rows={4}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none"
+                  />
+                </div>
+
+                {/* Privacy notice */}
+                <div className="flex items-start space-x-3 p-4 bg-pink-50 rounded-lg">
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 text-pink-500 border-gray-300 rounded focus:ring-pink-500 accent-pink-500 mt-0.5"
+                    defaultChecked
+                  />
+                  <div className="text-sm text-gray-600">
+                    <span>En cochant cette case, je déclare avoir pris connaissance et accepter sans réserve nos </span>
+                    <a href="#" className="text-pink-500 hover:underline">Mentions légales</a>
+                    <span> ainsi que notre </span>
+                    <a href="#" className="text-pink-500 hover:underline">Politique de confidentialité des données</a>
+                    <span>.</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex justify-between mt-8">
+                <button
+                  onClick={prevStep}
+                  className="flex items-center px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                >
+                  <ChevronLeft size={20} className="mr-1" />
+                  Étape précédente
+                </button>
+                <button
+                  onClick={handleSubmit}
+                  disabled={!canSubmit}
+                  className={`px-8 py-3 rounded-full font-medium transition-colors ${
+                    canSubmit
+                      ? 'bg-pink-500 hover:bg-pink-600 text-white'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  Envoyer
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Demo;

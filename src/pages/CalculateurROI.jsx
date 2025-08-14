@@ -23,8 +23,10 @@ import {
 } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function CalculateurROI() {
+  const navigate = useNavigate();
   const topRef = useRef(null);
   const [formData, setFormData] = useState({
     employees: 50,
@@ -430,7 +432,7 @@ function CalculateurROI() {
 
                 <button
                   onClick={handleCalculate}
-                  className="w-full mt-8 cursor-pointer px-8 py-4 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-bold rounded-xl shadow-lg hover:from-[#d64a27] hover:to-[#c44125] transition-all duration-300 flex items-center justify-center text-lg group"
+                  className="w-full mt-8 cursor-pointer px-7 py-3 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-bold rounded-full shadow-lg hover:from-[#d64a27] hover:to-[#c44125] transition-all duration-300 flex items-center justify-center text-lg group"
                 >
                   <Calculator className="h-6 w-6 mr-3" />
                   Calculer mon ROI maintenant
@@ -733,12 +735,12 @@ function CalculateurROI() {
                     topRef.current.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="px-8 py-4 bg-[#ea532b] text-white font-bold rounded-xl shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center"
+                className="cursor-pointer px-7 py-3 bg-[#ea532b] text-white font-bold rounded-full shadow-lg hover:bg-[#d64a27] transition-all duration-300 flex items-center"
               >
                 Refaire le calcul
                 <ArrowRight className="h-5 w-5 ml-2" />
               </button>
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <button onClick={() => navigate("/demo")} className="cursor-pointer px-7 py-3 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300">
                 Demander une démo
               </button>
             </div>
