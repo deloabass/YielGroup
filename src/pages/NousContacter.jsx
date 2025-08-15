@@ -80,7 +80,7 @@ function NousContacter() {
     {
       icon: Phone,
       title: "Téléphone",
-      info: "+227 20 37 XX XX",
+      info: "Bientôt disponible",
       description: "Du lundi au vendredi, 8h-18h",
       color: "from-blue-500 to-blue-600",
     },
@@ -195,7 +195,7 @@ function NousContacter() {
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center">
               <span className="inline-block px-4 py-2 rounded-full bg-[#ea532b]/20 text-[#ea532b] font-medium text-sm mb-6 border border-[#ea532b]/30">
-                💬 NOUS SOMMES LÀ POUR VOUS
+                💬 NOUS SOMMES LÀ POUR VOUS 
               </span>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                 Contactez nos
@@ -430,7 +430,7 @@ function NousContacter() {
                     <button
                       type="submit"
                       disabled={isSubmitting || !formData.consentement}
-                      className="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-semibold rounded-lg hover:from-[#d64a27] hover:to-[#c43f24] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 group shadow-lg"
+                      className="w-full flex items-center justify-center cursor-pointer px-7 py-3 bg-gradient-to-r from-[#ea532b] to-[#d64a27] text-white font-semibold rounded-full hover:from-[#d64a27] hover:to-[#c43f24] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 group shadow-lg"
                     >
                       {isSubmitting ? (
                         <>
@@ -554,7 +554,7 @@ function NousContacter() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/demo")}
-                className="inline-flex items-center cursor-pointer px-7 py-3 bg-[#ea532b] text-white font-semibold rounded-lg hover:bg-[#d64a27] transition-colors group"
+                className="inline-flex items-center cursor-pointer px-7 py-3 bg-[#ea532b] text-white font-semibold rounded-full hover:bg-[#d64a27] transition-colors group"
               >
                 <Calendar className="h-5 w-5 mr-2" />
                 Planifier une démo
