@@ -32,7 +32,6 @@ import NosValeurs from "./pages/NosValeurs";
 import TeamsYIELERS from "./pages/TeamsYIELERS";
 import NousContacter from "./pages/NousContacter";
 import NosMetiers from "./pages/NosMetiers";
-import CentreDaideFAQ from "./pages/CentreDaideFAQ";
 import CalculateurROI from "./pages/CalculateurROI";
 import NosClients from "./pages/NosClients";
 import VoixNotreBlogRH from "./pages/VoixNotreBlogRH";
@@ -74,7 +73,6 @@ function AppContent() {
         <Route path="/equipe" element={<TeamsYIELERS />} />
         <Route path="/contact" element={<NousContacter />} />
         <Route path="/partenaires" element={<NosPartenaires />} />
-        <Route path="/aide" element={<CentreDaideFAQ />} />
         <Route path="/calculateur" element={<CalculateurROI />} />
         <Route path="/blog-rh" element={<BlogRH />} />
         <Route path="/voix" element={<VoixNotreBlogRH />} />

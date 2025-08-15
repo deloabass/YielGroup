@@ -345,13 +345,13 @@ const Header = () => {
             path: "/partenaires",
             color: "blue",
           },
-          {
-            icon: <HelpCircle size={20} />,
-            title: "Centre d'aide & FAQ",
-            description: "Trouvez vos réponses",
-            path: "/aide",
-            color: "green",
-          },
+          // {
+          //   icon: <HelpCircle size={20} />,
+          //   title: "Centre d'aide & FAQ",
+          //   description: "Trouvez vos réponses",
+          //   path: "/aide",
+          //   color: "green",
+          // },
           {
             icon: <Calculator size={20} />,
             title: "Calculateur ROI",
