@@ -168,11 +168,14 @@ function CalculateurROI() {
           } transition-opacity duration-1000`}
         >
           {/* Effets visuels d'arrière-plan */}
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/30 rounded-full blur-2xl animate-pulse delay-700"></div>
-            <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/10 rounded-full blur-lg animate-pulse delay-300"></div>
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/VisionYiel.png')] bg-cover bg-center opacity-10"></div>
           </div>
+          <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-[#ea532b]/30 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 bg-[#ea532b]/40 rounded-full blur-2xl animate-pulse delay-700"></div>
+          <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-[#ea532b]/15 rounded-full blur-lg animate-pulse delay-300"></div>
+        </div>
 
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -283,7 +286,7 @@ function CalculateurROI() {
                       step="5"
                       value={formData.employees}
                       onChange={(e) => handleInputChange('employees', e.target.value)}
-                      className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer mb-3"
+                      className="accent-orange-600 w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer mb-3"
                       style={{
                         background: `linear-gradient(to right, #ea532b 0%, #ea532b ${(formData.employees / 1000) * 100}%, #e5e7eb ${(formData.employees / 1000) * 100}%, #e5e7eb 100%)`
                       }}
@@ -307,7 +310,7 @@ function CalculateurROI() {
                       max="40"
                       value={formData.currentHRTime}
                       onChange={(e) => handleInputChange('currentHRTime', e.target.value)}
-                      className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer mb-3"
+                      className="accent-orange-600 w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer mb-3"
                       style={{
                         background: `linear-gradient(to right, #ea532b 0%, #ea532b ${(formData.currentHRTime / 40) * 100}%, #e5e7eb ${(formData.currentHRTime / 40) * 100}%, #e5e7eb 100%)`
                       }}
@@ -329,7 +332,7 @@ function CalculateurROI() {
                       max="50"
                       value={formData.turnoverRate}
                       onChange={(e) => handleInputChange('turnoverRate', e.target.value)}
-                      className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer mb-3"
+                      className="accent-orange-600 w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer mb-3"
                       style={{
                         background: `linear-gradient(to right, #ea532b 0%, #ea532b ${(formData.turnoverRate / 50) * 100}%, #e5e7eb ${(formData.turnoverRate / 50) * 100}%, #e5e7eb 100%)`
                       }}

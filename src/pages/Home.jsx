@@ -642,7 +642,7 @@ const Home = () => {
               </div>
 
               {/* Content */}
-              <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative max-w-3xl mx-auto">
+              <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 relative max-w-6xl mx-auto">
                 <div className="absolute -top-4 -left-4 bg-[#ea532b] text-white rounded-full h-12 w-12 flex items-center justify-center font-bold text-xl shadow-lg">
                   {deploymentSteps[activeStep].number}
                 </div>
