@@ -250,41 +250,41 @@ const Header = () => {
                 title: "GED",
                 description:
                   "Stockez et partagez facilement tous les documents RH : contrats, attestations, fiches de paie, certificats…",
-                path: "/sirh/ged",
+                path: "/plus-my-yiel",
               },
               {
                 icon: <Grid size={20} />,
                 title: "Portail collaborateur",
                 description:
                   "Un espace dédié pour chaque collaborateur, accessible depuis n'importe quel appareil.",
-                path: "/sirh/portail-collaborateur",
+                path: "/plus-my-yiel",
               },
               {
                 icon: <BarChart2 size={20} />,
                 title: "Tableau de bord RH & KPIs",
                 description:
                   "Suivez vos indicateurs clés : absentéisme, mobilité, formation, performance et plus encore, en temps réel.",
-                path: "/sirh/tableau-de-bord",
+                path: "/plus-my-yiel",
               },
               {
                 icon: <Users size={20} />,
                 title: "Organigramme",
                 description:
                   "Visualisez la structure de l'entreprise, les rattachements hiérarchiques et les fiches de poste en un clic.",
-                path: "/sirh/organigramme",
+                path: "/plus-my-yiel",
               },
               {
                 icon: <Newspaper size={20} />,
                 title: "Intranet & vie d'entreprise",
                 description:
                   "Diffusez vos actualités internes, événements, sondages ou annonces officielles depuis l'espace collaborateur.",
-                path: "/sirh/intranet-vie-entreprise",
+                path: "/plus-my-yiel",
               },
               {
                 icon: <PenLine size={20} />,
                 title: "Y'SiGn",
                 description: "la signature électronique dans le module.",
-                path: "/sirh/siGn",
+                path: "/plus-my-yiel",
               },
             ],
           },
@@ -360,13 +360,13 @@ const Header = () => {
             path: "/calculateur",
             color: "purple",
           },
-          {
-            icon: <Newspaper size={20} />,
-            title: "Blog RH",
-            description: "Explorez nos articles",
-            path: "/blog-rh",
-            color: "orange",
-          },
+          // {
+          //   icon: <Newspaper size={20} />,
+          //   title: "Blog RH",
+          //   description: "Explorez nos articles",
+          //   path: "/blog-rh",
+          //   color: "orange",
+          // },
           {
             icon: <Mic size={20} />,
             title: "Y'Voix - Notre Blog RH",

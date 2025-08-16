@@ -187,7 +187,7 @@ const NotreHistoire = () => {
     {
       name: "Ronel HOUNSOU",
       role: "Brand Graphic Designer",
-      description: "Créateur d'identités visuelles stratégique, je conçois et déploie des univers graphiquescohérents et impactants, renforçant l'imageet la présence des entreprises sur tous supports, y compris les réseaux sociaux.",
+      description: "Créateur d’identités visuelles stratégiques, je conçois et déploie des univers graphiques cohérents et impactants, renforçant l’image et la présence des entreprises sur tous supports, y compris les réseaux sociaux.",
       image: "./yielers.jpg",
       social: {
         linkedin: "/www.linkedin.com/in/ronel-hounsou",

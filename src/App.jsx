@@ -7,7 +7,6 @@ import CookieConsent from "./CookieConsent";
 import Home from "./pages/Home";
 import Inscription from "./pages/Inscription";
 import Demo from "./pages/Demo";
-import BlogRH from "./pages/BlogRH";
 import DevenezYieler from "./pages/DevenezYieler";
 import LogIn from "./pages/LogIn";
 import NosPartenaires from "./pages/NosPartenaires";
@@ -67,14 +66,13 @@ function AppContent() {
         <Route path="/talents" element={<Talents />} />
         <Route path="/time" element={<Times />} />
         <Route path="/expense" element={<Expense />} />
-        <Route path="/PlusMyYiel" element={<PlusMyYiel />} />
+        <Route path="/plus-my-yiel" element={<PlusMyYiel />} />
         <Route path="/notre-histoire" element={<NotreHistoire />} />
         <Route path="/valeurs" element={<NosValeurs />} />
         <Route path="/equipe" element={<TeamsYIELERS />} />
         <Route path="/contact" element={<NousContacter />} />
         <Route path="/partenaires" element={<NosPartenaires />} />
         <Route path="/calculateur" element={<CalculateurROI />} />
-        <Route path="/blog-rh" element={<BlogRH />} />
         <Route path="/voix" element={<VoixNotreBlogRH />} />
         <Route path="/mentions-legale" element={<Mentionslegale />} />
         <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
