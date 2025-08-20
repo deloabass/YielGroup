@@ -37,6 +37,18 @@ import VoixNotreBlogRH from "./pages/VoixNotreBlogRH";
 import PlusMyYiel from "./pages/PlusMyYiel";
 import NotFound from "./pages/NotFound";
 
+        // Admin Pages
+        import AdminDashboard from "./pages/admin/AdminDashboard";
+        import EmployeeManagement from "./pages/admin/EmployeeManagement";
+        import RecruitmentManagement from "./pages/admin/RecruitmentManagement";
+        import LeaveManagement from "./pages/admin/LeaveManagement";
+        import ExpenseManagement from "./pages/admin/ExpenseManagement";
+        import ReportsManagement from "./pages/admin/ReportsManagement";
+        import SettingsManagement from "./pages/admin/SettingsManagement";
+        import TrainingManagement from "./pages/admin/TrainingManagement";
+        import DocumentsManagement from "./pages/admin/DocumentsManagement";
+   
+
 // Composant qui gère le changement de route et le loader
 function AppContent() {
   const location = useLocation();
@@ -88,6 +100,19 @@ function AppContent() {
         <Route path="/recrute" element={<Recrute />} />
         <Route path="/cookies" element={<SolutionsDigitales />} />
         <Route path="/loader" element={<Loader />} />
+
+
+
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/employees" element={<EmployeeManagement />} />
+        <Route path="/admin/recruitment" element={<RecruitmentManagement />} />
+        <Route path="/admin/leaves" element={<LeaveManagement />} />
+        <Route path="/admin/expenses" element={<ExpenseManagement />} />
+        <Route path="/admin/reports" element={<ReportsManagement />} />
+        <Route path="/admin/settings" element={<SettingsManagement />} />
+        <Route path="/admin/training" element={<TrainingManagement />} />
+        <Route path="/admin/documents" element={<DocumentsManagement />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <CookieConsent />
