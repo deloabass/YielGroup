@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Database, TrendingUp, Shield, Settings, CheckCircle } from 'lucide-react';
+import "./Loading.css"
 
 const Loader = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -166,83 +167,6 @@ const Loader = () => {
           </svg>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-            opacity: 0.7;
-          }
-          25% {
-            transform: translateY(-20px) rotate(90deg);
-            opacity: 1;
-          }
-          50% {
-            transform: translateY(-40px) rotate(180deg);
-            opacity: 0.8;
-          }
-          75% {
-            transform: translateY(-20px) rotate(270deg);
-            opacity: 1;
-          }
-        }
-
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes spin-reverse {
-          from {
-            transform: rotate(360deg);
-          }
-          to {
-            transform: rotate(0deg);
-          }
-        }
-
-        @keyframes shimmer {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-
-        @keyframes wave {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-
-        .animate-spin-reverse {
-          animation: spin-reverse 6s linear infinite;
-        }
-
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-
-        .animate-wave {
-          animation: wave 3s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 };
