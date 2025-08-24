@@ -1,51 +1,53 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { createHtmlPlugin } from "vite-plugin-html";
-import viteSitemap from "vite-plugin-sitemap";
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { createHtmlPlugin } from 'vite-plugin-html';
+import viteSitemap from 'vite-plugin-sitemap';
+import tailwindcss from '@tailwindcss/vite';
 import { BASE_URL, dynamicRoutes, excludeRoutes } from './src/config/sitemap';
 
 const staticRoutes = [
-  "/",
-  "/about",
-  "/inscription",
-  "/demo",
-  "/conseil-en-transformation-RH",
-  "/pilotage-du-parcours-collaborateur",
-  "/analytics-HR",
-  "/recrutement-sur-mesure",
-  "/solutions-digitales-RH",
-  "/talents",
-  "/time",
-  "/expense",
-  "/plus-my-yiel",
-  "/notre-histoire",
-  "/valeurs",
-  "/equipe",
-  "/contact",
-  "/partenaires",
-  "/calculateur",
-  "/voix",
-  "/mentions-legale",
-  "/politique-de-confidentialite",
-  "/devenez-yieler",
-  "/log-in",
-  "/metiers",
-  "/clients",
-  "/nos-solution",
-  "/FAQ",
-  "/core",
-  "/learn",
-  "/sign",
-  "/recrute",
-  "/cookies",
-  "/loader",
+  '/',
+  '/about',
+  '/inscription',
+  '/demo',
+  '/conseil-en-transformation-RH',
+  '/pilotage-du-parcours-collaborateur',
+  '/analytics-HR',
+  '/recrutement-sur-mesure',
+  '/solutions-digitales-RH',
+  '/talents',
+  '/time',
+  '/expense',
+  '/plus-my-yiel',
+  '/notre-histoire',
+  '/valeurs',
+  '/equipe',
+  '/contact',
+  '/partenaires',
+  '/calculateur',
+  '/voix',
+  '/mentions-legale',
+  '/politique-de-confidentialite',
+  '/devenez-yieler',
+  '/log-in',
+  '/metiers',
+  '/clients',
+  '/nos-solution',
+  '/FAQ',
+  '/core',
+  '/learn',
+  '/sign',
+  '/recrute',
+  '/cookies',
+  '/loader',
 ];
 
 // Export async pour gérer les routes dynamiques
 export default defineConfig(async () => {
   const dynamic = await dynamicRoutes();
-  const routes = [...staticRoutes, ...dynamic].filter(r => !excludeRoutes.includes(r));
+  const routes = [...staticRoutes, ...dynamic].filter(
+    (r) => !excludeRoutes.includes(r),
+  );
 
   return {
     plugins: [
@@ -64,9 +66,12 @@ export default defineConfig(async () => {
         minify: true,
         inject: {
           data: {
-            title: "YielGroup - SIRH",
+            title: 'YielGroup - SIRH',
+            keywords:
+            'yielgroup, yiel, group, sirh, sirh afrique, solution afrique sirh, RH, gestion des talents, gestion des ressources humaines, logiciel RH, gestion des employés Afrique, suivi des performances RH, paie et administration du personnel, recrutement et intégration employés, logiciel de gestion RH pour entreprises africaines, transformation digitale RH, solution RH innovante, automatisation RH Afrique, RH Niger, RH Afrique francophone, entreprises africaines SIRH, gestion des ressources humaines Afrique',
+
             description:
-              "YIEL, une solution SIRH complète et innovante conçue pour les entreprises en Afrique qui vous accompagne dans la gestion de vos talents et vos équipes et fait grandir votre entreprise.",
+              'YIEL, une solution SIRH complète et innovante conçue pour les entreprises en Afrique qui vous accompagne dans la gestion de vos talents et vos équipes et fait grandir votre entreprise.',
           },
         },
       }),
@@ -76,7 +81,7 @@ export default defineConfig(async () => {
       rollupOptions: {
         output: {
           manualChunks: {
-            react: ["react", "react-dom", "react-router-dom"],
+            react: ['react', 'react-dom', 'react-router-dom'],
           },
         },
       },
