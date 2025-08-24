@@ -24,6 +24,7 @@ import Header from '../components/Header';
 import FAQ from '../components/FAQ';
 import { useNavigate } from 'react-router-dom';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import Seo from '../components/Seo';
 
 const Home = () => {
   const topRef = useRef(null);
